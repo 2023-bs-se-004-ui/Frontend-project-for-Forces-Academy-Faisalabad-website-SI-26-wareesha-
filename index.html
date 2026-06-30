@@ -15,15 +15,16 @@
 
 <body>
 
-    <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg sticky-top" id="mainNav">
+    <!-- ================= Navbar ================= -->
+
+    <nav class="navbar navbar-expand-lg navbar-dark sticky-top shadow" id="mainNav">
         <div class="container">
 
-            <a class="navbar-brand fw-bold text-white" href="index.html">
-                Forces Academy
+            <a class="navbar-brand fw-bold fs-3" href="index.html">
+                🎓 Forces Academy
             </a>
 
-            <button class="navbar-toggler bg-light" type="button"
+            <button class="navbar-toggler" type="button"
                 data-bs-toggle="collapse"
                 data-bs-target="#navMenu">
 
@@ -33,7 +34,7 @@
 
             <div class="collapse navbar-collapse" id="navMenu">
 
-                <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-2">
+                <ul class="navbar-nav mx-auto">
 
                     <li class="nav-item">
                         <a class="nav-link active" href="index.html">Home</a>
@@ -63,50 +64,60 @@
                         <a class="nav-link" href="contact.html">Contact</a>
                     </li>
 
-                    <li class="nav-item">
-                        <a class="btn btn-warning fw-semibold px-3" href="#">
-                            Student Portal
-                        </a>
-                    </li>
-
                 </ul>
+
+                <a href="#" class="btn btn-warning rounded-pill px-4 fw-bold">
+                    Student Portal
+                </a>
 
             </div>
 
         </div>
     </nav>
 
-    <!-- Hero Section -->
+    <!-- ================= Hero Section ================= -->
 
     <section id="hero">
 
-        <div class="hero-overlay">
+        <div class="overlay">
 
-            <div class="container h-100">
+            <div class="container">
 
-                <div class="row h-100 align-items-center">
+                <div class="row align-items-center min-vh-100">
 
-                    <div class="col-lg-8 text-white">
+                    <div class="col-lg-7 text-white">
 
-                        <h1 class="display-4 fw-bold mb-3">
-                            Forces Academy Faisalabad
+                       
+                           <strong><h1> Welcome to Forces Academy</h1></strong>
+                      
+
+                        <h1 class="display-2 fw-bold mb-4">
+                            Shaping Future <br>
+                            Leaders of Pakistan
                         </h1>
 
                         <p class="lead mb-4">
-                            Excellence in Education Preparing Tomorrow's Leaders Today.
+                            Excellence in Education, Discipline and Leadership.
+                            Join Forces Academy Faisalabad and build a brighter future.
                         </p>
 
-                        <div class="d-flex flex-wrap gap-3">
+                        <a href="admissions.html"
+                            class="btn btn-warning btn-lg rounded-pill px-5 me-3">
+                            Apply Now
+                        </a>
 
-                            <a href="admissions.html" class="btn btn-warning btn-lg">
-                                Apply Now
-                            </a>
+                        <a href="about.html"
+                            class="btn btn-outline-light btn-lg rounded-pill px-5">
+                            Learn More
+                        </a>
 
-                            <a href="about.html" class="btn btn-outline-light btn-lg">
-                                Learn More
-                            </a>
+                    </div>
 
-                        </div>
+                    <div class="col-lg-5 text-center">
+
+                        <img src="https://static.vecteezy.com/system/resources/previews/012/576/754/original/illustration-of-boy-and-girl-student-talking-in-class-vector.jpg"
+                            class="img-fluid hero-img"
+                            alt="Student">
 
                     </div>
 
@@ -125,6 +136,11 @@
     <!-- Custom JS -->
 
     <script src="js/main.js"></script>
+    
+
+    </div>
+
+</section>
 
 </body>
 
