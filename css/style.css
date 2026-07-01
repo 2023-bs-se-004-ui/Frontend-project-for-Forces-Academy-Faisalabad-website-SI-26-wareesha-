@@ -5,64 +5,98 @@
 }
 
 body{
-    font-family: Arial, Helvetica, sans-serif;
+    font-family:Arial, Helvetica, sans-serif;
     font-size:16px;
+    color:#1F2937;
+    background:#F8FAFC;
 }
 
-/* Navbar */
+/* ================= Navbar ================= */
 
 #mainNav{
-    background:#0A1F44;
-    padding:15px 0;
+    background:linear-gradient(90deg,#12022b,#6d539b);
+}
+
+#hero{
+    background:
+    linear-gradient(rgba(25, 5, 57, 0.85),rgba(124,58,237,.85)),
+    url("../images/hero-bg.jpg");
+    background-size:cover;
 }
 
 .navbar-brand{
-    color:#fff !important;
-    font-size:32px;
-    font-weight:bold;
+    color:#FBBF24 !important;
 }
 
 .nav-link{
-    color:white !important;
+    color:#fff !important;
     margin:0 10px;
-    font-size:20px;      /* Font size increase */
-    font-weight:600;     /* Bold */
+    font-size:19px;
+    font-weight:600;
     transition:.3s;
+    position:relative;
+}
+
+.nav-link::after{
+    content:'';
+    position:absolute;
+    left:0;
+    bottom:-5px;
+    width:0;
+    height:2px;
+    background:#FBBF24;
+    transition:.3s;
+}
+
+.nav-link:hover::after{
+    width:100%;
 }
 
 .nav-link:hover,
 .nav-link.active{
-    color:#FFC107 !important;
+    color:#FBBF24 !important;
 }
 
+/* ================= Buttons ================= */
+
 .btn-warning{
-    font-size:18px;
+    background:#FBBF24;
+    border:none;
+    color:#0B1F3A;
+    font-weight:bold;
     transition:.3s;
 }
 
 .btn-warning:hover{
-    transform:translateY(-3px);
+    background:#F59E0B;
+    color:#fff;
+    transform:translateY(-4px);
+    box-shadow:0 10px 20px rgba(0,0,0,.25);
 }
 
-/* Hero */
+.btn-outline-light:hover{
+    background:#FBBF24;
+    color:#0B1F3A !important;
+    border-color:#FBBF24;
+}
 
-/* Hero Section */
+/* ================= Hero ================= */
 
 #hero{
-    background:linear-gradient(rgba(10,31,68,.85),
-    rgba(10,31,68,.85)),
+    background:
+    linear-gradient(rgba(11,31,58,.88),rgba(30,58,138,.88)),
     url("../images/hero-bg.jpg");
-
     background-size:cover;
     background-position:center;
-    background-repeat:no-repeat;
     min-height:100vh;
 }
 
-.hero-overlay{
-    min-height:100vh;
-    display:flex;
-    align-items:center;
+#hero h1{
+    color:#fff;
+}
+
+#hero p{
+    color:#E5E7EB;
 }
 
 .hero-img{
@@ -72,46 +106,88 @@ body{
 
 @keyframes float{
 
-    0%{
-        transform:translateY(0);
-    }
+0%{
+transform:translateY(0);
+}
 
-    50%{
-        transform:translateY(-15px);
-    }
+50%{
+transform:translateY(-15px);
+}
 
-    100%{
-        transform:translateY(0);
-    }
+100%{
+transform:translateY(0);
+}
 
 }
 
-#hero h1{
-    line-height:1.2;
+/* ================= Cards ================= */
+
+.card{
+    border:none;
+    border-radius:20px;
+    transition:.4s;
+    overflow:hidden;
 }
 
-#hero .btn{
-    border-radius:30px;
+.card:hover{
+    transform:translateY(-10px);
+    box-shadow:0 15px 35px rgba(0,0,0,.18);
 }
+
+.card h4{
+    color:#1E3A8A;
+}
+
+.card .display-4{
+    color:#FBBF24;
+}
+
+/* ================= Statistics ================= */
+
+.stats{
+    background:linear-gradient(90deg,#0B1F3A,#1E3A8A);
+    color:#fff;
+}
+
+.stats h2{
+    color:#FBBF24;
+}
+
+/* ================= Footer ================= */
+
+footer{
+    background:#07111F;
+}
+
+footer h3,
+footer h5{
+    color:#FBBF24;
+}
+
+footer p,
+footer a{
+    color:#D1D5DB !important;
+}
+
+footer a:hover{
+    color:#FBBF24 !important;
+}
+
+/* ================= Responsive ================= */
 
 @media(max-width:992px){
 
-    #hero{
-        text-align:center;
-    }
-
-    .hero-img{
-        max-width:150px;
-        margin-top:40px;
-    }
-
-    #hero .d-flex{
-        justify-content:center;
-    }
-
+.hero-img{
+max-width:300px;
+margin-top:40px;
 }
 
-    .nav-link{
-        font-size:18px;
-    }
+#hero{
+text-align:center;
+}
+
+.nav-link{
+font-size:18px;
+}
+
 }
