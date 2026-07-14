@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,7 +14,7 @@
       backdrop-filter: blur(6px);
       padding: 0.8rem 0;
       transition: all 0.3s ease;
-      border-bottom: 1px solid rgba(255, 215, 0, 0.15);
+      border-bottom: 5px solid rgba(255, 215, 0, 0.15);
       box-shadow: 0 4px 25px rgba(10, 26, 58, 0.35);
     }
     #mainNav .navbar-brand {
@@ -98,20 +99,25 @@
       border-bottom: 4px solid var(--gold);
       padding: 0;
     }
-    .ledger-header {
+
+    /* ============================================================
+       HERO SECTION - Full width, joined with header
+       ============================================================ */
+    .hero-full {
+      width: 100%;
+      margin: 0;
+      padding: 0;
       background: linear-gradient(135deg, rgba(15, 40, 71, 0.88), rgba(26, 63, 110, 0.92)), 
                   url('https://images.unsplash.com/photo-1518133835878-5a93cc3f89e5?fm=jpg&q=70&w=1600&auto=format&fit=crop');
       background-size: cover;
       background-position: center 40%;
-      color: var(--paper);
+      color: #fff;
       border-bottom: 4px solid #ffd700;
       position: relative;
       overflow: hidden;
-      padding: 3.5rem 1rem;
-      border-radius: 6px;
-      box-shadow: 0 8px 32px rgba(0,0,0,0.25);
+      padding: 4rem 2rem;
     }
-    .ledger-header::before {
+    .hero-full::before {
       content: "";
       position: absolute;
       inset: 0;
@@ -126,7 +132,7 @@
         radial-gradient(circle at 80% 70%, rgba(255,215,0,0.05) 0%, transparent 50%);
       pointer-events: none;
     }
-    .ledger-header::after {
+    .hero-full::after {
       content: '';
       position: absolute;
       top: -50%;
@@ -141,7 +147,7 @@
       0% { transform: translate(0, 0) scale(1); }
       100% { transform: translate(5%, 5%) scale(1.15); }
     }
-    .ledger-header .particle {
+    .hero-full .particle {
       position: absolute;
       width: 4px;
       height: 4px;
@@ -150,60 +156,60 @@
       pointer-events: none;
       z-index: 0;
     }
-    .ledger-header .particle:nth-child(1) { top: 15%; left: 10%; animation: floatParticle 12s ease-in-out infinite; }
-    .ledger-header .particle:nth-child(2) { top: 70%; left: 85%; animation: floatParticle 15s ease-in-out infinite reverse; }
-    .ledger-header .particle:nth-child(3) { top: 30%; left: 75%; animation: floatParticle 10s ease-in-out infinite 2s; }
-    .ledger-header .particle:nth-child(4) { top: 80%; left: 15%; animation: floatParticle 14s ease-in-out infinite 1s; }
-    .ledger-header .particle:nth-child(5) { top: 50%; left: 50%; animation: floatParticle 20s ease-in-out infinite 3s; width: 8px; height: 8px; opacity: 0.08; }
+    .hero-full .particle:nth-child(1) { top: 15%; left: 10%; animation: floatParticle 12s ease-in-out infinite; }
+    .hero-full .particle:nth-child(2) { top: 70%; left: 85%; animation: floatParticle 15s ease-in-out infinite reverse; }
+    .hero-full .particle:nth-child(3) { top: 30%; left: 75%; animation: floatParticle 10s ease-in-out infinite 2s; }
+    .hero-full .particle:nth-child(4) { top: 80%; left: 15%; animation: floatParticle 14s ease-in-out infinite 1s; }
+    .hero-full .particle:nth-child(5) { top: 50%; left: 50%; animation: floatParticle 20s ease-in-out infinite 3s; width: 8px; height: 8px; opacity: 0.08; }
     @keyframes floatParticle {
       0%, 100% { transform: translate(0, 0) scale(1); opacity: 0.3; }
       50% { transform: translate(30px, -20px) scale(1.5); opacity: 0.8; }
     }
-    .eyebrow {
+    .hero-full .hero-content {
+      position: relative;
+      z-index: 1;
+      max-width: 1200px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    .hero-full .eyebrow {
       font-family: 'IBM Plex Mono', monospace;
       letter-spacing: .14em;
       text-transform: uppercase;
-      font-size: .72rem;
+      font-size: .75rem;
       color: var(--gold-soft);
-      position: relative;
-      z-index: 1;
+      margin-bottom: 0.5rem;
     }
-    .ledger-header h1 {
+    .hero-full h1 {
       font-family: 'Fraunces', serif;
       font-weight: 600;
-      font-size: 2.6rem;
-      margin-bottom: .35rem;
+      font-size: 3rem;
+      margin-bottom: .5rem;
       letter-spacing: -0.01em;
-      position: relative;
-      z-index: 1;
       text-shadow: 0 2px 15px rgba(0,0,0,0.35);
     }
-    .ledger-header h1 .gold-text {
+    .hero-full h1 .gold-text {
       color: #ffd700;
       text-shadow: 0 0 40px rgba(255,215,0,0.2);
     }
-    .ledger-header p {
+    .hero-full p {
       color: rgba(255, 255, 255, 0.9);
       max-width: 52ch;
-      margin-bottom: 0;
-      font-size: 1.05rem;
-      text-align: center;
-      position: relative;
-      z-index: 1;
+      margin: 0 auto 0.5rem;
+      font-size: 1.1rem;
       text-shadow: 0 1px 10px rgba(0,0,0,0.2);
     }
-    .term-tag {
+    .hero-full .term-tag {
       font-family: 'IBM Plex Mono', monospace;
       font-size: .78rem;
       border: 1px solid rgba(232,220,192,0.35);
       color: var(--gold-soft);
       padding: .35rem .75rem;
       border-radius: 2px;
-      white-space: nowrap;
-      position: relative;
-      z-index: 1;
+      display: inline-block;
       background: rgba(0,0,0,0.25);
       backdrop-filter: blur(4px);
+      margin-bottom: 1rem;
     }
     .hero-stats {
       display: flex;
@@ -212,10 +218,8 @@
       gap: 1.75rem;
       padding-top: 1.25rem;
       border-top: 1px solid rgba(232,220,192,0.18);
-      width: 100%;
       max-width: 640px;
-      position: relative;
-      z-index: 1;
+      margin: 0 auto;
     }
     .hero-stat {
       display: flex;
@@ -250,11 +254,239 @@
       color: #b0b8d0;
       margin-top: .25rem;
     }
+
+    /* ---------- RESULT SEARCH SECTION ---------- */
+    .search-card {
+      background: var(--paper-card);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      box-shadow: 0 4px 25px rgba(0,0,0,0.06);
+      padding: 2rem;
+    }
+    .search-card .form-label {
+      font-weight: 600;
+      color: var(--navy);
+      font-size: 0.9rem;
+    }
+    .search-card .form-control, .search-card .form-select {
+      border: 2px solid var(--line);
+      border-radius: 8px;
+      padding: 0.7rem 1rem;
+      font-size: 0.95rem;
+      transition: all 0.3s ease;
+    }
+    .search-card .form-control:focus, .search-card .form-select:focus {
+      border-color: var(--gold);
+      box-shadow: 0 0 0 3px rgba(179,137,58,0.15);
+    }
+    .btn-search {
+      background: linear-gradient(135deg, var(--navy), var(--navy-deep));
+      color: #fff;
+      border: none;
+      padding: 0.8rem 2.5rem;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 1.05rem;
+      transition: all 0.3s ease;
+      width: 100%;
+    }
+    .btn-search:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 25px rgba(35,49,86,0.3);
+      color: #ffd700;
+    }
+
+    /* ---------- STATISTICS SECTION ---------- */
+    .stats-grid {
+      background: #fff;
+      border-radius: 12px;
+      padding: 2rem 1.5rem;
+      border: 1px solid var(--line);
+      box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+    }
+    .stat-box {
+      text-align: center;
+      padding: 1rem;
+      border-right: 1px solid var(--line);
+    }
+    .stat-box:last-child { border-right: none; }
+    .stat-box .number {
+      font-family: 'Fraunces', serif;
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: var(--navy);
+      display: block;
+      line-height: 1.2;
+    }
+    .stat-box .number .gold { color: var(--gold); }
+    .stat-box .label {
+      font-size: 0.85rem;
+      color: #6b7280;
+      font-weight: 500;
+    }
+    .stat-box i { font-size: 2rem; color: var(--gold); margin-bottom: 0.5rem; display: block; }
+
+    /* ---------- TOP POSITION HOLDERS ---------- */
+    .position-card {
+      background: #fff;
+      border-radius: 14px;
+      padding: 1.5rem;
+      text-align: center;
+      border: 2px solid var(--line);
+      transition: all 0.3s ease;
+      height: 100%;
+    }
+    .position-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 12px 40px rgba(0,0,0,0.1);
+      border-color: var(--gold);
+    }
+    .position-card .rank {
+      font-family: 'Fraunces', serif;
+      font-size: 3rem;
+      font-weight: 700;
+      color: var(--gold);
+      display: block;
+    }
+    .position-card .rank-icon { font-size: 3.5rem; }
+    .position-card .student-photo {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin: 0.5rem auto;
+      border: 4px solid var(--gold-soft);
+    }
+    .position-card .student-name {
+      font-weight: 700;
+      font-size: 1.1rem;
+      color: var(--navy);
+      margin-top: 0.5rem;
+    }
+    .position-card .student-detail {
+      font-size: 0.85rem;
+      color: #6b7280;
+    }
+    .position-card .medal-gold .rank-icon { color: #ffd700; }
+    .position-card .medal-silver .rank-icon { color: #c0c0c0; }
+    .position-card .medal-bronze .rank-icon { color: #cd7f32; }
+
+    /* ---------- PERFORMANCE GRAPH ---------- */
+    .performance-card {
+      background: #fff;
+      border-radius: 12px;
+      padding: 1.5rem;
+      border: 1px solid var(--line);
+    }
+    .progress {
+      height: 20px;
+      border-radius: 10px;
+      background: #e9ecef;
+    }
+    .progress-bar {
+      border-radius: 10px;
+      font-weight: 600;
+      font-size: 0.75rem;
+      line-height: 20px;
+    }
+    .progress-bar-gold { background: linear-gradient(90deg, #b3893a, #ffd700); }
+    .progress-bar-navy { background: linear-gradient(90deg, #1a3f6e, #0f2847); }
+
+    /* ---------- NOTICE BOARD ---------- */
+    .notice-card {
+      background: #fff;
+      border-radius: 12px;
+      padding: 1.5rem;
+      border: 1px solid var(--line);
+      border-left: 5px solid var(--gold);
+    }
+    .notice-item {
+      padding: 0.8rem 0;
+      border-bottom: 1px solid #f0ede4;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+    .notice-item:last-child { border-bottom: none; }
+    .notice-item .icon { color: var(--gold); font-size: 1.2rem; }
+    .notice-item .text { flex: 1; }
+    .notice-item .text .title { font-weight: 600; color: var(--navy); }
+    .notice-item .text .date { font-size: 0.75rem; color: #6b7280; }
+    .notice-item .badge-notice {
+      background: var(--gold-soft);
+      color: var(--navy);
+      font-size: 0.65rem;
+      padding: 0.2rem 0.7rem;
+      border-radius: 20px;
+      font-weight: 600;
+    }
+
+    /* ---------- ACADEMIC EXCELLENCE ---------- */
+    .excellence-card {
+      background: #fff;
+      border-radius: 12px;
+      padding: 1.5rem;
+      text-align: center;
+      border: 1px solid var(--line);
+      transition: all 0.3s ease;
+      height: 100%;
+    }
+    .excellence-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+    }
+    .excellence-card i { font-size: 2.5rem; color: var(--gold); margin-bottom: 0.5rem; display: block; }
+    .excellence-card h6 { font-weight: 700; color: var(--navy); }
+    .excellence-card p { font-size: 0.85rem; color: #6b7280; margin: 0; }
+
+    /* ---------- DOWNLOAD SECTION ---------- */
+    .download-section {
+      background: linear-gradient(135deg, var(--navy), var(--navy-deep));
+      border-radius: 12px;
+      padding: 2.5rem 2rem;
+      color: #fff;
+    }
+    .download-section .btn-download {
+      background: #ffd700;
+      color: var(--navy);
+      font-weight: 700;
+      padding: 0.7rem 2rem;
+      border-radius: 8px;
+      border: none;
+      transition: all 0.3s ease;
+      text-decoration: none;
+      display: inline-block;
+      margin: 0.3rem;
+    }
+    .download-section .btn-download:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 30px rgba(255,215,0,0.3);
+      color: var(--navy);
+    }
+    .download-section .btn-download-outline {
+      background: transparent;
+      color: #fff;
+      font-weight: 700;
+      padding: 0.7rem 2rem;
+      border-radius: 8px;
+      border: 2px solid #ffd700;
+      transition: all 0.3s ease;
+      text-decoration: none;
+      display: inline-block;
+      margin: 0.3rem;
+    }
+    .download-section .btn-download-outline:hover {
+      background: rgba(255,215,0,0.1);
+      transform: translateY(-3px);
+    }
+
+    /* ---------- FILTER CARD ---------- */
     .filter-card {
       background: var(--paper-card);
       border: 1px solid var(--line);
-      border-radius: 6px;
-      box-shadow: 0 1px 2px rgba(22,29,51,0.04);
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+      padding: 1.5rem;
     }
     .filter-card .form-label {
       font-family: 'IBM Plex Mono', monospace;
@@ -265,14 +497,14 @@
       margin-bottom: .35rem;
     }
     .form-select, .form-control {
-      border: 1px solid var(--line);
-      border-radius: 4px;
+      border: 2px solid var(--line);
+      border-radius: 8px;
       font-size: .92rem;
-      padding: .5rem .75rem;
+      padding: .6rem .75rem;
     }
     .form-select:focus, .form-control:focus {
-      border-color: var(--navy);
-      box-shadow: 0 0 0 3px rgba(35,49,86,0.12);
+      border-color: var(--gold);
+      box-shadow: 0 0 0 3px rgba(179,137,58,0.15);
     }
     .btn-navy {
       background: var(--navy);
@@ -281,28 +513,30 @@
       font-size: 1.05rem;
       font-weight: 600;
       padding: .75rem 2.25rem;
-      border-radius: 5px;
+      border-radius: 8px;
       letter-spacing: .02em;
       transition: transform .15s ease, background .15s ease;
     }
     .btn-navy:hover { background: var(--navy-deep); color: #fff; transform: translateY(-1px); }
     .btn-ghost {
       background: transparent;
-      border: 1px solid var(--line);
+      border: 2px solid var(--line);
       color: var(--ink);
       font-size: .95rem;
       padding: .75rem 1.5rem;
-      border-radius: 5px;
+      border-radius: 8px;
     }
     .btn-ghost:hover { background: #f0ede4; }
+
+    /* ---------- RESULTS TABLE ---------- */
     .results-card {
       background: var(--paper-card);
       border: 1px solid var(--line);
-      border-radius: 6px;
+      border-radius: 12px;
       overflow: hidden;
     }
     .results-card-header {
-      padding: 1rem 1.25rem;
+      padding: 1.25rem 1.5rem;
       border-bottom: 1px solid var(--line);
       display: flex;
       align-items: center;
@@ -311,7 +545,7 @@
     }
     .results-card-header h2 {
       font-family: 'Fraunces', serif;
-      font-size: 1.15rem;
+      font-size: 1.25rem;
       font-weight: 600;
       margin: 0;
     }
@@ -319,6 +553,9 @@
       font-family: 'IBM Plex Mono', monospace;
       font-size: .75rem;
       color: #6b7280;
+      background: #f0ede4;
+      padding: 0.3rem 1rem;
+      border-radius: 20px;
     }
     table.results-table {
       margin-bottom: 0;
@@ -372,16 +609,19 @@
     .grade-C { background: #f5efdd; color: var(--gold); }
     .grade-D { background: #f7ece0; color: #b3672f; }
     .grade-F { background: #f6e3e1; color: var(--fail); }
+
     .admin-note {
       background: #efeade;
       border: 1px solid var(--gold-soft);
       border-left: 4px solid var(--gold);
-      border-radius: 4px;
+      border-radius: 8px;
       padding: .9rem 1.1rem;
       font-size: .88rem;
       color: #4a4535;
     }
     .admin-note strong { color: var(--navy-deep); }
+
+    /* ---------- FOOTER ---------- */
     footer {
       background: linear-gradient(180deg, #0a1a2b 0%, #0d1f33 100%);
       border-top: 3px solid rgba(255, 215, 0, 0.15);
@@ -535,7 +775,6 @@
     .social-link.instagram:hover { background: #e4405f; box-shadow: 0 8px 25px rgba(228, 64, 95, 0.4); }
     .social-link.youtube:hover { background: #ff0000; box-shadow: 0 8px 25px rgba(255, 0, 0, 0.4); }
     .social-link.twitter:hover { background: #000000; box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4); }
-    footer .social-label { color: rgba(255, 255, 255, 0.3); font-size: 0.75rem; letter-spacing: 0.5px; margin-top: 8px; }
     footer hr {
       border: none;
       height: 1px;
@@ -544,11 +783,16 @@
     }
     footer .copyright { color: rgba(255, 255, 255, 0.3); font-size: 0.9rem; font-weight: 300; letter-spacing: 0.5px; }
     footer .copyright .academy-name { color: #ffd700; font-weight: 600; }
+
+    /* ---------- RESPONSIVE ---------- */
     @media (max-width: 991px) {
       footer { padding: 3rem 0 1.5rem; }
       footer .footer-brand { font-size: 1.7rem; }
       .social-link { width: 44px; height: 44px; font-size: 1.2rem; }
-      .ledger-header h1 { font-size: 2.2rem; }
+      .hero-full h1 { font-size: 2.4rem; }
+      .hero-full { padding: 3rem 1.5rem; }
+      .stat-box { border-right: none; border-bottom: 1px solid var(--line); padding: 1rem 0; }
+      .stat-box:last-child { border-bottom: none; }
     }
     @media (max-width: 768px) {
       footer { padding: 2.5rem 0 1.5rem; text-align: center; }
@@ -558,10 +802,11 @@
       footer .contact-info { justify-content: center; padding: 6px 0; color: #ffffff !important; }
       footer .contact-info:hover { transform: none; }
       footer .footer-brand { font-size: 1.5rem; }
-      .ledger-header h1 { font-size: 1.8rem; }
-      .ledger-header { padding: 2rem 1rem; }
+      .hero-full h1 { font-size: 2rem; }
+      .hero-full { padding: 2.5rem 1.2rem; }
       .hero-stat { min-width: 70px; padding: 0.4rem 1rem; }
       .hero-stat-val { font-size: 1.3rem; }
+      .stat-box .number { font-size: 2rem; }
     }
     @media (max-width: 576px) {
       footer { padding: 2rem 0 1.2rem; }
@@ -572,11 +817,15 @@
       footer .contact-info { font-size: 0.85rem; gap: 10px; }
       footer .contact-info i { font-size: 1rem; min-width: 22px; }
       footer .copyright { font-size: 0.75rem; }
-      .ledger-header h1 { font-size: 1.5rem; }
+      .hero-full h1 { font-size: 1.6rem; }
+      .hero-full { padding: 2rem 1rem; }
       .hero-stats { gap: 0.8rem; }
       .hero-stat { min-width: 60px; padding: 0.3rem 0.7rem; }
       .hero-stat-val { font-size: 1.1rem; }
       .hero-stat-label { font-size: 0.55rem; }
+      .stat-box .number { font-size: 1.6rem; }
+      .search-card { padding: 1rem; }
+      .download-section { padding: 1.5rem; }
     }
     @media print {
       footer {
@@ -587,7 +836,7 @@
       }
       footer .social-link { display: none !important; }
       footer .quick-link { color: #ffffff !important; }
-      .ledger-header { background: #0f2847 !important; }
+      .hero-full { background: #0f2847 !important; }
     }
   </style>
 </head>
@@ -618,29 +867,129 @@
   </nav>
 </header>
 
+<!-- ================= HERO SECTION - Full Width ================= -->
+<div class="hero-full">
+  <div class="particle"></div>
+  <div class="particle"></div>
+  <div class="particle"></div>
+  <div class="particle"></div>
+  <div class="particle"></div>
+
+  <div class="hero-content">
+    <div class="eyebrow">Examination Cell &middot; Record No. 2026-RS</div>
+    <h1>Academic <span class="gold-text">Results</span></h1>
+    <p>Celebrating Excellence and Student Achievement. Consolidated marks and grades as recorded by the school administration for the current academic term.</p>
+    <span class="term-tag">Term &middot; Spring 2026</span>
+    <div class="hero-stats">
+      <div class="hero-stat"><span class="hero-stat-val">10</span><span class="hero-stat-label">Students</span></div>
+      <div class="hero-stat"><span class="hero-stat-val">74.9%</span><span class="hero-stat-label">Average Marks</span></div>
+      <div class="hero-stat"><span class="hero-stat-val">9</span><span class="hero-stat-label">Passed</span></div>
+      <div class="hero-stat"><span class="hero-stat-val">96</span><span class="hero-stat-label">Highest Score</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- ================= MAIN CONTENT ================= -->
 <main class="container-fluid px-3 px-md-5 py-4">
 
-  <div class="ledger-header py-4 px-3 mb-4">
-    <div class="particle"></div>
-    <div class="particle"></div>
-    <div class="particle"></div>
-    <div class="particle"></div>
-    <div class="particle"></div>
-
-    <div class="text-center d-flex flex-column align-items-center">
-      <div class="eyebrow mb-2">Examination Cell &middot; Record No. 2026-RS</div>
-      <h1>Student <span class="gold-text">Results</span></h1>
-      <p class="mx-auto">Consolidated marks and grades as recorded by the school administration for the current academic term.</p>
-      <span class="term-tag mt-3">Term &middot; Spring 2026</span>
-      <div class="hero-stats mt-4">
-        <div class="hero-stat"><span class="hero-stat-val">10</span><span class="hero-stat-label">Students</span></div>
-        <div class="hero-stat"><span class="hero-stat-val">74.9%</span><span class="hero-stat-label">Average Marks</span></div>
-        <div class="hero-stat"><span class="hero-stat-val">9</span><span class="hero-stat-label">Passed</span></div>
-        <div class="hero-stat"><span class="hero-stat-val">96</span><span class="hero-stat-label">Highest Score</span></div>
+  <!-- ================= RESULT SEARCH SECTION ================= -->
+  <div class="search-card mb-4">
+    <h5 class="mb-3" style="font-family:'Fraunces',serif; font-weight:600; color:var(--navy);">
+      <i class="bi bi-search" style="color:var(--gold);"></i> Check Your Result
+    </h5>
+    <div class="row g-3">
+      <div class="col-md-3">
+        <label class="form-label">Registration Number</label>
+        <input type="text" class="form-control" placeholder="e.g. FA-2026-001">
+      </div>
+      <div class="col-md-3">
+        <label class="form-label">Roll Number</label>
+        <input type="text" class="form-control" placeholder="e.g. 1001">
+      </div>
+      <div class="col-md-3">
+        <label class="form-label">Class</label>
+        <select class="form-select">
+          <option>All Classes</option>
+          <option>Class 6</option><option>Class 7</option><option>Class 8</option>
+          <option>Class 9</option><option>Class 10</option>
+        </select>
+      </div>
+      <div class="col-md-3">
+        <label class="form-label">Session</label>
+        <select class="form-select">
+          <option>2026</option><option>2025</option><option>2024</option><option>2023</option>
+        </select>
+      </div>
+      <div class="col-12">
+        <button class="btn-search"><i class="bi bi-search"></i> Check Result</button>
       </div>
     </div>
   </div>
 
+  <!-- ================= QUICK STATISTICS ================= -->
+  <div class="stats-grid mb-4">
+    <div class="row">
+      <div class="col-6 col-md-3 stat-box">
+        <i class="bi bi-check-circle-fill"></i>
+        <span class="number">98<span class="gold">%</span></span>
+        <span class="label">Pass Percentage</span>
+      </div>
+      <div class="col-6 col-md-3 stat-box">
+        <i class="bi bi-people-fill"></i>
+        <span class="number">500<span class="gold">+</span></span>
+        <span class="label">Students Passed</span>
+      </div>
+      <div class="col-6 col-md-3 stat-box">
+        <i class="bi bi-star-fill"></i>
+        <span class="number">120<span class="gold">+</span></span>
+        <span class="label">A+ Grades</span>
+      </div>
+      <div class="col-6 col-md-3 stat-box">
+        <i class="bi bi-trophy-fill"></i>
+        <span class="number">25<span class="gold">+</span></span>
+        <span class="label">Top Position Holders</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= TOP POSITION HOLDERS ================= -->
+  <h4 class="mb-3" style="font-family:'Fraunces',serif; font-weight:600; color:var(--navy);">
+    <i class="bi bi-trophy" style="color:var(--gold);"></i> Top Position Holders
+  </h4>
+  <div class="row g-4 mb-4">
+    <div class="col-md-4">
+      <div class="position-card medal-gold">
+        <span class="rank-icon">🥇</span>
+        <span class="rank">1st</span>
+        <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Student" class="student-photo">
+        <div class="student-name">Ayesha Khan</div>
+        <div class="student-detail">Class 10 · 96%</div>
+        <div class="student-detail"><span class="badge bg-warning text-dark">Topper</span></div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="position-card medal-silver">
+        <span class="rank-icon">🥈</span>
+        <span class="rank">2nd</span>
+        <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Student" class="student-photo">
+        <div class="student-name">Bilal Ahmed</div>
+        <div class="student-detail">Class 9 · 92%</div>
+        <div class="student-detail"><span class="badge bg-secondary text-white">Excellent</span></div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="position-card medal-bronze">
+        <span class="rank-icon">🥉</span>
+        <span class="rank">3rd</span>
+        <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Student" class="student-photo">
+        <div class="student-name">Fatima Noor</div>
+        <div class="student-detail">Class 10 · 88%</div>
+        <div class="student-detail"><span class="badge bg-warning text-dark">Achiever</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= FILTER BAR ================= -->
   <div class="filter-card p-3 p-md-4 mb-4">
     <div class="row g-3 align-items-end">
       <div class="col-12 col-md-3">
@@ -668,36 +1017,267 @@
     </div>
   </div>
 
+  <!-- ================= RESULTS TABLE ================= -->
   <div class="results-card mb-4">
     <div class="results-card-header">
-      <h2>All Results</h2>
+      <h2><i class="bi bi-table" style="color:var(--gold);"></i> Merit List</h2>
       <span class="count-pill" id="countPill">10 records</span>
     </div>
     <div class="table-responsive">
       <table class="table results-table mb-0">
-        <thead><tr><th>Roll No</th><th>Student Name</th><th>Class</th><th>Subject</th><th>Marks</th><th>Grade</th></tr></thead>
+        <thead><tr>
+          <th>Rank</th>
+          <th>Roll No</th>
+          <th>Student Name</th>
+          <th>Class</th>
+          <th>Subject</th>
+          <th>Marks</th>
+          <th>Grade</th>
+        </tr></thead>
         <tbody id="resultsBody">
-          <tr data-class="Class 9" data-year="2026"><td class="roll-no">1001</td><td class="student-name">Ayesha Khan</td><td>Class 9</td><td>Mathematics</td><td class="marks-val">92 / 100</td><td><span class="grade-badge grade-A">A</span></td></tr>
-          <tr data-class="Class 9" data-year="2026"><td class="roll-no">1002</td><td class="student-name">Bilal Ahmed</td><td>Class 9</td><td>Physics</td><td class="marks-val">78 / 100</td><td><span class="grade-badge grade-B">B</span></td></tr>
-          <tr data-class="Class 10" data-year="2025"><td class="roll-no">1003</td><td class="student-name">Sara Malik</td><td>Class 10</td><td>Chemistry</td><td class="marks-val">85 / 100</td><td><span class="grade-badge grade-A">A</span></td></tr>
-          <tr data-class="Class 8" data-year="2026"><td class="roll-no">1004</td><td class="student-name">Hamza Tariq</td><td>Class 8</td><td>English</td><td class="marks-val">64 / 100</td><td><span class="grade-badge grade-C">C</span></td></tr>
-          <tr data-class="Class 10" data-year="2026"><td class="roll-no">1005</td><td class="student-name">Fatima Noor</td><td>Class 10</td><td>Biology</td><td class="marks-val">96 / 100</td><td><span class="grade-badge grade-A">A</span></td></tr>
-          <tr data-class="Class 7" data-year="2025"><td class="roll-no">1006</td><td class="student-name">Usman Raza</td><td>Class 7</td><td>Urdu</td><td class="marks-val">71 / 100</td><td><span class="grade-badge grade-B">B</span></td></tr>
-          <tr data-class="Class 9" data-year="2024"><td class="roll-no">1007</td><td class="student-name">Zainab Iqbal</td><td>Class 9</td><td>Computer Science</td><td class="marks-val">88 / 100</td><td><span class="grade-badge grade-A">A</span></td></tr>
-          <tr data-class="Class 6" data-year="2026"><td class="roll-no">1008</td><td class="student-name">Ali Hassan</td><td>Class 6</td><td>Mathematics</td><td class="marks-val">55 / 100</td><td><span class="grade-badge grade-D">D</span></td></tr>
-          <tr data-class="Class 8" data-year="2025"><td class="roll-no">1009</td><td class="student-name">Mariam Sheikh</td><td>Class 8</td><td>Physics</td><td class="marks-val">39 / 100</td><td><span class="grade-badge grade-F">F</span></td></tr>
-          <tr data-class="Class 10" data-year="2023"><td class="roll-no">1010</td><td class="student-name">Danish Farooq</td><td>Class 10</td><td>Islamiyat</td><td class="marks-val">81 / 100</td><td><span class="grade-badge grade-B">B</span></td></tr>
+          <tr data-class="Class 9" data-year="2026">
+            <td><span class="badge bg-warning text-dark">#1</span></td>
+            <td class="roll-no">1001</td>
+            <td class="student-name">Ayesha Khan</td>
+            <td>Class 9</td>
+            <td>Mathematics</td>
+            <td class="marks-val">92 / 100</td>
+            <td><span class="grade-badge grade-A">A</span></td>
+          </tr>
+          <tr data-class="Class 9" data-year="2026">
+            <td><span class="badge bg-secondary">#2</span></td>
+            <td class="roll-no">1002</td>
+            <td class="student-name">Bilal Ahmed</td>
+            <td>Class 9</td>
+            <td>Physics</td>
+            <td class="marks-val">78 / 100</td>
+            <td><span class="grade-badge grade-B">B</span></td>
+          </tr>
+          <tr data-class="Class 10" data-year="2025">
+            <td><span class="badge bg-warning text-dark">#3</span></td>
+            <td class="roll-no">1003</td>
+            <td class="student-name">Sara Malik</td>
+            <td>Class 10</td>
+            <td>Chemistry</td>
+            <td class="marks-val">85 / 100</td>
+            <td><span class="grade-badge grade-A">A</span></td>
+          </tr>
+          <tr data-class="Class 8" data-year="2026">
+            <td><span class="badge bg-info text-dark">#4</span></td>
+            <td class="roll-no">1004</td>
+            <td class="student-name">Hamza Tariq</td>
+            <td>Class 8</td>
+            <td>English</td>
+            <td class="marks-val">64 / 100</td>
+            <td><span class="grade-badge grade-C">C</span></td>
+          </tr>
+          <tr data-class="Class 10" data-year="2026">
+            <td><span class="badge bg-info text-dark">#5</span></td>
+            <td class="roll-no">1005</td>
+            <td class="student-name">Fatima Noor</td>
+            <td>Class 10</td>
+            <td>Biology</td>
+            <td class="marks-val">96 / 100</td>
+            <td><span class="grade-badge grade-A">A</span></td>
+          </tr>
+          <tr data-class="Class 7" data-year="2025">
+            <td><span class="badge bg-info text-dark">#6</span></td>
+            <td class="roll-no">1006</td>
+            <td class="student-name">Usman Raza</td>
+            <td>Class 7</td>
+            <td>Urdu</td>
+            <td class="marks-val">71 / 100</td>
+            <td><span class="grade-badge grade-B">B</span></td>
+          </tr>
+          <tr data-class="Class 9" data-year="2024">
+            <td><span class="badge bg-info text-dark">#7</span></td>
+            <td class="roll-no">1007</td>
+            <td class="student-name">Zainab Iqbal</td>
+            <td>Class 9</td>
+            <td>Computer Science</td>
+            <td class="marks-val">88 / 100</td>
+            <td><span class="grade-badge grade-A">A</span></td>
+          </tr>
+          <tr data-class="Class 6" data-year="2026">
+            <td><span class="badge bg-info text-dark">#8</span></td>
+            <td class="roll-no">1008</td>
+            <td class="student-name">Ali Hassan</td>
+            <td>Class 6</td>
+            <td>Mathematics</td>
+            <td class="marks-val">55 / 100</td>
+            <td><span class="grade-badge grade-D">D</span></td>
+          </tr>
+          <tr data-class="Class 8" data-year="2025">
+            <td><span class="badge bg-info text-dark">#9</span></td>
+            <td class="roll-no">1009</td>
+            <td class="student-name">Mariam Sheikh</td>
+            <td>Class 8</td>
+            <td>Physics</td>
+            <td class="marks-val">39 / 100</td>
+            <td><span class="grade-badge grade-F">F</span></td>
+          </tr>
+          <tr data-class="Class 10" data-year="2023">
+            <td><span class="badge bg-info text-dark">#10</span></td>
+            <td class="roll-no">1010</td>
+            <td class="student-name">Danish Farooq</td>
+            <td>Class 10</td>
+            <td>Islamiyat</td>
+            <td class="marks-val">81 / 100</td>
+            <td><span class="grade-badge grade-B">B</span></td>
+          </tr>
         </tbody>
       </table>
       <div id="noResults" class="text-center text-muted py-4" style="display:none; font-size:.9rem;">No results match the selected filters.</div>
     </div>
   </div>
 
+  <!-- ================= PERFORMANCE GRAPH ================= -->
+  <h4 class="mb-3" style="font-family:'Fraunces',serif; font-weight:600; color:var(--navy);">
+    <i class="bi bi-bar-chart-fill" style="color:var(--gold);"></i> Class Performance
+  </h4>
+  <div class="performance-card mb-4">
+    <div class="row g-3">
+      <div class="col-md-6">
+        <div class="d-flex justify-content-between mb-1">
+          <span class="fw-bold">Class 6</span>
+          <span>98%</span>
+        </div>
+        <div class="progress">
+          <div class="progress-bar progress-bar-gold" style="width:98%">98%</div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="d-flex justify-content-between mb-1">
+          <span class="fw-bold">Class 7</span>
+          <span>95%</span>
+        </div>
+        <div class="progress">
+          <div class="progress-bar progress-bar-gold" style="width:95%">95%</div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="d-flex justify-content-between mb-1">
+          <span class="fw-bold">Class 8</span>
+          <span>90%</span>
+        </div>
+        <div class="progress">
+          <div class="progress-bar progress-bar-navy" style="width:90%">90%</div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="d-flex justify-content-between mb-1">
+          <span class="fw-bold">Class 9</span>
+          <span>97%</span>
+        </div>
+        <div class="progress">
+          <div class="progress-bar progress-bar-gold" style="width:97%">97%</div>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div class="d-flex justify-content-between mb-1">
+          <span class="fw-bold">Class 10</span>
+          <span>92%</span>
+        </div>
+        <div class="progress">
+          <div class="progress-bar progress-bar-navy" style="width:92%">92%</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= ACADEMIC EXCELLENCE ================= -->
+  <h4 class="mb-3" style="font-family:'Fraunces',serif; font-weight:600; color:var(--navy);">
+    <i class="bi bi-award" style="color:var(--gold);"></i> Academic Excellence
+  </h4>
+  <div class="row g-4 mb-4">
+    <div class="col-6 col-md-3">
+      <div class="excellence-card">
+        <i class="bi bi-trophy"></i>
+        <h6>Academic Awards</h6>
+        <p>50+ students recognized</p>
+      </div>
+    </div>
+    <div class="col-6 col-md-3">
+      <div class="excellence-card">
+        <i class="bi bi-star"></i>
+        <h6>Best Performers</h6>
+        <p>20+ distinction holders</p>
+      </div>
+    </div>
+    <div class="col-6 col-md-3">
+      <div class="excellence-card">
+        <i class="bi bi-mortarboard"></i>
+        <h6>Scholarships</h6>
+        <p>15 merit scholarships</p>
+      </div>
+    </div>
+    <div class="col-6 col-md-3">
+      <div class="excellence-card">
+        <i class="bi bi-gem"></i>
+        <h6>High Achievers</h6>
+        <p>25+ above 90%</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= NOTICE BOARD ================= -->
+  <h4 class="mb-3" style="font-family:'Fraunces',serif; font-weight:600; color:var(--navy);">
+    <i class="bi bi-megaphone" style="color:var(--gold);"></i> Notice Board
+  </h4>
+  <div class="notice-card mb-4">
+    <div class="notice-item">
+      <span class="icon"><i class="bi bi-check-circle-fill"></i></span>
+      <div class="text">
+        <div class="title">📢 Annual Result 2026 Published</div>
+        <span class="date">15 July 2026</span>
+      </div>
+      <span class="badge-notice">New</span>
+    </div>
+    <div class="notice-item">
+      <span class="icon"><i class="bi bi-calendar-event"></i></span>
+      <div class="text">
+        <div class="title">📝 Supplementary Exam Schedule</div>
+        <span class="date">20 July 2026</span>
+      </div>
+      <span class="badge-notice">Upcoming</span>
+    </div>
+    <div class="notice-item">
+      <span class="icon"><i class="bi bi-gift"></i></span>
+      <div class="text">
+        <div class="title">🎓 Merit Scholarship List</div>
+        <span class="date">10 August 2026</span>
+      </div>
+      <span class="badge-notice">Notice</span>
+    </div>
+    <div class="notice-item">
+      <span class="icon"><i class="bi bi-person-plus"></i></span>
+      <div class="text">
+        <div class="title">📋 Admission Open 2026-27</div>
+        <span class="date">01 August 2026</span>
+      </div>
+      <span class="badge-notice">Important</span>
+    </div>
+  </div>
+
+  <!-- ================= DOWNLOAD SECTION ================= -->
+  <div class="download-section mb-4 text-center">
+    <h4 style="font-family:'Fraunces',serif; font-weight:600;">📄 Download Resources</h4>
+    <p style="color:rgba(255,255,255,0.8);">Get your official documents and academic resources</p>
+    <div>
+      <a href="#" class="btn-download"><i class="bi bi-file-pdf"></i> Download Result PDF</a>
+      <a href="#" class="btn-download"><i class="bi bi-file-text"></i> Download Merit List</a>
+      <a href="#" class="btn-download-outline"><i class="bi bi-calendar"></i> Academic Calendar</a>
+    </div>
+  </div>
+
+  <!-- ================= ADMIN NOTE ================= -->
   <div class="admin-note">
     <strong>Note:</strong> Results are updated by administration. Contact admin for queries.
   </div>
+
 </main>
 
+<!-- ================= FOOTER ================= -->
 <footer>
   <div class="container">
     <div class="row">
@@ -747,7 +1327,55 @@
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
+<script>
+  (function() {
+    const searchInput = document.getElementById('searchInput');
+    const classFilter = document.getElementById('classFilter');
+    const yearFilter = document.getElementById('yearFilter');
+    const applyBtn = document.getElementById('applyBtn');
+    const resetBtn = document.getElementById('resetBtn');
+    const tbody = document.getElementById('resultsBody');
+    const countPill = document.getElementById('countPill');
+    const noResults = document.getElementById('noResults');
 
+    function filterTable() {
+      const searchTerm = searchInput.value.toLowerCase().trim();
+      const classVal = classFilter.value;
+      const yearVal = yearFilter.value;
+      const rows = tbody.querySelectorAll('tr');
+      let visible = 0;
+
+      rows.forEach(row => {
+        const name = row.querySelector('.student-name')?.textContent?.toLowerCase() || '';
+        const cls = row.getAttribute('data-class') || '';
+        const year = row.getAttribute('data-year') || '';
+
+        let match = true;
+        if (searchTerm && !name.includes(searchTerm)) match = false;
+        if (classVal !== 'All Classes' && cls !== classVal) match = false;
+        if (yearVal !== '2026' && year !== yearVal) match = false;
+
+        row.style.display = match ? '' : 'none';
+        if (match) visible++;
+      });
+
+      countPill.textContent = visible + ' record' + (visible !== 1 ? 's' : '');
+      noResults.style.display = visible === 0 ? 'block' : 'none';
+    }
+
+    function resetFilters() {
+      searchInput.value = '';
+      classFilter.value = 'All Classes';
+      yearFilter.value = '2026';
+      filterTable();
+    }
+
+    applyBtn.addEventListener('click', filterTable);
+    resetBtn.addEventListener('click', resetFilters);
+    searchInput.addEventListener('input', filterTable);
+    filterTable();
+  })();
+</script>
 
 </body>
 </html>
