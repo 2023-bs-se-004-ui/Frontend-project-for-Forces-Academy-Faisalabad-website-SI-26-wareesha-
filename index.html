@@ -20,6 +20,58 @@
     <!-- Custom CSS (External) -->
     <link rel="stylesheet" href="css/style.css">
 
+    <style>
+        /* Gold top/bottom border lines on hero, matching other pages */
+        #hero {
+            border-top: 4px solid #ffd700;
+            border-bottom: 4px solid #ffd700;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* ---------- Hero entrance transition ---------- */
+        #hero .badge,
+        #hero h1,
+        #hero .lead,
+        #hero .d-flex.flex-wrap.gap-3,
+        #hero .stats-mini,
+        #hero .hero-visual {
+            opacity: 0;
+            transform: translateY(24px);
+            animation: heroFadeUp 0.8s ease forwards;
+        }
+
+        #hero .badge { animation-delay: 0.1s; }
+        #hero h1 { animation-delay: 0.25s; }
+        #hero .lead { animation-delay: 0.4s; }
+        #hero .d-flex.flex-wrap.gap-3 { animation-delay: 0.55s; }
+        #hero .stats-mini { animation-delay: 0.7s; }
+        #hero .hero-visual { animation-delay: 0.4s; }
+
+        @keyframes heroFadeUp {
+            from { opacity: 0; transform: translateY(24px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Subtle floating motion for the achievement chip */
+        #hero .float-chip {
+            animation: chipFloat 3.2s ease-in-out infinite;
+        }
+        @keyframes chipFloat {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-8px); }
+        }
+
+        /* Smooth hover lift for the CTA buttons */
+        #hero .btn {
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
+        }
+        #hero .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 22px rgba(0,0,0,0.25);
+        }
+    </style>
+
 </head>
 
 <body>
