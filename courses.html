@@ -30,6 +30,25 @@
             border-bottom: 4px solid #ffd700;
         }
 
+        /* ---------- Hero entrance transition ---------- */
+        .page-header .badge-gold,
+        .page-header h1,
+        .page-header .lead,
+        .page-header .d-flex.flex-wrap.justify-content-center.gap-2 {
+            opacity: 0;
+            transform: translateY(24px);
+            animation: heroFadeUp 0.8s ease forwards;
+        }
+        .page-header .badge-gold { animation-delay: 0.1s; }
+        .page-header h1 { animation-delay: 0.25s; }
+        .page-header .lead { animation-delay: 0.4s; }
+        .page-header .d-flex.flex-wrap.justify-content-center.gap-2 { animation-delay: 0.55s; }
+
+        @keyframes heroFadeUp {
+            from { opacity: 0; transform: translateY(24px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
         /* Campus gallery images */
         .gallery-photo{
             width: 100%;

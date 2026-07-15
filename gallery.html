@@ -71,7 +71,7 @@
         .forces-header { background: var(--navy-deep); color: var(--paper); border-bottom: 4px solid var(--gold); padding: 0; }
 
         /* ============================================================
-           HERO SECTION - Full width, joined with header
+           HERO SECTION - Full width, joined with header (made taller)
            ============================================================ */
         .gallery-hero {
             width: 100%;
@@ -85,7 +85,10 @@
             border-bottom: 4px solid #ffd700;
             position: relative;
             overflow: hidden;
-            padding: 3.5rem 2rem;
+            padding: 6rem 2rem;
+            min-height: 380px;
+            display: flex;
+            align-items: center;
         }
         .gallery-hero::before {
             content: ""; position: absolute; inset: 0;
@@ -106,7 +109,24 @@
             max-width: 1200px;
             margin: 0 auto;
             text-align: center;
+            width: 100%;
         }
+
+        /* ---------- HERO ENTRANCE TRANSITIONS ---------- */
+        @keyframes heroFadeUp {
+            from { opacity: 0; transform: translateY(22px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .gallery-hero h1,
+        .gallery-hero p,
+        .gallery-hero .btn-hero {
+            opacity: 0;
+            animation: heroFadeUp 0.75s ease forwards;
+        }
+        .gallery-hero h1 { animation-delay: 0.12s; }
+        .gallery-hero p { animation-delay: 0.28s; }
+        .gallery-hero .btn-hero { animation-delay: 0.44s; }
+
         .gallery-hero h1 {
             font-family: 'Fraunces', serif;
             font-weight: 600;
@@ -248,7 +268,7 @@
         /* ---------- QUOTE SECTION ---------- */
         .quote-section {
             background: linear-gradient(135deg, rgba(15, 40, 71, 0.92), rgba(26, 63, 110, 0.92)),
-                        url('https://images.unsplash.com/photo-1523050854058-8df90110c7f1?w=1200&q=80');
+                        url('https://images.unsplash.com/photo-1518133835878-5a93cc3f89e5?w=1200&q=80');
             background-size: cover; background-position: center; padding: 3rem 1rem; border-radius: 14px;
             text-align: center; color: #fff; margin: 2.5rem 0; position: relative; overflow: hidden;
         }
@@ -330,7 +350,7 @@
             footer { padding: 3rem 0 1.5rem; } footer .footer-brand { font-size: 1.7rem; }
             .social-link { width: 44px; height: 44px; font-size: 1.2rem; }
             .gallery-hero h1 { font-size: 2.4rem; }
-            .gallery-hero { padding: 3rem 1.5rem; }
+            .gallery-hero { padding: 5rem 1.5rem; min-height: 320px; }
             .featured-card { height: 160px; }
         }
         @media (max-width: 768px) {
@@ -340,7 +360,7 @@
             footer .contact-info { justify-content: center; padding: 6px 0; color: #ffffff !important; }
             footer .contact-info:hover { transform: none; } footer .footer-brand { font-size: 1.5rem; }
             .gallery-hero h1 { font-size: 2rem; }
-            .gallery-hero { padding: 2.5rem 1.2rem; }
+            .gallery-hero { padding: 3.8rem 1.2rem; min-height: 260px; }
             .filter-btn-group .btn { font-size: 0.8rem; padding: 0.4rem 1.2rem; }
             .gallery-item img { height: 200px; }
             .stat-item .number { font-size: 1.8rem; }
@@ -352,7 +372,7 @@
             footer h5 { font-size: 0.95rem; } .social-link { width: 38px; height: 38px; font-size: 1rem; }
             footer .contact-info { font-size: 0.85rem; gap: 10px; } footer .contact-info i { font-size: 1rem; min-width: 22px; }
             footer .copyright { font-size: 0.75rem; } .gallery-hero h1 { font-size: 1.6rem; }
-            .gallery-hero { padding: 2rem 1rem; }
+            .gallery-hero { padding: 3.2rem 1rem; min-height: 220px; }
             .gallery-item img { height: 180px; }
             .stat-item .number { font-size: 1.4rem; }
             .featured-card { height: 120px; }
@@ -488,9 +508,9 @@
 
     <!-- 7. QUOTE SECTION -->
     <div class="quote-section">
-       
+        <blockquote>
             <i class="bi bi-quote"></i> Every picture captures a moment of excellence, discipline and unforgettable memories. <i class="bi bi-quote"></i>
-      
+        </blockquote>
         <div class="author">— Forces Academy Family</div>
     </div>
 
@@ -512,7 +532,7 @@
         <button class="lb-close" id="lbClose"><i class="bi bi-x-lg"></i></button>
         <button class="lb-prev" id="lbPrev"><i class="bi bi-chevron-left"></i></button>
         <button class="lb-next" id="lbNext"><i class="bi bi-chevron-right"></i></button>
-        <img id="lbImage" src="" alt="" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1523050854058-8df90110c7f1?w=1200&q=80';">
+        <img id="lbImage" src="" alt="" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1533854775446-95c4609da544?w=1200&q=80';">
         <div class="lb-caption">
             <h6 id="lbTitle"></h6>
             <small id="lbDate"></small>
@@ -589,13 +609,12 @@
         { id: 16, title: 'Athletics Meet 2026', category: 'sports', img: 'https://images.unsplash.com/photo-1531415074968-036ba1b575da?w=600&q=80', date: '01 July 2026' }
     ];
 
-    const featuredIds = [1, 2, 9, 3, 12]; // Annual Day, Sports Week, Graduation, Science Exhibition, Eid Celebration
+    const featuredIds = [1, 2, 9, 3, 12];
     const featuredEmoji = { 1: '🏆', 2: '⚽', 9: '🎓', 3: '🧪', 12: '🕌' };
 
     const grid = document.getElementById('galleryGrid');
     const featuredGrid = document.getElementById('featuredGrid');
 
-    // ---------- Render Featured ----------
     function renderFeatured() {
         featuredGrid.innerHTML = featuredIds.map(id => {
             const item = galleryData.find(g => g.id === id);
@@ -603,7 +622,7 @@
             return `
                 <div class="col-6 col-md-3">
                     <button class="featured-card" data-id="${item.id}" type="button">
-                        <img src="${item.img}" alt="${item.title}" loading="lazy" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1523050854058-8df90110c7f1?w=600&q=80';">
+                        <img src="${item.img}" alt="${item.title}" loading="lazy" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1533854775446-95c4609da544?w=600&q=80';">
                         <div class="featured-overlay">
                             <h5>${featuredEmoji[item.id] || ''} ${item.title}</h5>
                             <small>${item.date}</small>
@@ -621,7 +640,6 @@
         });
     }
 
-    // ---------- Render Gallery Grid ----------
     let currentFiltered = galleryData;
 
     function renderGallery(filter = 'all') {
@@ -635,7 +653,7 @@
         grid.innerHTML = currentFiltered.map((item, i) => `
             <div class="col-12 col-sm-6 col-lg-3 gallery-item" data-category="${item.category}" style="animation-delay:${i * 0.05}s">
                 <button class="gallery-trigger" type="button" data-index="${i}">
-                    <img src="${item.img}" alt="${item.title}" loading="lazy" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1523050854058-8df90110c7f1?w=600&q=80';" />
+                    <img src="${item.img}" alt="${item.title}" loading="lazy" onerror="this.onerror=null;this.src='https://images.unsplash.com/photo-1533854775446-95c4609da544?w=600&q=80';" />
                     <span class="category-badge ${item.category}">${item.category}</span>
                     <div class="overlay">
                         <h6>${item.title}</h6>
@@ -663,7 +681,6 @@
         });
     });
 
-    // ---------- Custom Lightbox Logic ----------
     const lbOverlay = document.getElementById('lbOverlay');
     const lbImage = document.getElementById('lbImage');
     const lbTitle = document.getElementById('lbTitle');
