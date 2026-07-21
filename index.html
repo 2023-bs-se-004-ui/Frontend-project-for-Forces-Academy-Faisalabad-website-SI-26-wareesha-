@@ -17,8 +17,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,400;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
 
-    <!-- Custom CSS (External) -->
-    <link rel="stylesheet" href="css/style.css">
+    <!-- Swiper.js CSS (Testimonials slider) -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
 
     <style>
         /* Gold top/bottom border lines on hero, matching other pages */
@@ -34,7 +34,6 @@
         #hero h1,
         #hero .lead,
         #hero .d-flex.flex-wrap.gap-3,
-        #hero .stats-mini,
         #hero .hero-visual {
             opacity: 0;
             transform: translateY(24px);
@@ -45,7 +44,6 @@
         #hero h1 { animation-delay: 0.25s; }
         #hero .lead { animation-delay: 0.4s; }
         #hero .d-flex.flex-wrap.gap-3 { animation-delay: 0.55s; }
-        #hero .stats-mini { animation-delay: 0.7s; }
         #hero .hero-visual { animation-delay: 0.4s; }
 
         @keyframes heroFadeUp {
@@ -70,8 +68,537 @@
             transform: translateY(-3px);
             box-shadow: 0 8px 22px rgba(0,0,0,0.25);
         }
-    </style>
 
+
+        /* ===== STEP 1: STATS SECTION - ROUND DESIGN ===== */
+        #stats-section {
+            background: #0b1a3b;
+            color: #fff;
+            padding: 4rem 0;
+        }
+
+        .stat-item {
+            text-align: center;
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 215, 0, 0.15);
+            border-radius: 2rem;
+            padding: 2.2rem 1rem 1.8rem;
+            transition: all 0.3s ease;
+        }
+
+        .stat-item:hover {
+            background: rgba(255, 255, 255, 0.07);
+            border-color: rgba(255, 215, 0, 0.4);
+            transform: translateY(-6px);
+            box-shadow: 0 14px 32px rgba(0, 0, 0, 0.3);
+        }
+
+        .stat-icon {
+            width: 90px;
+            height: 90px;
+            border-radius: 50%;
+            background: rgba(255, 215, 0, 0.12);
+            border: 2px solid rgba(255, 215, 0, 0.25);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .stat-item:hover .stat-icon {
+            background: rgba(255, 215, 0, 0.2);
+            border-color: #ffd700;
+            transform: scale(1.05);
+        }
+
+        .stat-icon i {
+            font-size: 2.5rem;
+            color: #ffd700;
+        }
+
+        .stat-number {
+            font-size: 2.8rem;
+            font-weight: 800;
+            line-height: 1.2;
+            color: #ffd700;
+            margin-bottom: 0.1rem;
+        }
+
+        .stat-label {
+            font-size: 1rem;
+            opacity: 0.8;
+            letter-spacing: 0.3px;
+            font-weight: 500;
+        }
+        .section-divider{
+    height: 80px;
+    background: linear-gradient(
+        to bottom,
+        #1a2f5a,
+        #10244d,
+        #0b1a3b
+    );
+}
+
+        /* ===== STEP 2: TESTIMONIALS SECTION ===== */
+        #testimonials-section {
+            background: #f8f9fa;
+            padding: 4rem 0;
+        }
+
+        .testimonial-card {
+            background: #fff;
+            border-radius: 1.5rem;
+            padding: 2rem 1.5rem;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.06);
+            text-align: center;
+            transition: transform 0.2s ease;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .testimonial-card:hover {
+            transform: translateY(-4px);
+        }
+
+        .testimonial-avatar {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin: 0 auto 1rem;
+            border: 3px solid #ffd700;
+            padding: 3px;
+            background: #fff;
+        }
+
+        .testimonial-quote {
+            font-size: 1rem;
+            color: #2c3e50;
+            font-style: italic;
+            margin-bottom: 1.25rem;
+            line-height: 1.6;
+            flex: 1;
+        }
+
+        .testimonial-name {
+            font-weight: 700;
+            color: #0b1a3b;
+            margin-bottom: 0.1rem;
+        }
+
+        .testimonial-class {
+            font-size: 0.85rem;
+            color: #6c757d;
+        }
+
+        /* Swiper custom overrides */
+        .swiper-button-next,
+        .swiper-button-prev {
+            color: #ffd700 !important;
+            background: rgba(11, 26, 59, 0.08);
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            transition: background 0.2s;
+        }
+
+        .swiper-button-next:hover,
+        .swiper-button-prev:hover {
+            background: rgba(11, 26, 59, 0.16);
+        }
+
+        .swiper-button-next::after,
+        .swiper-button-prev::after {
+            font-size: 1.2rem !important;
+            font-weight: 700;
+        }
+
+        .swiper-pagination-bullet {
+            background: #0b1a3b !important;
+            opacity: 0.3;
+        }
+        .swiper-pagination-bullet-active {
+            background: #ffd700 !important;
+            opacity: 1;
+        }
+
+        /* ===== STEP 3: ADDITIONAL CTA BANNER (Scholarship / Demo / Urgent) ===== */
+        #extra-cta {
+            background: linear-gradient(135deg, #fff8e1 0%, #ffffff 100%);
+            padding: 4rem 0;
+        }
+
+        .promo-card {
+            background: #fff;
+            border-radius: 1.75rem;
+            padding: 2.2rem 1.6rem;
+            text-align: center;
+            height: 100%;
+            box-shadow: 0 10px 30px rgba(11, 26, 59, 0.07);
+            border: 1px solid rgba(11, 26, 59, 0.06);
+            transition: 0.25s ease;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+        }
+        .promo-card p {
+            flex: 1;
+        }
+        .promo-card .btn {
+            align-self: center;
+        }
+        .promo-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 18px 40px rgba(11, 26, 59, 0.12);
+        }
+        .promo-card .promo-icon {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            background: #0b1a3b;
+            color: #ffd700;
+            font-size: 1.8rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.1rem;
+        }
+        .promo-card.urgent {
+            border: 1px solid rgba(220, 53, 69, 0.25);
+        }
+        .promo-card.urgent .promo-icon {
+            background: #dc3545;
+            color: #fff;
+            animation: pulseRing 1.8s ease-in-out infinite;
+        }
+        @keyframes pulseRing {
+            0%, 100% { box-shadow: 0 0 0 0 rgba(220, 53, 69, 0.35); }
+            50% { box-shadow: 0 0 0 10px rgba(220, 53, 69, 0); }
+        }
+        .promo-badge {
+            position: absolute;
+            top: -12px;
+            right: 18px;
+            background: #ffd700;
+            color: #0b1a3b;
+            font-weight: 700;
+            font-size: 0.75rem;
+            padding: 0.35rem 0.9rem;
+            border-radius: 50px;
+            box-shadow: 0 4px 12px rgba(255, 215, 0, 0.4);
+        }
+        .promo-badge.urgent-badge {
+            background: #dc3545;
+            color: #fff;
+            box-shadow: 0 4px 12px rgba(220, 53, 69, 0.4);
+        }
+        .promo-card h5 {
+            color: #0b1a3b;
+            font-weight: 700;
+        }
+
+        /* ===== MAIN CTA SECTION (Separate from Footer) ===== */
+        /* CTA Section */
+#main-cta{
+    background: #0b1a3b;
+    padding: 4rem 0;
+    margin-bottom: 60px;   /* Footer se distance */
+}
+
+/* Footer */
+footer{
+    background: #06122a;
+    padding: 4rem 0 2rem;
+    margin-top: 60px;      /* CTA se distance */
+}
+#main-cta{
+    border-bottom: 2px solid rgba(255,215,0,0.3);
+}
+<div style="height:60px; background:#0b1a3b;"></div>
+
+
+
+        /* ---- rest of the page styling ---- */
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+
+        #mainNav {
+            background: #0b1a3b;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+            padding: 0.8rem 0;
+        }
+        .navbar-brand {
+            font-size: 1.5rem;
+            letter-spacing: -0.5px;
+        }
+        .navbar-brand i {
+            color: #ffd700;
+        }
+        .nav-link {
+            color: rgba(255, 255, 255, 0.7) !important;
+            font-weight: 600;
+            padding: 0.6rem 1rem !important;
+            border-radius: 50px;
+            transition: all 0.2s;
+        }
+        .nav-link:hover,
+        .nav-link.active {
+            color: #fff !important;
+            background: rgba(255, 215, 0, 0.15);
+        }
+        .btn-warning {
+            background: #ffd700;
+            border: none;
+            color: #0b1a3b;
+        }
+        .btn-warning:hover {
+            background: #e6c200;
+            color: #0b1a3b;
+        }
+
+        #hero {
+            background: linear-gradient(135deg, #0b1a3b 0%, #1a2f5a 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+        }
+        #hero .overlay {
+            width: 100%;
+            padding: 2rem 0;
+        }
+        #hero .hero-visual {
+            position: relative;
+            display: inline-block;
+        }
+        #hero .hero-visual img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 30px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+        }
+        #hero .float-chip {
+            position: absolute;
+            bottom: 10px;
+            right: -10px;
+            background: #ffd700;
+            color: #0b1a3b;
+            font-weight: 700;
+            padding: 0.6rem 1.5rem;
+            border-radius: 50px;
+            box-shadow: 0 8px 20px rgba(255, 215, 0, 0.35);
+            font-size: 0.95rem;
+        }
+        #hero .float-chip i {
+            margin-right: 6px;
+        }
+
+        /* features */
+        .card-feature {
+            background: #fff;
+            border-radius: 1.5rem;
+            padding: 2rem 1.5rem;
+            box-shadow: 0 6px 24px rgba(0, 0, 0, 0.04);
+            transition: 0.2s;
+            position: relative;
+            overflow: hidden;
+        }
+        .card-feature:hover {
+            box-shadow: 0 12px 36px rgba(0, 0, 0, 0.08);
+        }
+        .card-feature .icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 20px;
+            background: #ffd700;
+            color: #0b1a3b;
+            font-size: 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
+        }
+        .feature-img {
+            width: 100%;
+            height: 160px;
+            object-fit: cover;
+            border-radius: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        #campus-gallery .gallery-item {
+            border-radius: 1.5rem;
+            overflow: hidden;
+            position: relative;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
+        }
+        #campus-gallery .gallery-item img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+            transition: 0.3s;
+        }
+        #campus-gallery .gallery-item:hover img {
+            transform: scale(1.02);
+        }
+        #campus-gallery .gallery-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            padding: 0.8rem 1rem;
+            background: rgba(11, 26, 59, 0.7);
+            color: #fff;
+            font-weight: 600;
+            backdrop-filter: blur(4px);
+        }
+
+        /* ===== FOOTER - SEPARATED SECTIONS ===== */
+        footer {
+            background: #06122a;
+            padding: 4rem 0 2rem;
+            color: #fff;
+        }
+
+        .footer-brand {
+            font-size: 1.8rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+        }
+        .footer-brand i {
+            color: #ffd700;
+        }
+        .footer-about-text {
+            color: rgba(255, 255, 255, 0.65);
+            font-size: 1rem;
+            line-height: 1.7;
+        }
+
+        .footer-heading {
+            color: #ffd700;
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 1.2rem;
+            letter-spacing: 0.5px;
+            position: relative;
+            padding-bottom: 0.6rem;
+        }
+        .footer-heading::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 35px;
+            height: 3px;
+            background: #ffd700;
+            border-radius: 10px;
+        }
+
+        .quick-link {
+            color: rgba(255, 255, 255, 0.6);
+            text-decoration: none;
+            transition: 0.2s;
+            display: inline-block;
+            margin-bottom: 0.4rem;
+            font-size: 0.95rem;
+        }
+        .quick-link:hover {
+            color: #ffd700;
+            padding-left: 6px;
+        }
+
+        .contact-info {
+            color: rgba(255, 255, 255, 0.6);
+            margin-bottom: 0.6rem;
+            font-size: 0.95rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .contact-info i {
+            color: #ffd700;
+            width: 22px;
+            font-size: 1.1rem;
+            flex-shrink: 0;
+        }
+
+        .social-link {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.06);
+            color: #fff;
+            font-size: 1.3rem;
+            transition: 0.2s;
+            text-decoration: none;
+            margin-right: 6px;
+        }
+        .social-link:hover {
+            background: #ffd700;
+            color: #0b1a3b;
+            transform: translateY(-3px);
+        }
+
+        .footer-divider {
+            border-color: rgba(255, 255, 255, 0.08);
+            margin: 2rem 0 1.5rem;
+        }
+        .copyright {
+            color: rgba(255, 255, 255, 0.4);
+            font-size: 0.9rem;
+            text-align: center;
+        }
+
+        @media (max-width: 768px) {
+            .stat-number {
+                font-size: 2.2rem;
+            }
+            .stat-icon {
+                width: 70px;
+                height: 70px;
+            }
+            .stat-icon i {
+                font-size: 2rem;
+            }
+            #hero .display-2 {
+                font-size: 2.6rem;
+            }
+            #hero .float-chip {
+                position: relative;
+                bottom: auto;
+                right: auto;
+                margin-top: 1rem;
+                display: inline-block;
+            }
+            .cta-section {
+                padding: 2rem 1.5rem;
+            }
+            .footer-heading::after {
+                left: 50%;
+                transform: translateX(-50%);
+            }
+            .footer-heading {
+                text-align: center;
+            }
+            .contact-info {
+                justify-content: center;
+            }
+            .quick-link {
+                display: block;
+                text-align: center;
+            }
+            .social-link {
+                margin: 0 4px;
+            }
+        }
+    </style>
 </head>
 
 <body>
@@ -126,13 +653,6 @@
                                 <i class="bi bi-info-circle"></i> Learn More
                             </a>
                         </div>
-
-                        <!-- Mini Stats -->
-                        <div class="stats-mini mt-5 d-flex align-items-center gap-4 flex-wrap">
-                            <div><h3 class="fw-bold text-warning mb-0">5000+</h3><small>Students</small></div>
-                            <div><h3 class="fw-bold text-warning mb-0">50+</h3><small>Teachers</small></div>
-                            <div><h3 class="fw-bold text-warning mb-0">15+</h3><small>Years</small></div>
-                        </div>
                     </div>
                     <div class="col-lg-5 text-center mt-4 mt-lg-0">
                         <div class="hero-visual d-inline-block">
@@ -147,6 +667,58 @@
             </div>
         </div>
     </section>
+
+   <section id="stats-section">
+    <div class="container">
+        <div class="row g-4 text-center">
+
+            <!-- Students -->
+            <div class="col-lg-3 col-md-6 col-12">
+                <div class="stat-item">
+                    <div class="stat-icon">
+                        <i class="bi bi-people-fill"></i>
+                    </div>
+                    <div class="stat-number" data-target="5000">0</div>
+                    <div class="stat-label">Students</div>
+                </div>
+            </div>
+
+            <!-- Years -->
+            <div class="col-lg-3 col-md-6 col-12">
+                <div class="stat-item">
+                    <div class="stat-icon">
+                        <i class="bi bi-calendar-check-fill"></i>
+                    </div>
+                    <div class="stat-number" data-target="16">0</div>
+                    <div class="stat-label">Years of Excellence</div>
+                </div>
+            </div>
+
+            <!-- Courses -->
+            <div class="col-lg-3 col-md-6 col-12">
+                <div class="stat-item">
+                    <div class="stat-icon">
+                        <i class="bi bi-book-fill"></i>
+                    </div>
+                    <div class="stat-number" data-target="25">0</div>
+                    <div class="stat-label">Courses Offered</div>
+                </div>
+            </div>
+
+            <!-- Success -->
+            <div class="col-lg-3 col-md-6 col-12">
+                <div class="stat-item">
+                    <div class="stat-icon">
+                        <i class="bi bi-star-fill"></i>
+                    </div>
+                    <div class="stat-number" data-target="100">0</div>
+                    <div class="stat-label">Success Rate (%)</div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
 
     <!-- ================= FEATURES SECTION ================= -->
     <section class="py-5 bg-light" id="features">
@@ -188,15 +760,101 @@
         </div>
     </section>
 
-    <!-- ================= STATISTICS BANNER ================= -->
-    <section class="py-5" id="statistics">
+    <!-- ================= STEP 2: TESTIMONIALS SLIDER ================= -->
+    <section id="testimonials-section">
         <div class="container">
-            <div class="stats-banner text-white text-center">
-                <div class="row g-4 align-items-center">
-                    <div class="col-md-3"><h2><i class="bi bi-people-fill"></i> 5000+</h2><p class="opacity-75">Students</p></div>
-                    <div class="col-md-3"><h2><i class="bi bi-person-badge-fill"></i> 50+</h2><p class="opacity-75">Expert Teachers</p></div>
-                    <div class="col-md-3"><h2><i class="bi bi-book-fill"></i> 25+</h2><p class="opacity-75">Courses</p></div>
-                    <div class="col-md-3"><h2><i class="bi bi-star-fill"></i> 100%</h2><p class="opacity-75">Success Rate</p></div>
+            <div class="text-center mb-5">
+                <span class="badge bg-primary bg-opacity-10 text-primary px-4 py-2 rounded-pill fw-semibold">Testimonials</span>
+                <h2 class="fw-bold mt-3" style="color: #0b1a3b;">What Our Students Say</h2>
+                <p class="text-muted" style="max-width: 600px; margin: 0 auto;">Real stories from our graduates and current students.</p>
+            </div>
+
+            <!-- Swiper -->
+            <div class="swiper testimonialSwiper">
+                <div class="swiper-wrapper">
+                    <!-- Card 1 -->
+                    <div class="swiper-slide">
+                        <div class="testimonial-card">
+                            <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Student photo" class="testimonial-avatar">
+                            <p class="testimonial-quote">"Forces Academy gave me the confidence and knowledge to ace my exams. The teachers are truly inspiring."</p>
+                            <div class="testimonial-name">Ahmed Raza</div>
+                            <div class="testimonial-class">Class of 2024 · F.Sc.</div>
+                        </div>
+                    </div>
+                    <!-- Card 2 -->
+                    <div class="swiper-slide">
+                        <div class="testimonial-card">
+                            <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Student photo" class="testimonial-avatar">
+                            <p class="testimonial-quote">"I improved my grades significantly and developed strong leadership skills. Highly recommend!"</p>
+                            <div class="testimonial-name">Fatima Noor</div>
+                            <div class="testimonial-class">Class of 2025 · Matric</div>
+                        </div>
+                    </div>
+                    <!-- Card 3 -->
+                    <div class="swiper-slide">
+                        <div class="testimonial-card">
+                            <img src="https://randomuser.me/api/portraits/men/75.jpg" alt="Student photo" class="testimonial-avatar">
+                            <p class="testimonial-quote">"The supportive environment and expert faculty helped me secure admission to a top university."</p>
+                            <div class="testimonial-name">Usman Ali</div>
+                            <div class="testimonial-class">Class of 2023 · F.Sc.</div>
+                        </div>
+                    </div>
+                    <!-- Card 4 -->
+                    <div class="swiper-slide">
+                        <div class="testimonial-card">
+                            <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Student photo" class="testimonial-avatar">
+                            <p class="testimonial-quote">"Forces Academy is more than a school; it's a community that pushes you to be your best self."</p>
+                            <div class="testimonial-name">Sana Tariq</div>
+                            <div class="testimonial-class">Class of 2026 · Intermediate</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Navigation buttons -->
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-pagination"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================= STEP 3: ADDITIONAL CTA BANNER (Scholarship / Demo / Urgent) ================= -->
+    <section id="extra-cta">
+        <div class="container">
+            <div class="text-center mb-5">
+                <span class="badge bg-danger bg-opacity-10 text-danger px-4 py-2 rounded-pill fw-semibold">Don't Miss Out</span>
+                <h2 class="fw-bold mt-3" style="color: #0b1a3b;">Special Offers &amp; Alerts</h2>
+                <p class="text-muted" style="max-width: 600px; margin: 0 auto;">
+                    Take advantage of limited-time opportunities to join Forces Academy.
+                </p>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="promo-card h-100">
+                        <span class="promo-badge">Save Big</span>
+                        <div class="promo-icon"><i class="bi bi-mortarboard-fill"></i></div>
+                        <h5>Scholarship Offers</h5>
+                        <p class="text-muted mb-3">Merit-based and need-based scholarships available for high-achieving students.</p>
+                        <a href="admissions.html" class="btn btn-warning rounded-pill px-4 fw-bold btn-sm">Check Eligibility</a>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="promo-card h-100">
+                        <span class="promo-badge">Free</span>
+                        <div class="promo-icon"><i class="bi bi-camera-video-fill"></i></div>
+                        <h5>Free Demo Classes</h5>
+                        <p class="text-muted mb-3">Experience our teaching style firsthand with a complimentary trial class.</p>
+                        <a href="contact.html" class="btn btn-warning rounded-pill px-4 fw-bold btn-sm">Book a Demo</a>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="promo-card urgent h-100">
+                        <span class="promo-badge urgent-badge">Limited Seats</span>
+                        <div class="promo-icon"><i class="bi bi-alarm-fill"></i></div>
+                        <h5>Urgent Admission Alert</h5>
+                        <p class="text-muted mb-3">Admissions closing soon — secure your seat before registration ends.</p>
+                        <a href="admissions.html" class="btn btn-danger rounded-pill px-4 fw-bold btn-sm">Apply Now</a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -235,8 +893,8 @@
         </div>
     </section>
 
-    <!-- ================= CTA SECTION ================= -->
-    <section class="py-5" id="cta">
+    <!-- ================= MAIN CTA SECTION (Separate from Footer) ================= -->
+    <section id="main-cta">
         <div class="container">
             <div class="cta-section text-center text-white">
                 <h2 class="fw-bold display-6">Ready to Build Your Future?</h2>
@@ -248,21 +906,24 @@
         </div>
     </section>
 
-    <!-- ================= FOOTER ================= -->
+    <!-- ================= FOOTER - SEPARATED SECTIONS ================= -->
     <footer>
         <div class="container">
-            <div class="row">
-                <!-- Academy Info -->
-                <div class="col-lg-4 mb-4">
+            <div class="row g-4">
+
+                <!-- ===== COLUMN 1: ACADEMY INFO ===== -->
+                <div class="col-lg-4 col-md-6">
                     <h3 class="footer-brand">
                         <i class="bi bi-mortarboard-fill"></i> Forces Academy
                     </h3>
-                    <p class="text-white-50 fs-5">Forces Academy Faisalabad is committed to providing quality education, discipline and leadership to prepare students for a brighter future.</p>
+                    <p class="footer-about-text">
+                        Forces Academy Faisalabad is committed to providing quality education, discipline and leadership to prepare students for a brighter future.
+                    </p>
                 </div>
 
-                <!-- Quick Links -->
-                <div class="col-lg-3 mb-4">
-                    <h5>Quick Links</h5>
+                <!-- ===== COLUMN 2: QUICK LINKS ===== -->
+                <div class="col-lg-3 col-md-6">
+                    <h5 class="footer-heading">Quick Links</h5>
                     <ul class="list-unstyled">
                         <li><a href="index.html" class="quick-link">Home</a></li>
                         <li><a href="about.html" class="quick-link">About</a></li>
@@ -274,18 +935,24 @@
                     </ul>
                 </div>
 
-                <!-- Contact -->
-                <div class="col-lg-3 mb-4">
-                    <h5>Contact Us</h5>
-                    <p class="contact-info"><i class="bi bi-geo-alt-fill"></i> Faisalabad, Punjab, Pakistan</p>
-                    <p class="contact-info"><i class="bi bi-telephone-fill"></i> +92-300-1234567</p>
-                    <p class="contact-info"><i class="bi bi-envelope-fill"></i> info@forcesacademy.com</p>
+                <!-- ===== COLUMN 3: CONTACT US ===== -->
+                <div class="col-lg-3 col-md-6">
+                    <h5 class="footer-heading">Contact Us</h5>
+                    <p class="contact-info">
+                        <i class="bi bi-geo-alt-fill"></i> Faisalabad, Punjab, Pakistan
+                    </p>
+                    <p class="contact-info">
+                        <i class="bi bi-telephone-fill"></i> +92-300-1234567
+                    </p>
+                    <p class="contact-info">
+                        <i class="bi bi-envelope-fill"></i> info@forcesacademy.com
+                    </p>
                 </div>
 
-                <!-- Social -->
-                <div class="col-lg-2 mb-4">
-                    <h5>Follow Us</h5>
-                    <div class="d-flex flex-wrap gap-2">
+                <!-- ===== COLUMN 4: FOLLOW US ===== -->
+                <div class="col-lg-2 col-md-6">
+                    <h5 class="footer-heading">Follow Us</h5>
+                    <div class="d-flex flex-wrap">
                         <a href="https://www.facebook.com/forcesacademyofficial" 
                            target="_blank" 
                            class="social-link facebook"
@@ -312,12 +979,13 @@
                         </a>
                     </div>
                     <div class="mt-2">
-                        <small class="text-white-50 d-block">Facebook · Instagram · YouTube</small>
+                        <small class="text-white-50">Facebook · Instagram · YouTube</small>
                     </div>
                 </div>
+
             </div>
 
-            <hr>
+            <hr class="footer-divider">
             <div class="text-center">
                 <p class="copyright">© 2026 Forces Academy Faisalabad. All Rights Reserved.</p>
             </div>
@@ -327,8 +995,92 @@
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
-    <!-- Custom JS -->
-    <script src="js/main.js"></script>
+    <!-- Swiper.js JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+    <!-- ================= INLINE JS (Stats + Swiper) ================= -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+
+            // ---------- STEP 1: ANIMATED STATS COUNTER ----------
+            const statsSection = document.getElementById('stats-section');
+            const statNumbers = document.querySelectorAll('.stat-number');
+            let animated = false;
+
+            function animateStats() {
+                if (animated) return;
+                animated = true;
+
+                statNumbers.forEach(stat => {
+                    const target = parseInt(stat.getAttribute('data-target'), 10);
+                    const duration = 2000; // 2 seconds
+                    const startTime = performance.now();
+
+                    function updateCounter(currentTime) {
+                        const elapsed = currentTime - startTime;
+                        const progress = Math.min(elapsed / duration, 1);
+                        // Ease-out cubic
+                        const eased = 1 - Math.pow(1 - progress, 3);
+                        const current = Math.round(eased * target);
+                        stat.textContent = current;
+
+                        if (progress < 1) {
+                            requestAnimationFrame(updateCounter);
+                        } else {
+                            stat.textContent = target;
+                        }
+                    }
+                    requestAnimationFrame(updateCounter);
+                });
+            }
+
+            // Intersection Observer for stats
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        animateStats();
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, {
+                threshold: 0.3
+            });
+
+            if (statsSection) {
+                observer.observe(statsSection);
+            }
+
+            // ---------- STEP 2: TESTIMONIALS SLIDER (Swiper) ----------
+            const swiper = new Swiper('.testimonialSwiper', {
+                loop: true,
+                autoplay: {
+                    delay: 3500,
+                    disableOnInteraction: false,
+                },
+                slidesPerView: 1,
+                spaceBetween: 24,
+                pagination: {
+                    el: '.swiper-pagination',
+                    clickable: true,
+                },
+                navigation: {
+                    nextEl: '.swiper-button-next',
+                    prevEl: '.swiper-button-prev',
+                },
+                breakpoints: {
+                    768: {
+                        slidesPerView: 2,
+                        spaceBetween: 30,
+                    },
+                    1024: {
+                        slidesPerView: 3,
+                        spaceBetween: 30,
+                    }
+                }
+            });
+
+        });
+    </script>
 
 </body>
 
