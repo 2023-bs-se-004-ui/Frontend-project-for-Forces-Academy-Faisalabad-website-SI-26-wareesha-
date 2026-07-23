@@ -179,14 +179,14 @@
             font-weight: 500;
         }
         .section-divider{
-    height: 80px;
-    background: linear-gradient(
-        to bottom,
-        #1a2f5a,
-        #10244d,
-        #0b1a3b
-    );
-}
+            height: 80px;
+            background: linear-gradient(
+                to bottom,
+                #1a2f5a,
+                #10244d,
+                #0b1a3b
+            );
+        }
 
         /* ===== STEP 2: TESTIMONIALS SECTION ===== */
         #testimonials-section {
@@ -350,24 +350,21 @@
 
         /* ===== MAIN CTA SECTION (Separate from Footer) ===== */
         /* CTA Section */
-#main-cta{
-    background: #0b1a3b;
-    padding: 4rem 0;
-    margin-bottom: 60px;   /* Footer se distance */
-}
+        #main-cta{
+            background: #0b1a3b;
+            padding: 4rem 0;
+            margin-bottom: 60px;   /* Footer se distance */
+        }
 
-/* Footer */
-footer{
-    background: #06122a;
-    padding: 4rem 0 2rem;
-    margin-top: 60px;      /* CTA se distance */
-}
-#main-cta{
-    border-bottom: 2px solid rgba(255,215,0,0.3);
-}
-<div style="height:60px; background:#0b1a3b;"></div>
-
-
+        /* Footer */
+        footer{
+            background: #06122a;
+            padding: 4rem 0 2rem;
+            margin-top: 60px;      /* CTA se distance */
+        }
+        #main-cta{
+            border-bottom: 2px solid rgba(255,215,0,0.3);
+        }
 
         /* ---- rest of the page styling ---- */
         body {
@@ -704,7 +701,9 @@ footer{
                     <div class="col-lg-5 text-center mt-4 mt-lg-0">
                         <div class="hero-visual d-inline-block">
                             <img src="https://static-assets.codecademy.com/assets/homepage/value-props/v1/module-2-desktop.webp"
-                                 alt="Students learning at Forces Academy Faisalabad" loading="eager">
+                                 alt="Students learning at Forces Academy Faisalabad" 
+                                 loading="eager"
+                                 width="500" height="400">
                             <div class="float-chip">
                                 <i class="bi bi-award-fill"></i> 100% Success Rate
                             </div>
@@ -715,57 +714,57 @@ footer{
         </div>
     </section>
 
-   <section id="stats-section">
-    <div class="container">
-        <div class="row g-4 text-center">
+    <section id="stats-section">
+        <div class="container">
+            <div class="row g-4 text-center">
 
-            <!-- Students -->
-            <div class="col-lg-3 col-md-6 col-12">
-                <div class="stat-item">
-                    <div class="stat-icon">
-                        <i class="bi bi-people-fill"></i>
+                <!-- Students -->
+                <div class="col-lg-3 col-md-6 col-12">
+                    <div class="stat-item">
+                        <div class="stat-icon">
+                            <i class="bi bi-people-fill"></i>
+                        </div>
+                        <div class="stat-number" data-count="5000">0</div>
+                        <div class="stat-label">Students</div>
                     </div>
-                    <div class="stat-number" data-target="5000">0</div>
-                    <div class="stat-label">Students</div>
                 </div>
-            </div>
 
-            <!-- Years -->
-            <div class="col-lg-3 col-md-6 col-12">
-                <div class="stat-item">
-                    <div class="stat-icon">
-                        <i class="bi bi-calendar-check-fill"></i>
+                <!-- Years -->
+                <div class="col-lg-3 col-md-6 col-12">
+                    <div class="stat-item">
+                        <div class="stat-icon">
+                            <i class="bi bi-calendar-check-fill"></i>
+                        </div>
+                        <div class="stat-number" data-count="16">0</div>
+                        <div class="stat-label">Years of Excellence</div>
                     </div>
-                    <div class="stat-number" data-target="16">0</div>
-                    <div class="stat-label">Years of Excellence</div>
                 </div>
-            </div>
 
-            <!-- Courses -->
-            <div class="col-lg-3 col-md-6 col-12">
-                <div class="stat-item">
-                    <div class="stat-icon">
-                        <i class="bi bi-book-fill"></i>
+                <!-- Courses -->
+                <div class="col-lg-3 col-md-6 col-12">
+                    <div class="stat-item">
+                        <div class="stat-icon">
+                            <i class="bi bi-book-fill"></i>
+                        </div>
+                        <div class="stat-number" data-count="25">0</div>
+                        <div class="stat-label">Courses Offered</div>
                     </div>
-                    <div class="stat-number" data-target="25">0</div>
-                    <div class="stat-label">Courses Offered</div>
                 </div>
-            </div>
 
-            <!-- Success -->
-            <div class="col-lg-3 col-md-6 col-12">
-                <div class="stat-item">
-                    <div class="stat-icon">
-                        <i class="bi bi-star-fill"></i>
+                <!-- Success -->
+                <div class="col-lg-3 col-md-6 col-12">
+                    <div class="stat-item">
+                        <div class="stat-icon">
+                            <i class="bi bi-star-fill"></i>
+                        </div>
+                        <div class="stat-number" data-count="100">0</div>
+                        <div class="stat-label">Success Rate (%)</div>
                     </div>
-                    <div class="stat-number" data-target="100">0</div>
-                    <div class="stat-label">Success Rate (%)</div>
                 </div>
-            </div>
 
+            </div>
         </div>
-    </div>
-</section>
+    </section>
 
     <!-- ================= FEATURES SECTION ================= -->
     <section class="py-5 bg-light" id="features">
@@ -781,7 +780,7 @@ footer{
             <div class="row g-4">
                 <div class="col-md-4">
                     <div class="card-feature h-100 text-center">
-                        <img class="feature-img" src="https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=600&q=80" alt="Quality education at Forces Academy">
+                        <img class="feature-img" src="https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=600&q=80" alt="Quality education at Forces Academy" loading="lazy" width="600" height="160">
                         <div class="icon"><i class="bi bi-mortarboard-fill"></i></div>
                         <h4 class="fw-bold mt-2">Quality Education</h4>
                         <p class="text-muted">Highly qualified teachers delivering modern and effective education.</p>
@@ -789,7 +788,7 @@ footer{
                 </div>
                 <div class="col-md-4">
                     <div class="card-feature h-100 text-center">
-                        <img class="feature-img" src="https://images.unsplash.com/photo-1580582932707-520aed937b7b?auto=format&fit=crop&w=600&q=80" alt="Experienced faculty at Forces Academy">
+                        <img class="feature-img" src="https://images.unsplash.com/photo-1580582932707-520aed937b7b?auto=format&fit=crop&w=600&q=80" alt="Experienced faculty at Forces Academy" loading="lazy" width="600" height="160">
                         <div class="icon"><i class="bi bi-person-workspace"></i></div>
                         <h4 class="fw-bold mt-2">Experienced Faculty</h4>
                         <p class="text-muted">Professional instructors helping students achieve academic excellence.</p>
@@ -797,7 +796,7 @@ footer{
                 </div>
                 <div class="col-md-4">
                     <div class="card-feature h-100 text-center">
-                        <img class="feature-img" src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=600&q=80" alt="Leadership training at Forces Academy">
+                        <img class="feature-img" src="https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=600&q=80" alt="Leadership training at Forces Academy" loading="lazy" width="600" height="160">
                         <div class="icon"><i class="bi bi-trophy-fill"></i></div>
                         <h4 class="fw-bold mt-2">Leadership Training</h4>
                         <p class="text-muted">Discipline, confidence, and leadership development for future success.</p>
@@ -822,7 +821,7 @@ footer{
                     <!-- Card 1 -->
                     <div class="swiper-slide">
                         <div class="testimonial-card">
-                            <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Student photo" class="testimonial-avatar">
+                            <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Student photo - Ahmed Raza" class="testimonial-avatar" loading="lazy" width="80" height="80">
                             <p class="testimonial-quote">"Forces Academy gave me the confidence and knowledge to ace my exams. The teachers are truly inspiring."</p>
                             <div class="testimonial-name">Ahmed Raza</div>
                             <div class="testimonial-class">Class of 2024 · F.Sc.</div>
@@ -831,7 +830,7 @@ footer{
                     <!-- Card 2 -->
                     <div class="swiper-slide">
                         <div class="testimonial-card">
-                            <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Student photo" class="testimonial-avatar">
+                            <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Student photo - Fatima Noor" class="testimonial-avatar" loading="lazy" width="80" height="80">
                             <p class="testimonial-quote">"I improved my grades significantly and developed strong leadership skills. Highly recommend!"</p>
                             <div class="testimonial-name">Fatima Noor</div>
                             <div class="testimonial-class">Class of 2025 · Matric</div>
@@ -840,7 +839,7 @@ footer{
                     <!-- Card 3 -->
                     <div class="swiper-slide">
                         <div class="testimonial-card">
-                            <img src="https://randomuser.me/api/portraits/men/75.jpg" alt="Student photo" class="testimonial-avatar">
+                            <img src="https://randomuser.me/api/portraits/men/75.jpg" alt="Student photo - Usman Ali" class="testimonial-avatar" loading="lazy" width="80" height="80">
                             <p class="testimonial-quote">"The supportive environment and expert faculty helped me secure admission to a top university."</p>
                             <div class="testimonial-name">Usman Ali</div>
                             <div class="testimonial-class">Class of 2023 · F.Sc.</div>
@@ -849,7 +848,7 @@ footer{
                     <!-- Card 4 -->
                     <div class="swiper-slide">
                         <div class="testimonial-card">
-                            <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Student photo" class="testimonial-avatar">
+                            <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Student photo - Sana Tariq" class="testimonial-avatar" loading="lazy" width="80" height="80">
                             <p class="testimonial-quote">"Forces Academy is more than a school; it's a community that pushes you to be your best self."</p>
                             <div class="testimonial-name">Sana Tariq</div>
                             <div class="testimonial-class">Class of 2026 · Intermediate</div>
@@ -920,19 +919,19 @@ footer{
             <div class="row g-4">
                 <div class="col-md-4">
                     <div class="gallery-item">
-                        <img src="https://images.unsplash.com/photo-1571260899304-425eee4c7efc?auto=format&fit=crop&w=700&q=80" alt="Classroom session">
+                        <img src="https://images.unsplash.com/photo-1571260899304-425eee4c7efc?auto=format&fit=crop&w=700&q=80" alt="Interactive classroom session at Forces Academy" loading="lazy" width="700" height="220">
                         <div class="gallery-caption">Interactive Classrooms</div>
                     </div>
                 </div>
                 <div class="col-md-4">
                     <div class="gallery-item">
-                        <img src="https://images.unsplash.com/photo-1497633762265-9d179a990aa6?auto=format&fit=crop&w=700&q=80" alt="Library and study area">
+                        <img src="https://images.unsplash.com/photo-1497633762265-9d179a990aa6?auto=format&fit=crop&w=700&q=80" alt="Library and study area at Forces Academy" loading="lazy" width="700" height="220">
                         <div class="gallery-caption">Library &amp; Study Zones</div>
                     </div>
                 </div>
                 <div class="col-md-4">
                     <div class="gallery-item">
-                        <img src="https://images.unsplash.com/photo-1541339907198-e08756dedf3f?auto=format&fit=crop&w=700&q=80" alt="Graduation and achievements">
+                        <img src="https://images.unsplash.com/photo-1541339907198-e08756dedf3f?auto=format&fit=crop&w=700&q=80" alt="Graduation and achievements at Forces Academy" loading="lazy" width="700" height="220">
                         <div class="gallery-caption">Celebrating Achievements</div>
                     </div>
                 </div>
@@ -1064,7 +1063,7 @@ footer{
                 animated = true;
 
                 statNumbers.forEach(stat => {
-                    const target = parseInt(stat.getAttribute('data-target'), 10);
+                    const target = parseInt(stat.getAttribute('data-count'), 10);
                     const duration = 2000; // 2 seconds
                     const startTime = performance.now();
 

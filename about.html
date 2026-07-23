@@ -14,8 +14,8 @@
 
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
- <link rel="stylesheet" href="css/style.css">
-   <style>
+
+    <style>
         /* ===== Smooth Scroll ===== */
         html {
             scroll-behavior: smooth;
@@ -63,13 +63,45 @@
             }
         }
 
-        /* Hero section: same background-image + dark overlay treatment
-           as the Courses page header (.page-header) */
-        .about-hero{
+        /* ===== NAVBAR STYLES (MATCHING INDEX.HTML) ===== */
+        #mainNav {
+            background: #0b1a3b;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+            padding: 0.8rem 0;
+        }
+        .navbar-brand {
+            font-size: 1.5rem;
+            letter-spacing: -0.5px;
+        }
+        .navbar-brand i {
+            color: #ffd700;
+        }
+        .nav-link {
+            color: rgba(255, 255, 255, 0.7) !important;
+            font-weight: 600;
+            padding: 0.6rem 1rem !important;
+            border-radius: 50px;
+            transition: all 0.2s;
+        }
+        .nav-link:hover,
+        .nav-link.active {
+            color: #fff !important;
+            background: rgba(255, 215, 0, 0.15);
+        }
+        .btn-warning {
+            background: #ffd700;
+            border: none;
+            color: #0b1a3b;
+        }
+        .btn-warning:hover {
+            background: #e6c200;
+            color: #0b1a3b;
+        }
+
+        /* Hero section */
+        .about-hero {
             position: relative;
-            background-image:
-                linear-gradient(rgba(10, 20, 40, 0.86), rgba(10, 20, 40, 0.92)),
-                url('https://picsum.photos/seed/forcesacademy-hero/1600/700');
+            background-image: linear-gradient(rgba(10, 20, 40, 0.86), rgba(10, 20, 40, 0.92)), url('https://picsum.photos/seed/forcesacademy-hero/1600/700');
             background-size: cover;
             background-position: center;
             overflow: hidden;
@@ -134,21 +166,37 @@
         .about-hero .badge-gold,
         .about-hero h1,
         .about-hero .lead,
-        .about-hero > .container > .text-center > .btn,
+        .about-hero>.container>.text-center>.btn,
         .about-hero .mt-4.d-flex {
             opacity: 0;
             transform: translateY(24px);
             animation: heroFadeUp 0.8s ease forwards;
         }
-        .about-hero .badge-gold { animation-delay: 0.1s; }
-        .about-hero h1 { animation-delay: 0.25s; }
-        .about-hero .lead { animation-delay: 0.4s; }
-        .about-hero > .container > .text-center > .btn { animation-delay: 0.55s; }
-        .about-hero .mt-4.d-flex { animation-delay: 0.7s; }
+        .about-hero .badge-gold {
+            animation-delay: 0.1s;
+        }
+        .about-hero h1 {
+            animation-delay: 0.25s;
+        }
+        .about-hero .lead {
+            animation-delay: 0.4s;
+        }
+        .about-hero>.container>.text-center>.btn {
+            animation-delay: 0.55s;
+        }
+        .about-hero .mt-4.d-flex {
+            animation-delay: 0.7s;
+        }
 
         @keyframes heroFadeUp {
-            from { opacity: 0; transform: translateY(24px); }
-            to { opacity: 1; transform: translateY(0); }
+            from {
+                opacity: 0;
+                transform: translateY(24px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
         .about-hero .btn {
@@ -156,535 +204,436 @@
         }
         .about-hero .btn:hover {
             transform: translateY(-3px);
-            box-shadow: 0 8px 22px rgba(0,0,0,0.25);
+            box-shadow: 0 8px 22px rgba(0, 0, 0, 0.25);
         }
 
-        /* Campus gallery images */
-        .gallery-photo{
+        .gallery-photo {
             width: 100%;
             height: 220px;
             object-fit: cover;
             border-radius: 14px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
             transition: transform .3s ease;
         }
-        .gallery-photo:hover{
+        .gallery-photo:hover {
             transform: scale(1.03);
         }
 
-        /* Counselor section photo */
-        .counselor-photo{
+        .counselor-photo {
             width: 100%;
             max-width: 380px;
             border-radius: 16px;
-            box-shadow: 0 12px 30px rgba(0,0,0,0.18);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.18);
         }
-     </style>
+
+        /* ===== FOOTER STYLES (MATCHING INDEX.HTML) ===== */
+        footer {
+            background: #06122a;
+            padding: 4rem 0 2rem;
+            color: #fff;
+        }
+
+        .footer-brand {
+            font-size: 1.8rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+        }
+        .footer-brand i {
+            color: #ffd700;
+        }
+        .footer-about-text {
+            color: rgba(255, 255, 255, 0.65);
+            font-size: 1rem;
+            line-height: 1.7;
+        }
+
+        .footer-heading {
+            color: #ffd700;
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 1.2rem;
+            letter-spacing: 0.5px;
+            position: relative;
+            padding-bottom: 0.6rem;
+        }
+        .footer-heading::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 35px;
+            height: 3px;
+            background: #ffd700;
+            border-radius: 10px;
+        }
+
+        .quick-link {
+            color: rgba(255, 255, 255, 0.6);
+            text-decoration: none;
+            transition: 0.2s;
+            display: inline-block;
+            margin-bottom: 0.4rem;
+            font-size: 0.95rem;
+        }
+        .quick-link:hover {
+            color: #ffd700;
+            padding-left: 6px;
+        }
+
+        .contact-info {
+            color: rgba(255, 255, 255, 0.6);
+            margin-bottom: 0.6rem;
+            font-size: 0.95rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .contact-info i {
+            color: #ffd700;
+            width: 22px;
+            font-size: 1.1rem;
+            flex-shrink: 0;
+        }
+
+        .social-link {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.06);
+            color: #fff;
+            font-size: 1.3rem;
+            transition: 0.2s;
+            text-decoration: none;
+            margin-right: 6px;
+        }
+        .social-link:hover {
+            background: #ffd700;
+            color: #0b1a3b;
+            transform: translateY(-3px);
+        }
+
+        .footer-divider {
+            border-color: rgba(255, 255, 255, 0.08);
+            margin: 2rem 0 1.5rem;
+        }
+        .copyright {
+            color: rgba(255, 255, 255, 0.4);
+            font-size: 0.9rem;
+            text-align: center;
+        }
+
+        @media (max-width: 768px) {
+            .footer-heading::after {
+                left: 50%;
+                transform: translateX(-50%);
+            }
+            .footer-heading {
+                text-align: center;
+            }
+            .contact-info {
+                justify-content: center;
+            }
+            .quick-link {
+                display: block;
+                text-align: center;
+            }
+            .social-link {
+                margin: 0 4px;
+            }
+        }
+    </style>
 </head>
 
 <body>
 
-    <!-- ================= NAVBAR ================= -->
-
+    <!-- ================= NAVBAR (IDENTICAL TO INDEX.HTML) ================= -->
     <nav class="navbar navbar-expand-lg navbar-dark sticky-top" id="mainNav">
-
         <div class="container">
-
             <a class="navbar-brand fw-bold" href="index.html">
-                <i class="bi bi-mortarboard-fill"></i>
-                Forces Academy
+                <i class="bi bi-mortarboard-fill"></i> Forces Academy
             </a>
-
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
                 <span class="navbar-toggler-icon"></span>
-
             </button>
-
-            <div class="collapse navbar-collapse" id="navbarNav">
-
-                <ul class="navbar-nav mx-auto">
-
-                    <li class="nav-item">
-                        <a class="nav-link" href="index.html">Home</a>
-                    </li>
-
-                    <li class="nav-item">
-                        <a class="nav-link active" href="about.html">About</a>
-                    </li>
-
-                    <li class="nav-item">
-                        <a class="nav-link" href="courses.html">Courses</a>
-                    </li>
-
-                    <li class="nav-item">
-                        <a class="nav-link" href="admissions.html">Admissions</a>
-                    </li>
-
-                    <li class="nav-item">
-                        <a class="nav-link" href="results.html">Results</a>
-                    </li>
-
-                    <li class="nav-item">
-                        <a class="nav-link" href="gallery.html">Gallery</a>
-                    </li>
-
-                    <li class="nav-item">
-                        <a class="nav-link" href="contact.html">Contact</a>
-                    </li>
-
+            <div class="collapse navbar-collapse" id="navMenu">
+                <ul class="navbar-nav mx-auto gap-1">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link active" href="about.html">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="courses.html">Courses</a></li>
+                    <li class="nav-item"><a class="nav-link" href="admissions.html">Admissions</a></li>
+                    <li class="nav-item"><a class="nav-link" href="results.html">Results</a></li>
+                    <li class="nav-item"><a class="nav-link" href="gallery.html">Gallery</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
                 </ul>
-
-                <a href="admissions.html" class="btn btn-warning rounded-pill px-4 fw-bold">Apply Now</a>
-
+                <a href="admissions.html" class="btn btn-warning rounded-pill px-4 fw-bold">
+                    <i class="bi bi-box-arrow-in-right"></i> Portal
+                </a>
             </div>
-
         </div>
-
     </nav>
 
     <!-- ================= HERO SECTION ================= -->
-
     <section class="about-hero">
-
         <div class="container text-center">
-
             <span class="badge-gold mb-3 d-inline-block"><i class="bi bi-mortarboard-fill me-1"></i> About Forces Academy</span>
-
             <h1 class="display-4 fw-bold text-white">Shaping Future Leaders of Pakistan</h1>
-
             <p class="lead mx-auto mt-3">Forces Academy Faisalabad provides quality education, discipline and leadership to prepare students for academic excellence and successful careers.</p>
-
             <a href="#overview" class="btn btn-warning btn-lg rounded-pill mt-3 px-5">Learn More</a>
-
             <div class="mt-4 d-flex gap-2 flex-wrap justify-content-center">
                 <span class="badge bg-primary p-2 px-3"><i class="bi bi-check-circle-fill me-1"></i> 15+ Years</span>
                 <span class="badge bg-success p-2 px-3"><i class="bi bi-people-fill me-1"></i> 2000+ Students</span>
                 <span class="badge bg-warning text-dark p-2 px-3"><i class="bi bi-trophy-fill me-1"></i> 98% Results</span>
             </div>
-
         </div>
-
     </section>
 
     <!-- ================= ACADEMY OVERVIEW ================= -->
-
     <section id="overview" class="py-5">
-
         <div class="container">
-
             <div class="text-center mb-5">
-
                 <h2 class="fw-bold">Academy Overview</h2>
                 <p class="text-muted">Learn about our history and commitment to educational excellence.</p>
-
             </div>
-
             <div class="row align-items-center g-5">
-
                 <div class="col-lg-6">
-
-                    <img src="https://images.unsplash.com/photo-1571260899304-425eee4c7efc?w=600&h=400&fit=crop&crop=center" 
-                         class="img-fluid rounded-4 shadow" 
-                         alt="Academy Campus">
-
+                    <img src="https://images.unsplash.com/photo-1571260899304-425eee4c7efc?w=600&h=400&fit=crop&crop=center" class="img-fluid rounded-4 shadow" alt="Academy Campus" loading="lazy">
                 </div>
-
                 <div class="col-lg-6">
-
                     <h3 class="fw-bold mb-3">About Forces Academy Faisalabad</h3>
-
                     <p class="fs-5">Forces Academy Faisalabad has been providing quality education with discipline, integrity and leadership. Our experienced teachers and modern teaching methods help students achieve excellent academic performance.</p>
-
                     <p class="fs-5">We focus on building confidence, character and professional skills so every student becomes a responsible citizen and future leader.</p>
-
                     <div class="mt-4 d-flex gap-3 flex-wrap">
                         <span class="badge bg-primary p-3 fs-6"><i class="bi bi-check-circle-fill me-1"></i> 15+ Years</span>
                         <span class="badge bg-success p-3 fs-6"><i class="bi bi-people-fill me-1"></i> 2000+ Students</span>
                         <span class="badge bg-warning text-dark p-3 fs-6"><i class="bi bi-trophy-fill me-1"></i> 98% Results</span>
                     </div>
-
                 </div>
-
             </div>
-
         </div>
-
     </section>
 
     <!-- ================= MISSION & VISION ================= -->
-
     <section class="py-5 bg-light">
-
         <div class="container">
-
             <div class="text-center mb-5">
-
                 <h2 class="fw-bold">Mission & Vision</h2>
-
             </div>
-
             <div class="row g-4">
-
                 <div class="col-md-6">
-
                     <div class="card shadow border-0 h-100">
-
                         <div class="card-body p-4 text-center">
-
                             <div class="bg-warning bg-opacity-10 rounded-circle d-inline-flex p-4 mb-3">
                                 <i class="bi bi-bullseye display-4 text-warning"></i>
                             </div>
-
                             <h3 class="mt-3">Our Mission</h3>
-
                             <p class="fs-5">To provide quality education, discipline, leadership and moral values that prepare students for higher education and successful careers.</p>
-
                         </div>
-
                     </div>
-
                 </div>
-
                 <div class="col-md-6">
-
                     <div class="card shadow border-0 h-100">
-
                         <div class="card-body p-4 text-center">
-
                             <div class="bg-warning bg-opacity-10 rounded-circle d-inline-flex p-4 mb-3">
                                 <i class="bi bi-eye-fill display-4 text-warning"></i>
                             </div>
-
                             <h3 class="mt-3">Our Vision</h3>
-
                             <p class="fs-5">To become one of Pakistan's leading educational institutions by producing confident, knowledgeable and responsible future leaders.</p>
-
                         </div>
-
                     </div>
-
                 </div>
-
             </div>
-
         </div>
-
     </section>
 
     <!-- ================= WHY CHOOSE US ================= -->
-
     <section class="py-5">
-
         <div class="container">
-
             <div class="text-center mb-5">
-
                 <h2 class="fw-bold">Why Choose Us</h2>
-
             </div>
-
             <div class="row g-4">
-
                 <div class="col-md-6 col-lg-3">
-
                     <div class="card h-100 shadow border-0 text-center">
-
                         <div class="card-body py-4">
-
                             <div class="bg-primary bg-opacity-10 rounded-circle d-inline-flex p-3 mb-3">
                                 <i class="bi bi-shield-check display-4 text-primary"></i>
                             </div>
-
                             <h5 class="mt-2">Discipline</h5>
-
                             <p>A disciplined environment that develops responsible students.</p>
-
                         </div>
-
                     </div>
-
                 </div>
-
                 <div class="col-md-6 col-lg-3">
-
                     <div class="card h-100 shadow border-0 text-center">
-
                         <div class="card-body py-4">
-
                             <div class="bg-primary bg-opacity-10 rounded-circle d-inline-flex p-3 mb-3">
                                 <i class="bi bi-person-workspace display-4 text-primary"></i>
                             </div>
-
                             <h5 class="mt-2">Qualified Faculty</h5>
-
                             <p>Highly experienced and dedicated teachers.</p>
-
                         </div>
-
                     </div>
-
                 </div>
-
                 <div class="col-md-6 col-lg-3">
-
                     <div class="card h-100 shadow border-0 text-center">
-
                         <div class="card-body py-4">
-
                             <div class="bg-primary bg-opacity-10 rounded-circle d-inline-flex p-3 mb-3">
                                 <i class="bi bi-trophy display-4 text-primary"></i>
                             </div>
-
                             <h5 class="mt-2">Proven Results</h5>
-
                             <p>Excellent board and entry test achievements.</p>
-
                         </div>
-
                     </div>
-
                 </div>
-
                 <div class="col-md-6 col-lg-3">
-
                     <div class="card h-100 shadow border-0 text-center">
-
                         <div class="card-body py-4">
-
                             <div class="bg-primary bg-opacity-10 rounded-circle d-inline-flex p-3 mb-3">
                                 <i class="bi bi-building display-4 text-primary"></i>
                             </div>
-
                             <h5 class="mt-2">Modern Facilities</h5>
-
                             <p>Smart classrooms, science labs and computer labs.</p>
-
                         </div>
-
                     </div>
-
                 </div>
-
             </div>
-
         </div>
-
     </section>
 
     <!-- ================= LEADERSHIP TEAM ================= -->
-
     <section class="py-5 bg-light">
-
         <div class="container">
-
             <div class="text-center mb-5">
-
                 <h2 class="fw-bold">Leadership Team</h2>
                 <p class="text-muted">Meet our dedicated leadership team</p>
-
             </div>
-
             <div class="row g-4">
-
-                <!-- Principal -->
                 <div class="col-md-4">
-
                     <div class="card shadow border-0 leader-card">
-
                         <div class="leader-img-wrapper">
-                            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=500&fit=crop&crop=center&auto=format" 
-                                 alt="Mr. Ahmed Khan - Principal">
+                            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=500&fit=crop&crop=center&auto=format" alt="Mr. Ahmed Khan - Principal" loading="lazy">
                         </div>
-
                         <div class="card-body text-center">
-
                             <h5 class="fw-bold mb-1">Mr. Ahmed Khan</h5>
                             <p class="text-muted mb-2">Principal</p>
                             <span class="badge bg-warning text-dark">M.Ed, 18+ Years</span>
-
                             <div class="mt-3">
                                 <small class="text-muted">
                                     <i class="bi bi-envelope me-1"></i> principal@forcesacademy.com
                                 </small>
                             </div>
-
                         </div>
-
                     </div>
-
                 </div>
-
-                <!-- Vice Principal -->
                 <div class="col-md-4">
-
                     <div class="card shadow border-0 leader-card">
-
                         <div class="leader-img-wrapper">
-                            <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400&h=500&fit=crop&crop=center&auto=format" 
-                                 alt="Mrs. Sana Ali - Vice Principal">
+                            <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400&h=500&fit=crop&crop=center&auto=format" alt="Mrs. Sana Ali - Vice Principal" loading="lazy">
                         </div>
-
                         <div class="card-body text-center">
-
                             <h5 class="fw-bold mb-1">Mrs. Sana Ali</h5>
                             <p class="text-muted mb-2">Vice Principal</p>
                             <span class="badge bg-warning text-dark">M.Sc, 15+ Years</span>
-
                             <div class="mt-3">
                                 <small class="text-muted">
                                     <i class="bi bi-envelope me-1"></i> vprincipal@forcesacademy.com
                                 </small>
                             </div>
-
                         </div>
-
                     </div>
-
                 </div>
-
-                <!-- Academic Coordinator -->
                 <div class="col-md-4">
-
                     <div class="card shadow border-0 leader-card">
-
                         <div class="leader-img-wrapper">
-                            <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&h=500&fit=crop&crop=center&auto=format" 
-                                 alt="Mr. Bilal Ahmad - Academic Coordinator">
+                            <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&h=500&fit=crop&crop=center&auto=format" alt="Mr. Bilal Ahmad - Academic Coordinator" loading="lazy">
                         </div>
-
                         <div class="card-body text-center">
-
                             <h5 class="fw-bold mb-1">Mr. Bilal Ahmad</h5>
                             <p class="text-muted mb-2">Academic Coordinator</p>
                             <span class="badge bg-warning text-dark">M.Phil, 12+ Years</span>
-
                             <div class="mt-3">
                                 <small class="text-muted">
                                     <i class="bi bi-envelope me-1"></i> coordinator@forcesacademy.com
                                 </small>
                             </div>
-
                         </div>
-
                     </div>
-
                 </div>
-
             </div>
-
         </div>
-
     </section>
 
-    <!-- ================= FOOTER ================= -->
-
-    <footer class="bg-dark text-white pt-5 pb-3">
-
+    <!-- ================= FOOTER (IDENTICAL TO INDEX.HTML) ================= -->
+    <footer>
         <div class="container">
+            <div class="row g-4">
 
-            <div class="row">
-
-                <!-- Academy Info -->
-
-                <div class="col-lg-4 mb-4">
-
-                    <h3 class="fw-bold text-warning">
-
+                <div class="col-lg-4 col-md-6">
+                    <h3 class="footer-brand">
                         <i class="bi bi-mortarboard-fill"></i> Forces Academy
-
                     </h3>
-
-                    <p class="text-white-50 fs-5">Forces Academy Faisalabad is committed to providing quality education, discipline and leadership to prepare students for a brighter future.</p>
-
+                    <p class="footer-about-text">
+                        Forces Academy Faisalabad is committed to providing quality education, discipline and leadership to prepare students for a brighter future.
+                    </p>
                 </div>
 
-                <!-- Quick Links -->
-
-                <div class="col-lg-3 mb-4">
-
-                    <h5 class="text-warning">Quick Links</h5>
-
-                    <ul class="list-unstyled fs-5">
-
-                        <li><a href="index.html" class="text-white text-decoration-none quick-link">Home</a></li>
-                        <li><a href="about.html" class="text-white text-decoration-none quick-link">About</a></li>
-                        <li><a href="courses.html" class="text-white text-decoration-none quick-link">Courses</a></li>
-                        <li><a href="admissions.html" class="text-white text-decoration-none quick-link">Admissions</a></li>
-                        <li><a href="results.html" class="text-white text-decoration-none quick-link">Results</a></li>
-                        <li><a href="gallery.html" class="text-white text-decoration-none quick-link">Gallery</a></li>
-                        <li><a href="contact.html" class="text-white text-decoration-none quick-link">Contact</a></li>
-
+                <div class="col-lg-3 col-md-6">
+                    <h5 class="footer-heading">Quick Links</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="index.html" class="quick-link">Home</a></li>
+                        <li><a href="about.html" class="quick-link">About</a></li>
+                        <li><a href="courses.html" class="quick-link">Courses</a></li>
+                        <li><a href="admissions.html" class="quick-link">Admissions</a></li>
+                        <li><a href="results.html" class="quick-link">Results</a></li>
+                        <li><a href="gallery.html" class="quick-link">Gallery</a></li>
+                        <li><a href="contact.html" class="quick-link">Contact</a></li>
                     </ul>
-
                 </div>
 
-                <!-- Contact -->
-
-                <div class="col-lg-3 mb-4">
-
-                    <h5 class="text-warning">Contact Us</h5>
-
-                    <p class="fs-5"><i class="bi bi-geo-alt-fill me-2"></i> Faisalabad, Punjab, Pakistan</p>
-                    <p class="fs-5"><i class="bi bi-telephone-fill me-2"></i> +92-300-1234567</p>
-                    <p class="fs-5"><i class="bi bi-envelope-fill me-2"></i> info@forcesacademy.com</p>
-
+                <div class="col-lg-3 col-md-6">
+                    <h5 class="footer-heading">Contact Us</h5>
+                    <p class="contact-info">
+                        <i class="bi bi-geo-alt-fill"></i> Faisalabad, Punjab, Pakistan
+                    </p>
+                    <p class="contact-info">
+                        <i class="bi bi-telephone-fill"></i> +92-300-1234567
+                    </p>
+                    <p class="contact-info">
+                        <i class="bi bi-envelope-fill"></i> info@forcesacademy.com
+                    </p>
                 </div>
 
-                <!-- Social -->
-
-                <div class="col-lg-2 mb-4">
-
-                    <h5 class="text-warning">Follow Us</h5>
-
-                    <div class="d-flex flex-wrap gap-2">
-
-                        <a href="https://www.facebook.com/forcesacademyofficial" 
-                           target="_blank" 
-                           class="social-link facebook text-white fs-4"
-                           title="Follow us on Facebook">
+                <div class="col-lg-2 col-md-6">
+                    <h5 class="footer-heading">Follow Us</h5>
+                    <div class="d-flex flex-wrap">
+                        <a href="https://www.facebook.com/forcesacademyofficial" target="_blank" class="social-link facebook" title="Follow us on Facebook">
                             <i class="bi bi-facebook"></i>
                         </a>
-
-                        <a href="https://www.instagram.com/forcesacademyofficial" 
-                           target="_blank" 
-                           class="social-link instagram text-white fs-4"
-                           title="Follow us on Instagram">
+                        <a href="https://www.instagram.com/forcesacademyofficial" target="_blank" class="social-link instagram" title="Follow us on Instagram">
                             <i class="bi bi-instagram"></i>
                         </a>
-
-                        <a href="https://www.youtube.com/@forcesacademyofficial" 
-                           target="_blank" 
-                           class="social-link youtube text-white fs-4"
-                           title="Subscribe on YouTube">
+                        <a href="https://www.youtube.com/@forcesacademyofficial" target="_blank" class="social-link youtube" title="Subscribe on YouTube">
                             <i class="bi bi-youtube"></i>
                         </a>
-<a href="https://twitter.com/forcesacademy" 
-                           target="_blank" 
-                           class="social-link twitter"
-                           title="Follow us on Twitter">
+                        <a href="https://twitter.com/forcesacademy" target="_blank" class="social-link twitter" title="Follow us on Twitter">
                             <i class="bi bi-twitter-x"></i>
                         </a>
                     </div>
-
                     <div class="mt-2">
-                        <small class="text-white-50 d-block">Facebook · Instagram · YouTube</small>
+                        <small class="text-white-50">Facebook · Instagram · YouTube</small>
                     </div>
-
                 </div>
 
             </div>
 
-            <hr class="border-secondary">
-
+            <hr class="footer-divider">
             <div class="text-center">
-
-                <p class="mb-0 fs-5">© 2026 Forces Academy Faisalabad. All Rights Reserved.</p> 
-
+                <p class="copyright">© 2026 Forces Academy Faisalabad. All Rights Reserved.</p>
             </div>
-
         </div>
-
     </footer>
 
     <!-- ================= BACK TO TOP BUTTON ================= -->
@@ -693,12 +642,11 @@
     </button>
 
     <!-- Bootstrap JS -->
-
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
-    <!-- ================= INLINE JS (Back to Top) ================= -->
     <script>
         document.addEventListener('DOMContentLoaded', function() {
+            // Back to Top Button
             const backToTopBtn = document.getElementById('backToTopBtn');
 
             function toggleBackToTopBtn() {
