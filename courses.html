@@ -89,61 +89,95 @@
             box-shadow: 0 12px 30px rgba(0, 0, 0, 0.18);
         }
 
-        /* ===== BACK TO TOP BUTTON (Step 10 & 11) ===== */
-        .back-to-top {
-            position: fixed;
-            bottom: 2rem;
-            right: 2rem;
-            width: 52px;
-            height: 52px;
-            background: linear-gradient(145deg, #ffd700, #f5a623);
-            color: #0f2847;
+        /* ===== NAVBAR STYLES (MATCHING INDEX.HTML / ABOUT.HTML) ===== */
+        #mainNav {
+            background: #0b1a3b;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+            padding: 0.8rem 0;
+        }
+        .navbar-brand {
+            font-size: 1.5rem;
+            letter-spacing: -0.5px;
+        }
+        .navbar-brand i {
+            color: #ffd700;
+        }
+        .nav-link {
+            color: rgba(255, 255, 255, 0.7) !important;
+            font-weight: 600;
+            padding: 0.6rem 1rem !important;
+            border-radius: 50px;
+            transition: all 0.2s;
+        }
+        .nav-link:hover,
+        .nav-link.active {
+            color: #fff !important;
+            background: rgba(255, 215, 0, 0.15);
+        }
+        .btn-warning {
+            background: #ffd700;
             border: none;
+            color: #0b1a3b;
+        }
+        .btn-warning:hover {
+            background: #e6c200;
+            color: #0b1a3b;
+        }
+
+        /* ===== Student Portal button — made to stand out clearly (matches other pages) ===== */
+        .btn-portal {
+            background: linear-gradient(135deg, #ffe14d, #ffd700);
+            color: #0b1a3b !important;
+            font-weight: 800;
+            box-shadow: 0 0 0 2px rgba(255, 215, 0, 0.25), 0 6px 16px rgba(255, 215, 0, 0.35);
+            transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.2s ease;
+        }
+        .btn-portal:hover {
+            background: linear-gradient(135deg, #fff3b0, #ffd700);
+            color: #0b1a3b !important;
+            transform: translateY(-3px);
+            box-shadow: 0 0 0 2px rgba(255, 215, 0, 0.4), 0 10px 24px rgba(255, 215, 0, 0.45);
+        }
+
+        /* ===== BACK TO TOP BUTTON (Step 10 & 11) — unified circular gold style ===== */
+        #backToTopBtn {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 1050;
+            width: 50px;
+            height: 50px;
             border-radius: 50%;
-            font-size: 1.6rem;
+            background: #ffd700;
+            color: #0b1a3b;
+            border: none;
+            font-size: 1.4rem;
             display: flex;
             align-items: center;
             justify-content: center;
-            box-shadow: 0 8px 28px rgba(255, 215, 0, 0.45);
-            cursor: pointer;
-            transition: opacity 0.3s ease, transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.3s ease;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
             opacity: 0;
-            transform: translateY(20px) scale(0.85);
-            pointer-events: none;
-            z-index: 9999;
-            text-decoration: none;
-            border: 2px solid rgba(255, 255, 255, 0.25);
-            backdrop-filter: blur(4px);
+            visibility: hidden;
+            transform: translateY(20px);
+            transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s ease, background 0.2s ease;
+            cursor: pointer;
         }
-
-        .back-to-top.visible {
+        #backToTopBtn.show {
             opacity: 1;
-            transform: translateY(0) scale(1);
-            pointer-events: auto;
+            visibility: visible;
+            transform: translateY(0);
         }
-
-        .back-to-top:hover {
-            transform: translateY(-4px) scale(1.08);
-            box-shadow: 0 12px 40px rgba(255, 215, 0, 0.6);
-            background: linear-gradient(145deg, #ffe44d, #f5a623);
-            color: #0f2847;
+        #backToTopBtn:hover {
+            background: #e6c200;
+            transform: translateY(-4px);
         }
-
-        .back-to-top:active {
-            transform: scale(0.92);
-        }
-
-        .back-to-top i {
-            filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.15));
-        }
-
         @media (max-width: 576px) {
-            .back-to-top {
+            #backToTopBtn {
                 width: 44px;
                 height: 44px;
-                font-size: 1.3rem;
-                bottom: 1.2rem;
-                right: 1.2rem;
+                font-size: 1.2rem;
+                bottom: 20px;
+                right: 20px;
             }
         }
     </style>
@@ -158,11 +192,11 @@
                 <i class="bi bi-mortarboard-fill"></i>
                 Forces Academy
             </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav mx-auto">
+            <div class="collapse navbar-collapse" id="navMenu">
+                <ul class="navbar-nav mx-auto gap-1">
                     <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
                     <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
                     <li class="nav-item"><a class="nav-link active" href="courses.html">Courses</a></li>
@@ -171,7 +205,9 @@
                     <li class="nav-item"><a class="nav-link" href="gallery.html">Gallery</a></li>
                     <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
                 </ul>
-                <a href="admissions.html" class="btn btn-warning rounded-pill px-4 fw-bold">Apply Now</a>
+                <a href="#" class="btn btn-warning btn-portal rounded-pill px-4 fw-bold">
+                    <i class="bi bi-box-arrow-in-right"></i> Portal
+                </a>
             </div>
         </div>
     </nav>
@@ -462,8 +498,8 @@
     </footer>
 
     <!-- ===== BACK TO TOP BUTTON (HTML) ===== -->
-    <button class="back-to-top" id="backToTopBtn" aria-label="Back to top">
-        <i class="bi bi-arrow-up-short"></i>
+    <button id="backToTopBtn" type="button" aria-label="Back to top" title="Back to top">
+        <i class="bi bi-arrow-up"></i>
     </button>
 
     <!-- Bootstrap JS -->
@@ -483,9 +519,9 @@
                 const threshold = 300;
 
                 if (currentScroll > threshold) {
-                    btn.classList.add('visible');
+                    btn.classList.add('show');
                 } else {
-                    btn.classList.remove('visible');
+                    btn.classList.remove('show');
                 }
             }
 

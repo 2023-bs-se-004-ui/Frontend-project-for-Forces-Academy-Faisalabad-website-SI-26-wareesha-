@@ -405,6 +405,21 @@
             color: #0b1a3b;
         }
 
+        /* ===== Student Portal button — made to stand out clearly ===== */
+        .btn-portal {
+            background: linear-gradient(135deg, #ffe14d, #ffd700);
+            color: #0b1a3b !important;
+            font-weight: 800;
+            box-shadow: 0 0 0 2px rgba(255, 215, 0, 0.25), 0 6px 16px rgba(255, 215, 0, 0.35);
+            transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.2s ease;
+        }
+        .btn-portal:hover {
+            background: linear-gradient(135deg, #fff3b0, #ffd700);
+            color: #0b1a3b !important;
+            transform: translateY(-3px);
+            box-shadow: 0 0 0 2px rgba(255, 215, 0, 0.4), 0 10px 24px rgba(255, 215, 0, 0.45);
+        }
+
         #hero {
             background: linear-gradient(135deg, #0b1a3b 0%, #1a2f5a 100%);
             min-height: 100vh;
@@ -666,7 +681,7 @@
                     <li class="nav-item"><a class="nav-link" href="gallery.html">Gallery</a></li>
                     <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
                 </ul>
-                <a href="#" class="btn btn-warning rounded-pill px-4 fw-bold">
+                <a href="#" class="btn btn-warning btn-portal rounded-pill px-4 fw-bold">
                     <i class="bi bi-box-arrow-in-right"></i> Portal
                 </a>
             </div>
