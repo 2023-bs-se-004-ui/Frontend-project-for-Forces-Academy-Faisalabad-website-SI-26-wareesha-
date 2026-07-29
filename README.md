@@ -20,7 +20,7 @@ https://username.github.io/repository-name/
 
 | Home | Gallery | Contact |
 |------|---------|---------|
-| ![Home](screenshots/home.png) | ![Gallery](screenshots/gallery.png) | ![Contact](screenshots/contact.png) |
+| ![Home]((![alt text](image-1.png)) | ![Gallery](![alt text](image-2.png)) | ![Contact](![alt text](image-3.png)) |
 
 *(Add your screenshot images inside a `screenshots/` folder in the repo, then update the paths above.)*
 
@@ -86,7 +86,7 @@ https://username.github.io/repository-name/
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/username/repository-name.git
+   git clone https://2023-bs-se-004-ui.github.io/Frontend-project-for-Forces-Academy-Faisalabad-website-SI-26-wareesha-/
    ```
 2. Open `index.html` in your browser, or serve the folder with any static server.
 3. To deploy, enable **GitHub Pages** in the repository settings (branch: `main`, folder: `/root`).
