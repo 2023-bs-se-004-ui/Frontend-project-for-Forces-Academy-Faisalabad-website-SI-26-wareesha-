@@ -17,10 +17,9 @@ https://2023-bs-se-004-ui.github.io/Frontend-project-for-Forces-Academy-Faisalab
 
 ## 📸 Screenshots
 
-|| Home | Gallery | Contact |
+| Home | Gallery | Contact |
 |------|---------|---------|
-| ![Home](image-1.png) | ![Gallery](image-2.png) | ![Contact](image-3.png) |
-
+| ![Home](screenshots/image-1.png) | ![Gallery](screenshots/image-2.png) | ![Contact](screenshots/image-3.png) |
 ## 🛠 Tech Stack
 
 - HTML5
