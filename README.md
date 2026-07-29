@@ -11,19 +11,15 @@ Forces Academy Faisalabad's official website showcases the academy's programs, a
 https://2023-bs-se-004-ui.github.io/Frontend-project-for-Forces-Academy-Faisalabad-website-SI-26-wareesha-/
 ```
 
-
+*(Replace `wareesha ` and `front end web develpoment  ` with your actual GitHub username and repo name after enabling GitHub Pages.)*
 
 ---
 
 ## 📸 Screenshots
 
-| Home | Gallery | Contact |
+|| Home | Gallery | Contact |
 |------|---------|---------|
-|((![alt text](image-1.png)) | (![alt text](image-2.png)) | (![alt text](image-3.png)) |
-
-
-
----
+| ![Home](image-1.png) | ![Gallery](image-2.png) | ![Contact](image-3.png) |
 
 ## 🛠 Tech Stack
 
