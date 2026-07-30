@@ -9,17 +9,15 @@ Forces Academy Faisalabad's official website showcases the academy's programs, a
 ## 🌐 Live Site
 
 https://2023-bs-se-004-ui.github.io/Frontend-project-for-Forces-Academy-Faisalabad-website-SI-26-wareesha-/
-```
-
-*(Replace `wareesha ` and `front end web develpoment  ` with your actual GitHub username and repo name after enabling GitHub Pages.)*
 
 ---
 
 ## 📸 Screenshots
 
-| Home | Gallery | Contact |
-|------|---------|---------|
-| ![Home](screenshots/image-1.png) | ![Gallery](screenshots/image-2.png) | ![Contact](screenshots/image-3.png) |
+| Home | About | Contact |
+|------|-------|---------|
+| ![Home](screenshots/image-1.png) | ![About](screenshots/image-2.png) | ![Contact](screenshots/image-3.png) |
+
 ## 🛠 Tech Stack
 
 - HTML5
@@ -71,6 +69,10 @@ https://2023-bs-se-004-ui.github.io/Frontend-project-for-Forces-Academy-Faisalab
 ├── contact.html
 ├── css/
 │   └── style.css
+├── screenshots/
+│   ├── image-1.png
+│   ├── image-2.png
+│   └── image-3.png
 └── README.md
 ```
 
@@ -80,7 +82,7 @@ https://2023-bs-se-004-ui.github.io/Frontend-project-for-Forces-Academy-Faisalab
 
 1. Clone the repository:
    ```bash
-   git clone https://2023-bs-se-004-ui.github.io/Frontend-project-for-Forces-Academy-Faisalabad-website-SI-26-wareesha-/
+   git clone https://github.com/2023-BS-SE-004-UI/Frontend-project-for-Forces-Academy-Faisalabad-website-SI-26-wareesha-.git
    ```
 2. Open `index.html` in your browser, or serve the folder with any static server.
 3. To deploy, enable **GitHub Pages** in the repository settings (branch: `main`, folder: `/root`).
