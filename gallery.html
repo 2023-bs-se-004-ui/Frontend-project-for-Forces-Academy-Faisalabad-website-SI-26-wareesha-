@@ -123,6 +123,30 @@
             padding: 0;
         }
 
+        /* ---------- SECTION LABEL (shared, matches contact.html) ---------- */
+        .section-eyebrow {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 0.7rem;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: var(--gold);
+            font-weight: 600;
+            margin-bottom: 0.4rem;
+            display: block;
+        }
+        .section-title {
+            font-family: 'Fraunces', serif;
+            font-weight: 600;
+            color: var(--navy-deep);
+            font-size: 1.9rem;
+            margin-bottom: 0.5rem;
+        }
+        .section-sub {
+            color: #6b7280;
+            font-size: 1rem;
+            max-width: 56ch;
+        }
+
         /* ============================================================
            HERO SECTION - Full width, joined with header (made taller)
            ============================================================ */
@@ -1117,7 +1141,7 @@
                         <li class="nav-item"><a class="nav-link active" href="gallery.html">Gallery</a></li>
                         <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
                     </ul>
-                    <a href="admissions.html" class="btn btn-warning rounded-pill px-4 fw-bold">Apply Now</a>
+                    <a href="#" class="btn btn-warning rounded-pill px-4 fw-bold"><i class="bi bi-box-arrow-in-right"></i> Portal</a>
                 </div>
             </div>
         </nav>
@@ -1159,7 +1183,8 @@
 
         <!-- 3. FEATURED IMAGES -->
         <div class="featured-section">
-            <h4 class="mb-3" style="font-family:'Fraunces',serif; font-weight:600;">⭐ Featured Moments</h4>
+            <span class="section-eyebrow">On Display</span>
+            <h4 class="section-title mb-3">⭐ Featured Moments</h4>
             <div class="row g-3" id="featuredGrid"></div>
         </div>
 
@@ -1176,7 +1201,8 @@
 
         <!-- 6. CAMPUS HIGHLIGHTS -->
         <div class="highlights-section">
-            <h4 class="text-center mb-4" style="font-family:'Fraunces',serif; font-weight:600;">🏫 Campus Highlights</h4>
+            <span class="section-eyebrow text-center d-block">Around Campus</span>
+            <h4 class="section-title text-center mb-4">🏫 Campus Highlights</h4>
             <div class="row g-3">
                 <div class="col-6 col-md-3 highlight-item">
                     <i class="bi bi-building"></i>
