@@ -16,7 +16,7 @@ https://2023-bs-se-004-ui.github.io/Frontend-project-for-Forces-Academy-Faisalab
 
 | Home | Gallery | Contact |
 |------|-------|---------|
-| ![Home](screenshots/home.png) | ![gallery](screenshots/gallery.png) | ![Contact](screenshots/contact.png) |
+| ![Home](images/home.png) | ![Gallery](images/gallery.png) | ![Contact](images/contact.png) |
 
 ## 🛠 Tech Stack
 
@@ -64,15 +64,15 @@ https://2023-bs-se-004-ui.github.io/Frontend-project-for-Forces-Academy-Faisalab
 ├── about.html
 ├── courses.html
 ├── admissions.html
-├── results.html
-├── gallery.html
 ├── contact.html
 ├── css/
 │   └── style.css
-├── screenshots/
+├── images/
 │   ├── home.png
 │   ├── gallery.png
-│   └──contact.png
+│   └── contact.png
+├── js/
+│   └── main.js
 └── README.md
 ```
 
@@ -93,4 +93,3 @@ https://2023-bs-se-004-ui.github.io/Frontend-project-for-Forces-Academy-Faisalab
 
 **Wareesha Atif**
 Code Saviours SI-26
-2026
