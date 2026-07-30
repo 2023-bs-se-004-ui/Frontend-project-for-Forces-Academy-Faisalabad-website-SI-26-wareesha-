@@ -14,9 +14,9 @@ https://2023-bs-se-004-ui.github.io/Frontend-project-for-Forces-Academy-Faisalab
 
 ## 📸 Screenshots
 
-| Home | About | Contact |
+| Home | Gallery | Contact |
 |------|-------|---------|
-| ![Home](screenshots/image-1.png) | ![About](screenshots/image-2.png) | ![Contact](screenshots/image-3.png) |
+| ![Home](screenshots/home.png) | ![gallery](screenshots/gallery.png) | ![Contact](screenshots/contact.png) |
 
 ## 🛠 Tech Stack
 
@@ -70,9 +70,9 @@ https://2023-bs-se-004-ui.github.io/Frontend-project-for-Forces-Academy-Faisalab
 ├── css/
 │   └── style.css
 ├── screenshots/
-│   ├── image-1.png
-│   ├── image-2.png
-│   └── image-3.png
+│   ├── home.png
+│   ├── gallery.png
+│   └──contact.png
 └── README.md
 ```
 
