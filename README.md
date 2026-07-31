@@ -12,13 +12,13 @@ https://2023-bs-se-004-ui.github.io/Frontend-project-for-Forces-Academy-Faisalab
 
 ---
 
-## 📸 Screenshots
+##  Screenshots
 
 | Home | Gallery | Contact |
 |------|-------|---------|
-| ![Home](images/home.png) | ![Gallery](images/gallery.png) | ![Contact](images/contact.png) |
+| ![Home](./images/home.png) | ![Gallery](./images/gallery.png) | ![Contact](./images/contact.png) |
 
-## 🛠 Tech Stack
+##  Tech Stack
 
 - HTML5
 - CSS3
@@ -29,7 +29,7 @@ https://2023-bs-se-004-ui.github.io/Frontend-project-for-Forces-Academy-Faisalab
 
 ---
 
-## ✨ Features
+##  Features
 
 - Fully responsive design (mobile, tablet, desktop)
 - Sticky navigation bar with active-page highlighting
@@ -46,7 +46,7 @@ https://2023-bs-se-004-ui.github.io/Frontend-project-for-Forces-Academy-Faisalab
 
 ---
 
-## ✅ Quality Checklist
+##  Quality Checklist
 
 - [x] Navbar and footer consistent across every page
 - [x] Typography and color theme unified site-wide
@@ -57,7 +57,7 @@ https://2023-bs-se-004-ui.github.io/Frontend-project-for-Forces-Academy-Faisalab
 
 ---
 
-## 📂 Project Structure
+##  Project Structure
 
 ```
 ├── index.html
@@ -78,7 +78,7 @@ https://2023-bs-se-004-ui.github.io/Frontend-project-for-Forces-Academy-Faisalab
 
 ---
 
-## 🚀 Getting Started
+##  Getting Started
 
 1. Clone the repository:
    ```bash
