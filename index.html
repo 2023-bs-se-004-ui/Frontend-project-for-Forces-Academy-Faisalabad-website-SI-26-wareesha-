@@ -9,10 +9,11 @@
     <!-- ===== SEO META TAGS ===== -->
     <meta name="description" content="Forces Academy Faisalabad offers quality education, experienced faculty and leadership training for Matric &amp; F.Sc students. Enroll today and lead tomorrow.">
     <meta name="keywords" content="Forces Academy, Forces Academy Faisalabad, best academy in Faisalabad, F.Sc academy, Matric academy, admissions Faisalabad, leadership training, tuition academy Punjab">
+    <meta name="author" content="Forces Academy Faisalabad">
     <meta property="og:title" content="Forces Academy Faisalabad — Learn Today, Lead Tomorrow">
     <meta property="og:description" content="Quality education, experienced faculty and leadership training at Forces Academy Faisalabad. Join us and build your future today.">
     <meta property="og:type" content="website">
-    <meta property="og:image" content="https://static-assets.codecademy.com/assets/homepage/value-props/v1/module-2-desktop.webp">
+    <meta property="og:image" content="images/logo.png">
     <meta property="og:url" content="https://forcesacademyofficial.github.io/index.html">
 
     <!-- ===== FAVICON ===== -->
@@ -31,6 +32,9 @@
 
     <!-- Swiper.js CSS (Testimonials slider) -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+    <!-- Custom stylesheet -->
+    <link rel="stylesheet" href="css/style.css">
 
     <style>
         /* ===== Smooth Scroll ===== */
@@ -88,7 +92,12 @@
             overflow: hidden;
         }
 
-        /* ---------- Hero entrance transition ---------- */
+        /* =====================================================
+           STEP 2 — PAGE LOAD ANIMATIONS
+           ===================================================== */
+
+        /* ---------- 1) Hero heading: fade in on page load ---------- */
+        /* Subtle fade + gentle rise, staggered so heading leads the rest of the hero content in. */
         #hero .badge,
         #hero h1,
         #hero .lead,
@@ -100,14 +109,14 @@
         }
 
         #hero .badge { animation-delay: 0.1s; }
-        #hero h1 { animation-delay: 0.25s; }
-        #hero .lead { animation-delay: 0.4s; }
+        #hero h1     { animation-delay: 0.25s; }
+        #hero .lead  { animation-delay: 0.4s; }
         #hero .d-flex.flex-wrap.gap-3 { animation-delay: 0.55s; }
         #hero .hero-visual { animation-delay: 0.4s; }
 
         @keyframes heroFadeUp {
             from { opacity: 0; transform: translateY(24px); }
-            to { opacity: 1; transform: translateY(0); }
+            to   { opacity: 1; transform: translateY(0); }
         }
 
         /* Subtle floating motion for the achievement chip */
@@ -128,8 +137,27 @@
             box-shadow: 0 8px 22px rgba(0,0,0,0.25);
         }
 
+        /* ---------- 2) Stats cards: slide up when scrolled into view ---------- */
+        /* ---------- 3) "Why Choose Us" cards: appear one by one with a slight delay ---------- */
+        /* Both use the same base "hidden" state + fadeSlideUp keyframe. JS (IntersectionObserver)
+           adds .reveal-in and staggers each item's animation-delay when the section enters the viewport. */
+        .stat-item,
+        .card-feature {
+            opacity: 0;
+            transform: translateY(35px);
+        }
+        .stat-item.reveal-in,
+        .card-feature.reveal-in {
+            animation: fadeSlideUp 0.7s ease forwards;
+        }
+        @keyframes fadeSlideUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
 
-        /* ===== STEP 1: STATS SECTION - ROUND DESIGN ===== */
+        /* ===== STATS SECTION - ROUND DESIGN ===== */
         #stats-section {
             background: #0b1a3b;
             color: #fff;
@@ -200,7 +228,7 @@
             );
         }
 
-        /* ===== STEP 2: TESTIMONIALS SECTION ===== */
+        /* ===== TESTIMONIALS SECTION ===== */
         #testimonials-section {
             background: #f8f9fa;
             padding: 4rem 0;
@@ -285,7 +313,7 @@
             opacity: 1;
         }
 
-        /* ===== STEP 3: ADDITIONAL CTA BANNER (Scholarship / Demo / Urgent) ===== */
+        /* ===== ADDITIONAL CTA BANNER (Scholarship / Demo / Urgent) ===== */
         #extra-cta {
             background: linear-gradient(135deg, #fff8e1 0%, #ffffff 100%);
             padding: 4rem 0;
@@ -361,21 +389,18 @@
         }
 
         /* ===== MAIN CTA SECTION (Separate from Footer) ===== */
-        /* CTA Section */
         #main-cta{
             background: #0b1a3b;
             padding: 4rem 0;
-            margin-bottom: 60px;   /* Footer se distance */
+            margin-bottom: 60px;
+            border-bottom: 2px solid rgba(255,215,0,0.3);
         }
 
         /* Footer */
         footer{
             background: #06122a;
             padding: 4rem 0 2rem;
-            margin-top: 60px;      /* CTA se distance */
-        }
-        #main-cta{
-            border-bottom: 2px solid rgba(255,215,0,0.3);
+            margin-top: 60px;
         }
 
         /* ---- rest of the page styling ---- */
@@ -690,23 +715,6 @@
             transform: translateY(-2px) rotate(15deg);
         }
 
-        /* ===== STAGGERED REVEAL ANIMATIONS (stats + feature cards) ===== */
-        .stat-item,
-        .card-feature {
-            opacity: 0;
-            transform: translateY(35px);
-        }
-        .stat-item.reveal-in,
-        .card-feature.reveal-in {
-            animation: fadeSlideUp 0.7s ease forwards;
-        }
-        @keyframes fadeSlideUp {
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
         /* ===== DARK MODE THEME ===== */
         body.dark-mode {
             background: #0a1226;
@@ -768,6 +776,22 @@
         }
         body.dark-mode .bg-light {
             background: #0f1a34 !important;
+        }
+
+        /* Respect users who prefer reduced motion */
+        @media (prefers-reduced-motion: reduce) {
+            #hero .badge,
+            #hero h1,
+            #hero .lead,
+            #hero .d-flex.flex-wrap.gap-3,
+            #hero .hero-visual,
+            #hero .float-chip,
+            .stat-item,
+            .card-feature {
+                animation: none !important;
+                opacity: 1 !important;
+                transform: none !important;
+            }
         }
     </style>
 </head>
@@ -942,7 +966,7 @@
         </div>
     </section>
 
-    <!-- ================= STEP 2: TESTIMONIALS SLIDER ================= -->
+    <!-- ================= TESTIMONIALS SLIDER ================= -->
     <section id="testimonials-section">
         <div class="container">
             <div class="text-center mb-5">
@@ -1000,7 +1024,7 @@
         </div>
     </section>
 
-    <!-- ================= STEP 3: ADDITIONAL CTA BANNER (Scholarship / Demo / Urgent) ================= -->
+    <!-- ================= ADDITIONAL CTA BANNER (Scholarship / Demo / Urgent) ================= -->
     <section id="extra-cta">
         <div class="container">
             <div class="text-center mb-5">
@@ -1185,7 +1209,7 @@
     <!-- Swiper.js JS -->
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 
-    <!-- ================= INLINE JS (Stats + Swiper) ================= -->
+    <!-- ================= INLINE JS (Stats + Swiper + Reveal Animations) ================= -->
     <script>
         document.addEventListener('DOMContentLoaded', function() {
 
@@ -1210,6 +1234,9 @@
             });
 
             // ---------- STAGGERED "APPEAR ONE BY ONE" REVEAL ----------
+            // Used for: (a) the stats cards, (b) the "Why Choose Us" feature cards.
+            // Each item's animation-delay is set based on its position, so items in the
+            // same row/section fade + slide up one after another instead of all at once.
             function staggerReveal(itemSelector, containerEl, baseDelay) {
                 if (!containerEl) return;
                 const items = containerEl.querySelectorAll(itemSelector);
@@ -1227,10 +1254,13 @@
                 revealObserver.observe(containerEl);
             }
 
+            // Stats cards: slide up together with a light 120ms stagger when the section scrolls into view.
             staggerReveal('.stat-item', document.getElementById('stats-section'), 120);
+
+            // "Why Choose Us" cards: appear one by one with a 150ms delay between each.
             staggerReveal('.card-feature', document.getElementById('features'), 150);
 
-            // ---------- STEP 1: ANIMATED STATS COUNTER ----------
+            // ---------- ANIMATED STATS COUNTER ----------
             const statsSection = document.getElementById('stats-section');
             const statNumbers = document.querySelectorAll('.stat-number');
             let animated = false;
@@ -1278,7 +1308,7 @@
                 observer.observe(statsSection);
             }
 
-            // ---------- STEP 2: TESTIMONIALS SLIDER (Swiper) ----------
+            // ---------- TESTIMONIALS SLIDER (Swiper) ----------
             const swiper = new Swiper('.testimonialSwiper', {
                 loop: true,
                 autoplay: {
@@ -1307,7 +1337,7 @@
                 }
             });
 
-            // ---------- STEP 3: BACK TO TOP BUTTON ----------
+            // ---------- BACK TO TOP BUTTON ----------
             const backToTopBtn = document.getElementById('backToTopBtn');
 
             function toggleBackToTopBtn() {
