@@ -228,6 +228,97 @@
             );
         }
 
+        /* ===== ANNOUNCEMENTS / LATEST NEWS SECTION ===== */
+        #announcements-section {
+            background: #fff;
+            padding: 4.5rem 0;
+        }
+
+        .announcement-card {
+            background: #fff;
+            border-radius: 1.5rem;
+            padding: 1.8rem 1.6rem 1.6rem;
+            height: 100%;
+            box-shadow: 0 8px 28px rgba(11, 26, 59, 0.06);
+            border: 1px solid rgba(11, 26, 59, 0.06);
+            transition: 0.25s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .announcement-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 16px 36px rgba(11, 26, 59, 0.12);
+        }
+
+        .announcement-date {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: rgba(255, 215, 0, 0.15);
+            color: #a67c00;
+            font-weight: 700;
+            font-size: 0.82rem;
+            padding: 0.35rem 0.9rem;
+            border-radius: 50px;
+            margin-bottom: 1rem;
+            align-self: flex-start;
+        }
+
+        .announcement-card h5 {
+            color: #0b1a3b;
+            font-weight: 700;
+            margin-bottom: 0.6rem;
+        }
+
+        .announcement-card p {
+            color: #6c757d;
+            flex: 1;
+            margin-bottom: 1.1rem;
+        }
+
+        .announcement-readmore {
+            color: #0b1a3b;
+            font-weight: 700;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            align-self: flex-start;
+            transition: 0.2s ease;
+        }
+
+        .announcement-readmore i {
+            color: #ffd700;
+            transition: transform 0.2s ease;
+        }
+
+        .announcement-readmore:hover {
+            color: #a67c00;
+        }
+
+        .announcement-readmore:hover i {
+            transform: translateX(4px);
+        }
+
+        body.dark-mode #announcements-section {
+            background: #0a1226;
+        }
+        body.dark-mode .announcement-card {
+            background: #16213f;
+            border-color: rgba(255, 215, 0, 0.08);
+            box-shadow: 0 8px 28px rgba(0, 0, 0, 0.35);
+        }
+        body.dark-mode .announcement-card h5 {
+            color: #f2f2f2;
+        }
+        body.dark-mode .announcement-card p {
+            color: #a9b1c6;
+        }
+        body.dark-mode .announcement-readmore {
+            color: #ffd700;
+        }
+
         /* ===== TESTIMONIALS SECTION ===== */
         #testimonials-section {
             background: #f8f9fa;
@@ -764,8 +855,8 @@
         body.dark-mode .text-primary {
             color: #ffd700 !important;
         }
-        /* Section headings (Why Choose Forces Academy?, What Our Students Say, Special Offers & Alerts,
-           A Glimpse Into Our Campus) are given an inline style="color:#0b1a3b" in the HTML.
+        /* Section headings (Why Choose Forces Academy?, Latest Announcements, What Our Students Say,
+           Special Offers & Alerts, A Glimpse Into Our Campus) are given an inline style="color:#0b1a3b" in the HTML.
            Inline styles beat a plain class selector, so !important is required here to win the
            cascade and make these headings visible against the dark background. */
         body.dark-mode h2,
@@ -964,6 +1055,49 @@
                         <div class="icon"><i class="bi bi-trophy-fill"></i></div>
                         <h4 class="fw-bold mt-2">Leadership Training</h4>
                         <p class="text-muted">Discipline, confidence, and leadership development for future success.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================= LATEST ANNOUNCEMENTS SECTION ================= -->
+    <section id="announcements-section">
+        <div class="container">
+            <div class="text-center mb-5">
+                <span class="badge bg-primary bg-opacity-10 text-primary px-4 py-2 rounded-pill fw-semibold">News</span>
+                <h2 class="fw-bold mt-3" style="color: #0b1a3b;">Latest Announcements</h2>
+                <p class="text-muted" style="max-width: 600px; margin: 0 auto;">
+                    Stay up to date with admissions, results and everything happening at Forces Academy.
+                </p>
+            </div>
+
+            <div class="row g-4">
+                <!-- Announcement 1 -->
+                <div class="col-md-4">
+                    <div class="announcement-card h-100">
+                        <span class="announcement-date"><i class="bi bi-calendar3"></i> August 1, 2026</span>
+                        <h5>Admissions Open 2026</h5>
+                        <p>New admissions for Matric &amp; F.Sc sessions are now open. Limited seats available — apply early to secure your spot.</p>
+                        <a href="admissions.html" class="announcement-readmore">Read More <i class="bi bi-arrow-right"></i></a>
+                    </div>
+                </div>
+                <!-- Announcement 2 -->
+                <div class="col-md-4">
+                    <div class="announcement-card h-100">
+                        <span class="announcement-date"><i class="bi bi-calendar3"></i> July 20, 2026</span>
+                        <h5>Result Announcement</h5>
+                        <p>Board exam results for our F.Sc &amp; Matric students have been announced. Congratulations to all our top achievers!</p>
+                        <a href="results.html" class="announcement-readmore">Read More <i class="bi bi-arrow-right"></i></a>
+                    </div>
+                </div>
+                <!-- Announcement 3 -->
+                <div class="col-md-4">
+                    <div class="announcement-card h-100">
+                        <span class="announcement-date"><i class="bi bi-calendar3"></i> July 10, 2026</span>
+                        <h5>New Batch Starting</h5>
+                        <p>A new batch for Matric &amp; F.Sc students begins soon. Reserve your seat today and start your journey with us.</p>
+                        <a href="courses.html" class="announcement-readmore">Read More <i class="bi bi-arrow-right"></i></a>
                     </div>
                 </div>
             </div>
