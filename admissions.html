@@ -380,6 +380,72 @@
             box-shadow: 0 8px 25px rgba(179, 137, 58, 0.25);
         }
 
+        /* ---------- ENQUIRY FORM ---------- */
+        .enquiry-section {
+            background: #fff;
+            border-radius: 20px;
+            padding: 3rem 2.5rem;
+            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.06);
+            border: 1px solid #e9e6dc;
+        }
+        .enquiry-section h4 {
+            font-weight: 700;
+            color: #0f2847;
+        }
+        .enquiry-section .form-label {
+            font-weight: 600;
+            color: #0f2847;
+            font-size: 0.9rem;
+        }
+        .enquiry-section .form-control,
+        .enquiry-section .form-select {
+            border-radius: 10px;
+            border: 1px solid #e0ddd3;
+            padding: 0.65rem 0.9rem;
+        }
+        .enquiry-section .form-control:focus,
+        .enquiry-section .form-select:focus {
+            border-color: #ffd700;
+            box-shadow: 0 0 0 3px rgba(255, 215, 0, 0.2);
+        }
+        .btn-submit-gold {
+            background: linear-gradient(145deg, #ffd700, #f5a623);
+            color: #0f2847;
+            font-weight: 700;
+            padding: 0.75rem 2.5rem;
+            border-radius: 50px;
+            border: none;
+            transition: all 0.3s ease;
+        }
+        .btn-submit-gold:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 30px rgba(255, 215, 0, 0.4);
+            color: #0f2847;
+        }
+        .btn-submit-gold:disabled {
+            opacity: 0.7;
+            transform: none;
+        }
+        #formStatus {
+            display: none;
+            border-radius: 12px;
+            padding: 0.9rem 1.1rem;
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+        #formStatus.status-success {
+            display: block;
+            background: rgba(40, 167, 69, 0.12);
+            color: #1e7e34;
+            border: 1px solid rgba(40, 167, 69, 0.3);
+        }
+        #formStatus.status-error {
+            display: block;
+            background: rgba(220, 53, 69, 0.12);
+            color: #b02a37;
+            border: 1px solid rgba(220, 53, 69, 0.3);
+        }
+
         /* ---------- BACKGROUND UTILITY ---------- */
         .bg-light {
             background: #f6f4ee !important;
@@ -664,7 +730,8 @@
             .step-icon {
                 font-size: 1.5rem;
             }
-            .counselor-section {
+            .counselor-section,
+            .enquiry-section {
                 padding: 1.5rem 1rem;
             }
             .fee-table-wrapper .table thead th,
@@ -726,6 +793,7 @@
         body.dark-mode .document-item,
         body.dark-mode .fee-perk,
         body.dark-mode .counselor-section,
+        body.dark-mode .enquiry-section,
         body.dark-mode .fee-table-wrapper .table tbody {
             background: #16213f !important;
             border-color: rgba(255, 215, 0, 0.08) !important;
@@ -735,7 +803,9 @@
         body.dark-mode .step-item p,
         body.dark-mode .document-item h6,
         body.dark-mode .fee-perk h6,
-        body.dark-mode .counselor-section h4 {
+        body.dark-mode .counselor-section h4,
+        body.dark-mode .enquiry-section h4,
+        body.dark-mode .enquiry-section .form-label {
             color: #f2f2f2;
         }
         body.dark-mode .section-title,
@@ -753,6 +823,12 @@
         body.dark-mode .fee-table-wrapper .table tbody td {
             color: #dcdfe6;
             border-color: rgba(255, 215, 0, 0.08);
+        }
+        body.dark-mode .enquiry-section .form-control,
+        body.dark-mode .enquiry-section .form-select {
+            background: #0f1a34;
+            border-color: rgba(255, 215, 0, 0.15);
+            color: #e6e8ee;
         }
     </style>
 </head>
@@ -784,7 +860,8 @@
                     <li class="nav-item"><a class="nav-link" href="gallery.html">Gallery</a></li>
                     <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
                 </ul>
-                <a href="#" class="btn btn-warning btn-portal rounded-pill px-4 fw-bold">
+                <!-- STEP 1: Student Portal button linked to Full Stack LMS hosted URL -->
+                <a href="https://forcesacademy23.infinityfreeapp.com/" target="_blank" class="btn btn-warning btn-portal rounded-pill px-4 fw-bold">
                     <i class="bi bi-box-arrow-in-right"></i> Portal
                 </a>
                 <button id="darkModeToggle" type="button" title="Toggle dark mode" aria-label="Toggle dark mode">
@@ -1078,6 +1155,69 @@
         </div>
     </section>
 
+    <!-- ================= ADMISSION ENQUIRY FORM ================= -->
+    <section class="py-5" id="enquiry-form">
+        <div class="container py-4">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="enquiry-section">
+                        <div class="text-center mb-4">
+                            <h4><i class="fa-solid fa-envelope-open-text text-warning me-2"></i>Admission Enquiry Form</h4>
+                            <p class="text-muted mb-0">Fill this form and our admissions team will get back to you shortly.</p>
+                        </div>
+
+                        <form id="enquiryForm" novalidate>
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <label class="form-label" for="parentName">Parent / Guardian Name *</label>
+                                    <input type="text" class="form-control" id="parentName" name="parent_name" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label" for="studentName">Student Name *</label>
+                                    <input type="text" class="form-control" id="studentName" name="student_name" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label" for="enquiryEmail">Email Address *</label>
+                                    <input type="email" class="form-control" id="enquiryEmail" name="email" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label" for="enquiryPhone">Phone / WhatsApp *</label>
+                                    <input type="tel" class="form-control" id="enquiryPhone" name="phone" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label" for="enquiryGrade">Applying for Grade *</label>
+                                    <select class="form-select" id="enquiryGrade" name="grade" required>
+                                        <option value="" selected disabled>Select grade</option>
+                                        <option>Grade 1 – 5</option>
+                                        <option>Grade 6 – 8</option>
+                                        <option>Grade 9 – 10</option>
+                                        <option>Grade 11 – 12</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label" for="enquirySession">Academic Session *</label>
+                                    <input type="text" class="form-control" id="enquirySession" name="session" value="2026–2027" required>
+                                </div>
+                                <div class="col-12">
+                                    <label class="form-label" for="enquiryMessage">Message / Questions</label>
+                                    <textarea class="form-control" id="enquiryMessage" name="message" rows="4" placeholder="Any questions about eligibility, fee or the entrance test..."></textarea>
+                                </div>
+                            </div>
+
+                            <div id="formStatus" class="mt-4"></div>
+
+                            <div class="text-center mt-4">
+                                <button type="submit" class="btn btn-submit-gold" id="enquirySubmitBtn">
+                                    <i class="fa-solid fa-paper-plane me-2"></i>Submit Enquiry
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- ================= COUNSELOR / CTA ================= -->
     <section class="py-5" id="apply">
         <div class="container py-4">
@@ -1181,6 +1321,9 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js">
 </script>
 
+<!-- ===== EMAILJS SDK ===== -->
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+
 <!-- ===== BACK TO TOP JAVASCRIPT (Step 10 & 11) ===== -->
 <script>
     (function() {
@@ -1265,6 +1408,83 @@
         window.addEventListener('load', toggleButton);
         window.addEventListener('resize', toggleButton);
         setTimeout(toggleButton, 300);
+
+    })();
+</script>
+
+<!-- ===== ADMISSION ENQUIRY FORM — EMAILJS INTEGRATION ===== -->
+<script>
+    (function() {
+        'use strict';
+
+        /* ============================================================
+           EMAILJS CONFIG — replace these 3 values from your EmailJS
+           dashboard (emailjs.com → Account → API Keys / Email Services
+           / Email Templates). Steps are in the chat message below.
+           ============================================================ */
+        const EMAILJS_PUBLIC_KEY  = "YOUR_PUBLIC_KEY";   // Account > General > Public Key
+        const EMAILJS_SERVICE_ID  = "YOUR_SERVICE_ID";   // Email Services > your Gmail service
+        const EMAILJS_TEMPLATE_ID = "YOUR_TEMPLATE_ID";  // Email Templates > your template
+
+        // The enquiry always goes to this admissions inbox.
+        const ADMISSIONS_EMAIL = "wareeshaatif35@gmail.com";
+
+        if (window.emailjs && EMAILJS_PUBLIC_KEY !== "YOUR_PUBLIC_KEY") {
+            emailjs.init({ publicKey: EMAILJS_PUBLIC_KEY });
+        }
+
+        const form = document.getElementById('enquiryForm');
+        const statusBox = document.getElementById('formStatus');
+        const submitBtn = document.getElementById('enquirySubmitBtn');
+
+        function showStatus(type, message) {
+            statusBox.className = type === 'success' ? 'status-success' : 'status-error';
+            statusBox.innerHTML = message;
+        }
+
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            if (!form.checkValidity()) {
+                form.reportValidity();
+                return;
+            }
+
+            if (EMAILJS_PUBLIC_KEY === "YOUR_PUBLIC_KEY") {
+                showStatus('error', 'Form is not connected to EmailJS yet. Add your Public Key, Service ID and Template ID at the top of the script.');
+                return;
+            }
+
+            const originalBtnHtml = submitBtn.innerHTML;
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin me-2"></i>Sending...';
+
+            const templateParams = {
+                parent_name: document.getElementById('parentName').value,
+                student_name: document.getElementById('studentName').value,
+                email: document.getElementById('enquiryEmail').value,
+                phone: document.getElementById('enquiryPhone').value,
+                grade: document.getElementById('enquiryGrade').value,
+                session: document.getElementById('enquirySession').value,
+                message: document.getElementById('enquiryMessage').value,
+                to_email: ADMISSIONS_EMAIL
+            };
+
+            emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, templateParams)
+                .then(function() {
+                    showStatus('success', '<i class="fa-solid fa-circle-check me-2"></i>Thank you! Your enquiry has been sent. Our admissions team will contact you soon.');
+                    form.reset();
+                    document.getElementById('enquirySession').value = "2026–2027";
+                })
+                .catch(function(error) {
+                    console.error('EmailJS error:', error);
+                    showStatus('error', '<i class="fa-solid fa-circle-exclamation me-2"></i>Sorry, something went wrong sending your enquiry. Please try again or call the admissions office directly.');
+                })
+                .finally(function() {
+                    submitBtn.disabled = false;
+                    submitBtn.innerHTML = originalBtnHtml;
+                });
+        });
 
     })();
 </script>
