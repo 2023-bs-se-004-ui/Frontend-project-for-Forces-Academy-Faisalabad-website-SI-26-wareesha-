@@ -1,25 +1,25 @@
- Forces Academy Faisalabad Website
+# **Forces Academy Faisalabad Website**
 
 A responsive educational website for **Forces Academy Faisalabad**, developed using HTML5, CSS3, Bootstrap 5, and Vanilla JavaScript. The website provides information about academic programs, admissions, results, campus gallery, testimonials, and contact details through a clean and professional **navy-blue and gold** design.
 
- 🌐 Live Site
+## **🌐 Live Site**
 
-GitHub Pages:
+**GitHub Pages:**
 https://2023-bs-se-004-ui.github.io/Frontend-project-for-Forces-Academy-Faisalabad-website-SI-26-wareesha-/
 
- 📸 Screenshots
+## **📸 Screenshots**
 
 The project includes screenshots of different pages and features:
 
-| Home                       | About                        |
+| **Home**                   | **About**                    |
 | -------------------------- | ---------------------------- |
 | ![Home](./images/home.png) | ![About](./images/about.png) |
 
-| Gallery                          | Contact                          |
+| **Gallery**                      | **Contact**                      |
 | -------------------------------- | -------------------------------- |
 | ![Gallery](./images/gallery.png) | ![Contact](./images/contact.png) |
 
-  Tech Stack
+## **🛠️ Tech Stack**
 
 * **HTML5** — Website structure and content
 * **CSS3** — Custom styling, animations, responsive design
@@ -32,7 +32,7 @@ The project includes screenshots of different pages and features:
 * **GitHub** — Source code hosting
 * **GitHub Pages** — Website deployment
 
- Features
+## **✨ Features**
 
 * Fully responsive design for **desktop, tablet, and mobile**
 * Professional navy-blue, gold, and white color theme
@@ -64,7 +64,7 @@ The project includes screenshots of different pages and features:
 * Descriptive image `alt` attributes
 * GitHub Pages deployment
 
- 📱 Responsive Design
+## **📱 Responsive Design**
 
 The website has been tested for different screen sizes:
 
@@ -77,7 +77,7 @@ The website has been tested for different screen sizes:
 
 The layout automatically adjusts according to the screen size to provide a better user experience.
 
- Website Pages
+## **📄 Website Pages**
 
 The project contains the following pages:
 
@@ -89,7 +89,7 @@ The project contains the following pages:
 6. **Gallery** — Campus and academy images
 7. **Contact** — Contact information and enquiry section
 
- Project Structure
+## **📂 Project Structure**
 
 ```text
 Frontend-project-for-Forces-Academy-Faisalabad-website-SI-26-wareesha/
@@ -117,11 +117,11 @@ Frontend-project-for-Forces-Academy-Faisalabad-website-SI-26-wareesha/
 └── README.md
 ```
 
- How to Run Locally
+## **🚀 How to Run Locally**
 
 Follow these steps to run the project on your computer.
 
-### 1. Clone the Repository
+### **1. Clone the Repository**
 
 Open Git Bash or the VS Code terminal and run:
 
@@ -129,7 +129,7 @@ Open Git Bash or the VS Code terminal and run:
 git clone https://github.com/2023-BS-SE-004-UI/Frontend-project-for-Forces-Academy-Faisalabad-website-SI-26-wareesha-.git
 ```
 
- 2. Open the Project
+### **2. Open the Project**
 
 Move into the project folder:
 
@@ -137,7 +137,7 @@ Move into the project folder:
 cd Frontend-project-for-Forces-Academy-Faisalabad-website-SI-26-wareesha-
 ```
 
- 3. Open in VS Code
+### **3. Open in VS Code**
 
 Run:
 
@@ -147,7 +147,7 @@ code .
 
 Alternatively, open the project folder manually in **Visual Studio Code**.
 
- 4. Run the Website
+### **4. Run the Website**
 
 Open `index.html` in a web browser.
 
@@ -157,7 +157,7 @@ For a better development experience, you can use the **Live Server** extension i
 
 The website will then open in your browser.
 
- 🌍 Deployment
+## **🌍 Deployment**
 
 This project is deployed using **GitHub Pages**.
 
@@ -174,7 +174,7 @@ To deploy your own copy:
 6. Save the settings.
 7. GitHub will generate a live website link.
 
-✅ Quality Checklist
+## **✅ Quality Checklist**
 
 * [x] Responsive layout
 * [x] Navbar consistent across all pages
@@ -193,16 +193,16 @@ To deploy your own copy:
 * [x] Descriptive image alt attributes
 * [x] GitHub Pages deployment completed
 
-🎯 Project Purpose
+## **🎯 Project Purpose**
 
 The purpose of this project is to create a modern, responsive, and user-friendly educational website for **Forces Academy Faisalabad**. It demonstrates practical frontend development skills including responsive web design, Bootstrap components, JavaScript interactivity, animations, SEO basics, Git version control, and GitHub Pages deployment.
 
- 👤 Built By
+## **👤 Built By**
 
-*Wareesha Atif*
-Code Saviours — SI-26
-Frontend Track | 2026
+**Wareesha Atif**
+**Code Saviours — SI-26**
+**Frontend Track | 2026**
 
 ---
 
-⭐ If you like this project, feel free to explore the repository and live website.
+⭐ **If you like this project, feel free to explore the repository and live website.**
