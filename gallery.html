@@ -92,7 +92,7 @@
             color: #0f2847;
         }
 
-        /* ===== DARK MODE TOGGLE BUTTON (Step 1) ===== */
+        /* ===== DARK MODE TOGGLE BUTTON ===== */
         .theme-toggle {
             width: 42px;
             height: 42px;
@@ -157,9 +157,7 @@
             transition: background 0.35s ease, color 0.35s ease;
         }
 
-        /* ===== DARK MODE THEME (Step 1) =====
-           All dark-mode colors are scoped under body.dark-mode so light mode
-           (the default) is completely untouched. */
+        /* ===== DARK MODE THEME ===== */
         body.dark-mode {
             --ink: #e8e6df;
             --navy: #1a2438;
@@ -215,7 +213,7 @@
             background: rgba(0, 0, 0, 0.96);
         }
 
-        /* ---------- SECTION LABEL (shared, matches contact.html) ---------- */
+        /* ---------- SECTION LABEL ---------- */
         .section-eyebrow {
             font-family: 'IBM Plex Mono', monospace;
             font-size: 0.7rem;
@@ -240,7 +238,7 @@
         }
 
         /* ============================================================
-           HERO SECTION - Full width, joined with header (made taller)
+           HERO SECTION - Bara aur impressive (height increase)
            ============================================================ */
         .gallery-hero {
             width: 100%;
@@ -254,17 +252,19 @@
             border-bottom: 4px solid #ffd700;
             position: relative;
             overflow: hidden;
-            padding: 6rem 2rem;
-            min-height: 380px;
+            padding: 8rem 2rem;  /* Zyada padding for bigger hero */
+            min-height: 520px;    /* Zyada height */
             display: flex;
             align-items: center;
+            justify-content: center;
         }
         .gallery-hero::before {
             content: "";
             position: absolute;
             inset: 0;
             background: repeating-linear-gradient(to bottom, transparent, transparent 27px, rgba(232, 220, 192, 0.04) 28px),
-                radial-gradient(circle at 20% 30%, rgba(255, 215, 0, 0.08) 0%, transparent 60%);
+                radial-gradient(circle at 20% 30%, rgba(255, 215, 0, 0.08) 0%, transparent 60%),
+                radial-gradient(circle at 80% 70%, rgba(255, 215, 0, 0.05) 0%, transparent 50%);
             pointer-events: none;
         }
         .gallery-hero::after {
@@ -286,6 +286,31 @@
                 transform: translate(5%, 5%) scale(1.15);
             }
         }
+
+        /* Particles - zyada aur bade */
+        .gallery-hero .particle {
+            position: absolute;
+            width: 8px;
+            height: 8px;
+            background: rgba(255, 215, 0, 0.2);
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 0;
+        }
+        .gallery-hero .particle:nth-child(1) { top: 12%; left: 8%; animation: floatParticle 14s ease-in-out infinite; width: 10px; height: 10px; }
+        .gallery-hero .particle:nth-child(2) { top: 75%; left: 88%; animation: floatParticle 16s ease-in-out infinite reverse; width: 14px; height: 14px; }
+        .gallery-hero .particle:nth-child(3) { top: 25%; left: 78%; animation: floatParticle 11s ease-in-out infinite 2s; width: 8px; height: 8px; }
+        .gallery-hero .particle:nth-child(4) { top: 82%; left: 12%; animation: floatParticle 15s ease-in-out infinite 1s; width: 12px; height: 12px; }
+        .gallery-hero .particle:nth-child(5) { top: 45%; left: 45%; animation: floatParticle 22s ease-in-out infinite 3s; width: 20px; height: 20px; opacity: 0.08; }
+        .gallery-hero .particle:nth-child(6) { top: 8%; left: 45%; animation: floatParticle 18s ease-in-out infinite 0.5s; width: 6px; height: 6px; }
+        .gallery-hero .particle:nth-child(7) { top: 60%; left: 25%; animation: floatParticle 13s ease-in-out infinite 1.5s; width: 10px; height: 10px; }
+        .gallery-hero .particle:nth-child(8) { top: 35%; left: 92%; animation: floatParticle 19s ease-in-out infinite 2.5s; width: 8px; height: 8px; }
+
+        @keyframes floatParticle {
+            0%, 100% { transform: translate(0, 0) scale(1); opacity: 0.3; }
+            50% { transform: translate(50px, -30px) scale(1.8); opacity: 0.8; }
+        }
+
         .gallery-hero .hero-content {
             position: relative;
             z-index: 1;
@@ -295,11 +320,11 @@
             width: 100%;
         }
 
-        /* ---------- HERO ENTRANCE TRANSITIONS (Step 2: page-load animation) ---------- */
+        /* ---------- HERO ENTRANCE TRANSITIONS ---------- */
         @keyframes heroFadeUp {
             from {
                 opacity: 0;
-                transform: translateY(22px);
+                transform: translateY(30px);
             }
             to {
                 opacity: 1;
@@ -310,44 +335,37 @@
         .gallery-hero p,
         .gallery-hero .btn-hero {
             opacity: 0;
-            animation: heroFadeUp 0.75s ease forwards;
+            animation: heroFadeUp 0.8s ease forwards;
         }
         .gallery-hero h1 {
             animation-delay: 0.12s;
-        }
-        .gallery-hero p {
-            animation-delay: 0.28s;
-        }
-        .gallery-hero .btn-hero {
-            animation-delay: 0.44s;
-        }
-
-        .gallery-hero h1 {
             font-family: 'Fraunces', serif;
-            font-weight: 600;
-            font-size: 2.8rem;
-            text-shadow: 0 2px 15px rgba(0, 0, 0, 0.35);
+            font-weight: 700;
+            font-size: 3.8rem;  /* Bara heading */
+            text-shadow: 0 3px 25px rgba(0, 0, 0, 0.4);
             position: relative;
             z-index: 1;
         }
         .gallery-hero h1 .gold-text {
             color: #ffd700;
-            text-shadow: 0 0 40px rgba(255, 215, 0, 0.2);
+            text-shadow: 0 0 50px rgba(255, 215, 0, 0.25);
         }
         .gallery-hero p {
-            color: rgba(255, 255, 255, 0.9);
-            font-size: 1.1rem;
-            max-width: 52ch;
-            text-shadow: 0 1px 10px rgba(0, 0, 0, 0.2);
+            animation-delay: 0.28s;
+            color: rgba(255, 255, 255, 0.92);
+            font-size: 1.25rem;  /* Bara paragraph */
+            max-width: 56ch;
+            text-shadow: 0 2px 15px rgba(0, 0, 0, 0.25);
             position: relative;
             z-index: 1;
-            margin: 0 auto 0.5rem;
+            margin: 0 auto 0.6rem;
         }
         .gallery-hero .btn-hero {
-            background: rgba(255, 215, 0, 0.9);
+            animation-delay: 0.44s;
+            background: rgba(255, 215, 0, 0.92);
             color: #0f2847;
             font-weight: 700;
-            padding: 0.7rem 2rem;
+            padding: 0.9rem 2.5rem;  /* Bara button */
             border-radius: 50px;
             border: none;
             transition: all 0.3s ease;
@@ -355,10 +373,11 @@
             z-index: 1;
             text-decoration: none;
             display: inline-block;
+            font-size: 1.1rem;
         }
         .gallery-hero .btn-hero:hover {
             transform: translateY(-3px);
-            box-shadow: 0 8px 30px rgba(255, 215, 0, 0.4);
+            box-shadow: 0 8px 35px rgba(255, 215, 0, 0.5);
             background: #ffd700;
         }
 
@@ -394,9 +413,7 @@
             letter-spacing: 0.3px;
         }
 
-        /* ---------- SCROLL-REVEAL ANIMATIONS (Step 2) ----------
-           Elements start hidden/offset, then animate in once when they
-           cross into the viewport (see IntersectionObserver in JS). */
+        /* ---------- SCROLL-REVEAL ANIMATIONS ---------- */
         .reveal-up {
             opacity: 0;
             transform: translateY(28px);
@@ -596,7 +613,7 @@
             color: #fff;
         }
 
-        /* ---------- CUSTOM LIGHTBOX (no external dependency, always works) ---------- */
+        /* ---------- CUSTOM LIGHTBOX ---------- */
         .lb-overlay {
             position: fixed;
             inset: 0;
@@ -1063,11 +1080,11 @@
                 font-size: 1.2rem;
             }
             .gallery-hero h1 {
-                font-size: 2.4rem;
+                font-size: 2.8rem;
             }
             .gallery-hero {
-                padding: 5rem 1.5rem;
-                min-height: 320px;
+                padding: 6rem 1.5rem;
+                min-height: 420px;
             }
             .featured-card {
                 height: 160px;
@@ -1100,11 +1117,14 @@
                 font-size: 1.5rem;
             }
             .gallery-hero h1 {
-                font-size: 2rem;
+                font-size: 2.2rem;
             }
             .gallery-hero {
-                padding: 3.8rem 1.2rem;
-                min-height: 260px;
+                padding: 4.5rem 1.2rem;
+                min-height: 340px;
+            }
+            .gallery-hero p {
+                font-size: 1rem;
             }
             .filter-btn-group .btn {
                 font-size: 0.8rem;
@@ -1153,11 +1173,18 @@
                 font-size: 0.75rem;
             }
             .gallery-hero h1 {
-                font-size: 1.6rem;
+                font-size: 1.8rem;
             }
             .gallery-hero {
-                padding: 3.2rem 1rem;
-                min-height: 220px;
+                padding: 3.5rem 1rem;
+                min-height: 280px;
+            }
+            .gallery-hero p {
+                font-size: 0.9rem;
+            }
+            .gallery-hero .btn-hero {
+                padding: 0.6rem 1.8rem;
+                font-size: 0.9rem;
             }
             .gallery-item img {
                 height: 180px;
@@ -1176,7 +1203,7 @@
             }
         }
 
-        /* ===== BACK TO TOP BUTTON (Step 10 & 11) ===== */
+        /* ===== BACK TO TOP BUTTON ===== */
         .back-to-top {
             position: fixed;
             bottom: 2rem;
@@ -1279,7 +1306,6 @@
                         <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
                     </ul>
                     <div class="d-flex align-items-center">
-                        <!-- STEP 1: Student Portal button linked to Full Stack LMS hosted URL -->
                         <a href="https://tehseenproject.ct.ws/profile.php" target="_blank" class="btn btn-warning rounded-pill px-4 fw-bold"><i class="bi bi-box-arrow-in-right"></i> Portal</a>
                         <button class="theme-toggle" id="themeToggle" type="button" aria-label="Toggle dark mode" title="Toggle dark mode">
                             <i class="bi bi-sun-fill"></i>
@@ -1291,8 +1317,18 @@
         </nav>
     </header>
 
-    <!-- ================= HERO SECTION - Full Width ================= -->
+    <!-- ================= HERO SECTION - Bara aur impressive ================= -->
     <div class="gallery-hero">
+        <!-- Particles -->
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+
         <div class="hero-content">
             <h1>Our <span class="gold-text">Gallery</span></h1>
             <p>Explore moments from campus life, events, sports, and academic activities at Forces Academy.</p>
@@ -1411,7 +1447,7 @@
 
     </main>
 
-    <!-- ================= LIGHTBOX (custom, no external dependency) ================= -->
+    <!-- ================= LIGHTBOX ================= -->
     <div class="lb-overlay" id="lbOverlay">
         <div class="lb-content">
             <button class="lb-close" id="lbClose"><i class="bi bi-x-lg"></i></button>
@@ -1471,7 +1507,7 @@
         </div>
     </footer>
 
-    <!-- ===== BACK TO TOP BUTTON (HTML) ===== -->
+    <!-- ===== BACK TO TOP BUTTON ===== -->
     <button class="back-to-top" id="backToTopBtn" aria-label="Back to top">
         <i class="bi bi-arrow-up-short"></i>
     </button>
@@ -1480,7 +1516,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.2/js/bootstrap.bundle.min.js">
     </script>
 
-    <!-- ===== DARK MODE JAVASCRIPT (Step 1) ===== -->
+    <!-- ===== DARK MODE JAVASCRIPT ===== -->
     <script>
         (function () {
             'use strict';
@@ -1496,7 +1532,6 @@
                 }
             }
 
-            // Apply saved preference (falls back to light mode)
             const saved = localStorage.getItem(STORAGE_KEY) || 'light';
             applyTheme(saved);
             document.documentElement.classList.remove('theme-pending-dark');
@@ -1510,7 +1545,7 @@
         })();
     </script>
 
-    <!-- ===== BACK TO TOP JAVASCRIPT (Step 10 & 11) ===== -->
+    <!-- ===== BACK TO TOP JAVASCRIPT ===== -->
     <script>
         (function() {
             'use strict';
@@ -1555,7 +1590,7 @@
         })();
     </script>
 
-    <!-- ===== SCROLL-REVEAL ANIMATIONS (Step 2) ===== -->
+    <!-- ===== SCROLL-REVEAL ANIMATIONS ===== -->
     <script>
         (function () {
             'use strict';
