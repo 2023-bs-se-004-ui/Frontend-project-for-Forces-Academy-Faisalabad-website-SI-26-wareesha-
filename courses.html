@@ -34,6 +34,24 @@
             scroll-behavior: smooth;
         }
 
+        /* ---------- RESET & BASE ---------- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            overflow-x: hidden;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #f8f9fc;
+            color: #0a1628;
+            overflow-x: hidden;
+        }
+
         /* Hero background image with dark overlay so the white text stays readable */
         .page-header {
             position: relative;
@@ -44,6 +62,47 @@
             background-position: center;
             border-top: 4px solid #ffd700;
             border-bottom: 4px solid #ffd700;
+            overflow: hidden;
+        }
+
+        /* Increased hero height so all heading/description/badges are fully visible */
+        .courses-header {
+            padding: 160px 0 130px;
+            min-height: 85vh;
+            display: flex;
+            align-items: center;
+        }
+
+        .page-header h1 {
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.35);
+            letter-spacing: -1px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .page-header .lead {
+            font-size: 1.2rem;
+            line-height: 1.85;
+            color: rgba(255, 255, 255, 0.85);
+            max-width: 700px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Gold pill badge above the hero title */
+        .badge-gold {
+            background: linear-gradient(135deg, rgba(255, 215, 0, 0.15), rgba(255, 215, 0, 0.08));
+            border: 1px solid rgba(255, 215, 0, 0.4);
+            color: #ffd700;
+            font-weight: 700;
+            font-size: 0.85rem;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            padding: 8px 20px;
+            border-radius: 30px;
+            position: relative;
+            z-index: 1;
         }
 
         /* ---------- Hero entrance transition ---------- */
@@ -79,6 +138,341 @@
             }
         }
 
+        /* ---------- SECTION TITLES ---------- */
+        .section-title {
+            font-weight: 800;
+            font-size: 2.5rem;
+            color: #0a1a2b;
+            position: relative;
+            display: inline-block;
+            padding-bottom: 15px;
+            letter-spacing: -0.5px;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 70px;
+            height: 4px;
+            background: linear-gradient(90deg, #ffd700, #f5a623);
+            border-radius: 4px;
+        }
+
+        .section-subtitle {
+            color: #6c757d;
+            font-size: 1.1rem;
+            margin-top: 8px;
+        }
+
+        /* ---------- COURSE CARDS GRID (equal height cards) ---------- */
+        .row.g-4 {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: stretch;
+        }
+
+        .row.g-4 > [class*="col-"] {
+            display: flex;
+        }
+
+        .course-card {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+            border-radius: 20px;
+            overflow: hidden;
+            height: 100%;
+            border: none;
+            background: #ffffff;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+            position: relative;
+            opacity: 0;
+        }
+
+        .row.g-4 > div:nth-child(1) .course-card { animation-delay: 0.05s; }
+        .row.g-4 > div:nth-child(2) .course-card { animation-delay: 0.12s; }
+        .row.g-4 > div:nth-child(3) .course-card { animation-delay: 0.19s; }
+        .row.g-4 > div:nth-child(4) .course-card { animation-delay: 0.26s; }
+        .row.g-4 > div:nth-child(5) .course-card { animation-delay: 0.33s; }
+        .row.g-4 > div:nth-child(6) .course-card { animation-delay: 0.40s; }
+
+        .course-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #ffd700, #ff9f00, #ffd700);
+            background-size: 200% 100%;
+            animation: shimmer 3s ease-in-out infinite;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            z-index: 2;
+        }
+
+        @keyframes shimmer {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+
+        .course-card:hover::before {
+            opacity: 1;
+        }
+
+        .course-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 60px rgba(10, 26, 43, 0.15) !important;
+        }
+
+        /* FIX: image was overflowing the card header box — locked height + object-fit cover */
+        .course-card .card-header-icon {
+            background: linear-gradient(135deg, #0a1a2b, #1a3a5a);
+            height: 150px !important;
+            min-height: 150px !important;
+            max-height: 150px !important;
+            display: block;
+            position: relative;
+            border-bottom: 4px solid #ffd700;
+            overflow: hidden !important;
+            flex-shrink: 0;
+            flex-grow: 0;
+        }
+
+        .course-card .card-header-icon img {
+            display: block !important;
+            width: 100% !important;
+            height: 150px !important;
+            max-width: 100% !important;
+            max-height: 150px !important;
+            object-fit: cover !important;
+            object-position: center !important;
+            transition: transform 0.5s ease;
+        }
+
+        .course-card .card-header-icon::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(10, 26, 43, 0.55), rgba(10, 26, 43, 0.35));
+            z-index: 1;
+            transition: opacity 0.4s ease;
+        }
+
+        .course-card:hover .card-header-icon img {
+            transform: scale(1.08);
+        }
+
+        .course-card .card-body {
+            display: flex;
+            flex-direction: column;
+            flex: 1 1 auto;
+            padding: 1.8rem 1.5rem;
+        }
+
+        .course-card .card-title {
+            font-weight: 800;
+            font-size: 1.35rem;
+            margin-bottom: 0.5rem;
+            color: #0a1a2b;
+            letter-spacing: -0.5px;
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .course-card .card-title .badge-new {
+            font-size: 0.6rem;
+            background: #28a745;
+            color: #fff;
+            padding: 3px 10px;
+            border-radius: 20px;
+            font-weight: 700;
+            letter-spacing: 0.4px;
+            text-transform: uppercase;
+        }
+
+        .course-card .card-text {
+            font-size: 0.95rem;
+            color: #6c757d;
+            line-height: 1.7;
+            margin-bottom: 12px;
+        }
+
+        .course-card .course-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin: 14px 0;
+        }
+
+        .course-card .course-meta .meta-item {
+            background: #f0f2f5;
+            padding: 5px 14px;
+            border-radius: 20px;
+            font-size: 0.78rem;
+            color: #495057;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .course-card:hover .course-meta .meta-item {
+            background: #e9ecef;
+        }
+
+        .course-card .course-meta .meta-item i {
+            color: #ffd700;
+            font-size: 0.9rem;
+        }
+
+        .course-card .for-whom {
+            font-size: 0.9rem;
+            color: #0a1a2b;
+            background: linear-gradient(135deg, #f8f9fa, #f1f3f5);
+            padding: 10px 16px;
+            border-radius: 10px;
+            margin: 12px 0 16px 0;
+            display: inline-block;
+            width: 100%;
+            text-align: center;
+            font-weight: 600;
+            border-left: 3px solid #ffd700;
+        }
+
+        .course-card .for-whom i {
+            color: #ffd700;
+            margin-right: 8px;
+        }
+
+        .course-card .btn-learn-more {
+            margin-top: auto;
+            background: transparent;
+            border: 2px solid #ffd700;
+            color: #0a1a2b;
+            font-weight: 700;
+            padding: 10px 25px;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            width: 100%;
+            position: relative;
+            overflow: hidden;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .course-card .btn-learn-more::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 193, 7, 0.2), transparent);
+            transition: all 0.5s ease;
+        }
+
+        .course-card .btn-learn-more:hover::before {
+            left: 100%;
+        }
+
+        .course-card .btn-learn-more:hover {
+            background: #ffd700;
+            color: #0a1a2b;
+            transform: scale(1.02);
+            box-shadow: 0 8px 25px rgba(255, 193, 7, 0.3);
+        }
+
+        .course-card .btn-learn-more i {
+            transition: all 0.3s ease;
+        }
+
+        .course-card .btn-learn-more:hover i {
+            transform: translateX(6px);
+        }
+
+        /* Card Variants - accent colors flow through the header border & meta chips */
+        .course-card.card-medical .card-header-icon { border-bottom-color: #dc3545; }
+        .course-card.card-medical .course-meta .meta-item i { color: #dc3545; }
+
+        .course-card.card-engineering .card-header-icon { border-bottom-color: #007bff; }
+        .course-card.card-engineering .course-meta .meta-item i { color: #007bff; }
+
+        .course-card.card-science .card-header-icon { border-bottom-color: #28a745; }
+        .course-card.card-science .course-meta .meta-item i { color: #28a745; }
+
+        .course-card.card-arts .card-header-icon { border-bottom-color: #6f42c1; }
+        .course-card.card-arts .course-meta .meta-item i { color: #6f42c1; }
+
+        .course-card.card-entry .card-header-icon { border-bottom-color: #fd7e14; }
+        .course-card.card-entry .course-meta .meta-item i { color: #fd7e14; }
+
+        .course-card.card-css .card-header-icon { border-bottom-color: #20c997; }
+        .course-card.card-css .course-meta .meta-item i { color: #20c997; }
+
+        /* ---------- COUNSELOR SECTION ---------- */
+        .counselor-section {
+            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+            border-radius: 20px;
+            padding: 3rem 2rem;
+            position: relative;
+            overflow: hidden;
+            max-width: 100%;
+        }
+
+        .counselor-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -10%;
+            width: 400px;
+            height: 400px;
+            background: rgba(255, 193, 7, 0.05);
+            border-radius: 50%;
+        }
+
+        .counselor-section h4 {
+            color: #0a1a2b;
+            font-weight: 800;
+            position: relative;
+            z-index: 1;
+        }
+
+        .counselor-section p {
+            position: relative;
+            z-index: 1;
+        }
+
+        .btn-counselor {
+            background: linear-gradient(145deg, #ffd700, #f5a623);
+            border: none;
+            color: #0a1a2b;
+            font-weight: 700;
+            padding: 12px 40px;
+            transition: all 0.3s ease;
+            border-radius: 50px;
+            display: inline-block;
+            text-decoration: none;
+            box-shadow: 0 4px 18px rgba(255, 215, 0, 0.35);
+            position: relative;
+            z-index: 1;
+        }
+
+        .btn-counselor:hover {
+            background: linear-gradient(145deg, #ffe44d, #f5a623);
+            color: #0a1a2b;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 30px rgba(255, 193, 7, 0.45);
+        }
+
         /* Campus gallery images */
         .gallery-photo {
             width: 100%;
@@ -99,6 +493,10 @@
             border-radius: 16px;
             box-shadow: 0 12px 30px rgba(0, 0, 0, 0.18);
         }
+
+        /* ---------- UTILITY ---------- */
+        .text-gold { color: #ffd700; }
+        .rounded-4 { border-radius: 20px; }
 
         /* ===== NAVBAR STYLES (MATCHING INDEX.HTML / ABOUT.HTML) ===== */
         #mainNav {
@@ -213,10 +611,6 @@
         }
 
         /* ===== STAGGERED "COURSE CARDS APPEAR ONE BY ONE" REVEAL ===== */
-        .course-card {
-            opacity: 0;
-            transform: translateY(35px);
-        }
         .course-card.reveal-in {
             animation: fadeSlideUp 0.7s ease forwards;
         }
@@ -225,6 +619,53 @@
                 opacity: 1;
                 transform: translateY(0);
             }
+        }
+
+        /* Respect reduced-motion preference */
+        @media (prefers-reduced-motion: reduce) {
+            .course-card,
+            .course-card::before {
+                animation: none !important;
+                opacity: 1 !important;
+            }
+        }
+
+        /* ---------- RESPONSIVE ---------- */
+        @media (max-width: 991px) {
+            .section-title { font-size: 2.2rem; }
+        }
+
+        @media (max-width: 768px) {
+            .courses-header { min-height: 60vh; padding: 100px 0 60px; text-align: center; }
+            .page-header h1 { font-size: 2.2rem; }
+            .page-header .lead { font-size: 1rem; }
+            .section-title { font-size: 2rem; }
+            .course-card .card-title { font-size: 1.1rem; }
+            .course-card .card-header-icon,
+            .course-card .card-header-icon img {
+                height: 130px !important;
+                min-height: 130px !important;
+                max-height: 130px !important;
+            }
+            .course-card .card-body { padding: 1.2rem; }
+            .course-card .course-meta .meta-item { font-size: 0.7rem; padding: 3px 10px; }
+            .counselor-section { padding: 1.5rem; }
+        }
+
+        @media (max-width: 576px) {
+            .courses-header { min-height: 50vh; padding: 80px 0 50px; }
+            .page-header h1 { font-size: 1.8rem; }
+            .section-title { font-size: 1.6rem; }
+            .course-card .card-header-icon,
+            .course-card .card-header-icon img {
+                height: 110px !important;
+                min-height: 110px !important;
+                max-height: 110px !important;
+            }
+            .course-card .card-body { padding: 1rem; }
+            .course-card .card-title { font-size: 1rem; }
+            .course-card .card-text { font-size: 0.85rem; }
+            .counselor-section .btn-counselor { padding: 10px 25px; font-size: 0.9rem; width: 100%; }
         }
 
         /* ===== DARK MODE THEME ===== */
@@ -289,7 +730,7 @@
                     <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
                 </ul>
                 <!-- STEP 1: Student Portal button linked to Full Stack LMS hosted URL -->
-                <a href="https://farhadlms.great-site.net/dashboard.php/" target="_blank" class="btn btn-warning btn-portal rounded-pill px-4 fw-bold">
+                <a href="https://tehseenproject.ct.ws/profile.php" target="_blank" class="btn btn-warning btn-portal rounded-pill px-4 fw-bold">
                     <i class="bi bi-box-arrow-in-right"></i> Portal
                 </a>
                 <button id="darkModeToggle" type="button" title="Toggle dark mode" aria-label="Toggle dark mode">

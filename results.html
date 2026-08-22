@@ -122,12 +122,12 @@
     }
 
     /* ============================================================
-       HERO SECTION - Full width, joined with header
+       HERO SECTION - Bara aur eye-catching
        ============================================================ */
     .hero-full {
       width: 100%;
       margin: 0;
-      padding: 0;
+      padding: 5rem 2rem;  /* Bohat zyada padding for big hero */
       background: linear-gradient(135deg, rgba(15, 40, 71, 0.88), rgba(26, 63, 110, 0.92)), 
                   url('https://images.unsplash.com/photo-1518133835878-5a93cc3f89e5?fm=jpg&q=70&w=1600&auto=format&fit=crop');
       background-size: cover;
@@ -136,7 +136,10 @@
       border-bottom: 4px solid #ffd700;
       position: relative;
       overflow: hidden;
-      padding: 4rem 2rem;
+      min-height: 420px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
     .hero-full::before {
       content: "";
@@ -170,9 +173,9 @@
     }
     .hero-full .particle {
       position: absolute;
-      width: 4px;
-      height: 4px;
-      background: rgba(255, 215, 0, 0.15);
+      width: 6px;
+      height: 6px;
+      background: rgba(255, 215, 0, 0.2);
       border-radius: 50%;
       pointer-events: none;
       z-index: 0;
@@ -181,10 +184,10 @@
     .hero-full .particle:nth-child(2) { top: 70%; left: 85%; animation: floatParticle 15s ease-in-out infinite reverse; }
     .hero-full .particle:nth-child(3) { top: 30%; left: 75%; animation: floatParticle 10s ease-in-out infinite 2s; }
     .hero-full .particle:nth-child(4) { top: 80%; left: 15%; animation: floatParticle 14s ease-in-out infinite 1s; }
-    .hero-full .particle:nth-child(5) { top: 50%; left: 50%; animation: floatParticle 20s ease-in-out infinite 3s; width: 8px; height: 8px; opacity: 0.08; }
+    .hero-full .particle:nth-child(5) { top: 50%; left: 50%; animation: floatParticle 20s ease-in-out infinite 3s; width: 12px; height: 12px; opacity: 0.1; }
     @keyframes floatParticle {
       0%, 100% { transform: translate(0, 0) scale(1); opacity: 0.3; }
-      50% { transform: translate(30px, -20px) scale(1.5); opacity: 0.8; }
+      50% { transform: translate(40px, -25px) scale(1.8); opacity: 0.8; }
     }
     .hero-full .hero-content {
       position: relative;
@@ -196,7 +199,7 @@
 
     /* ---------- HERO ENTRANCE TRANSITIONS ---------- */
     @keyframes heroFadeUp {
-      from { opacity: 0; transform: translateY(22px); }
+      from { opacity: 0; transform: translateY(30px); }
       to { opacity: 1; transform: translateY(0); }
     }
     .hero-full .eyebrow,
@@ -205,98 +208,98 @@
     .hero-full .term-tag,
     .hero-full .hero-stats {
       opacity: 0;
-      animation: heroFadeUp 0.75s ease forwards;
+      animation: heroFadeUp 0.8s ease forwards;
     }
     .hero-full .eyebrow { animation-delay: 0.05s; }
-    .hero-full h1 { animation-delay: 0.18s; }
-    .hero-full p { animation-delay: 0.32s; }
-    .hero-full .term-tag { animation-delay: 0.46s; }
-    .hero-full .hero-stats { animation-delay: 0.6s; }
+    .hero-full h1 { animation-delay: 0.2s; }
+    .hero-full p { animation-delay: 0.35s; }
+    .hero-full .term-tag { animation-delay: 0.5s; }
+    .hero-full .hero-stats { animation-delay: 0.65s; }
     .hero-full .hero-stat {
       transition: transform 0.3s ease, background 0.3s ease, border-color 0.3s ease;
     }
 
     .hero-full .eyebrow {
       font-family: 'IBM Plex Mono', monospace;
-      letter-spacing: .14em;
+      letter-spacing: .16em;
       text-transform: uppercase;
-      font-size: .75rem;
+      font-size: .85rem;
       color: var(--gold-soft);
       margin-bottom: 0.5rem;
     }
     .hero-full h1 {
       font-family: 'Fraunces', serif;
-      font-weight: 600;
-      font-size: 3rem;
-      margin-bottom: .5rem;
-      letter-spacing: -0.01em;
-      text-shadow: 0 2px 15px rgba(0,0,0,0.35);
+      font-weight: 700;
+      font-size: 3.5rem;
+      margin-bottom: 0.6rem;
+      letter-spacing: -0.02em;
+      text-shadow: 0 3px 25px rgba(0,0,0,0.4);
     }
     .hero-full h1 .gold-text {
       color: #ffd700;
-      text-shadow: 0 0 40px rgba(255,215,0,0.2);
+      text-shadow: 0 0 50px rgba(255,215,0,0.25);
     }
     .hero-full p {
-      color: rgba(255, 255, 255, 0.9);
-      max-width: 52ch;
-      margin: 0 auto 0.5rem;
-      font-size: 1.1rem;
-      text-shadow: 0 1px 10px rgba(0,0,0,0.2);
+      color: rgba(255, 255, 255, 0.92);
+      max-width: 56ch;
+      margin: 0 auto 0.6rem;
+      font-size: 1.2rem;
+      text-shadow: 0 2px 15px rgba(0,0,0,0.25);
     }
     .hero-full .term-tag {
       font-family: 'IBM Plex Mono', monospace;
-      font-size: .78rem;
-      border: 1px solid rgba(232,220,192,0.35);
+      font-size: .8rem;
+      border: 1px solid rgba(232,220,192,0.4);
       color: var(--gold-soft);
-      padding: .35rem .75rem;
+      padding: .35rem .9rem;
       border-radius: 2px;
       display: inline-block;
-      background: rgba(0,0,0,0.25);
+      background: rgba(0,0,0,0.3);
       backdrop-filter: blur(4px);
-      margin-bottom: 1rem;
+      margin-bottom: 1.2rem;
     }
     .hero-stats {
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
-      gap: 1.75rem;
-      padding-top: 1.25rem;
-      border-top: 1px solid rgba(232,220,192,0.18);
-      max-width: 640px;
+      gap: 2rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid rgba(232,220,192,0.2);
+      max-width: 580px;
       margin: 0 auto;
     }
     .hero-stat {
       display: flex;
       flex-direction: column;
       align-items: center;
-      min-width: 90px;
-      background: rgba(0,0,0,0.2);
-      backdrop-filter: blur(8px);
-      padding: 0.6rem 1.4rem;
+      min-width: 100px;
+      background: rgba(0,0,0,0.25);
+      backdrop-filter: blur(10px);
+      padding: 0.8rem 1.8rem;
       border-radius: 14px;
-      border: 1px solid rgba(255,215,0,0.08);
+      border: 1px solid rgba(255,215,0,0.1);
       transition: all 0.3s ease;
     }
     .hero-stat:hover {
-      background: rgba(0,0,0,0.3);
-      border-color: rgba(255,215,0,0.2);
-      transform: translateY(-2px);
+      background: rgba(0,0,0,0.35);
+      border-color: rgba(255,215,0,0.25);
+      transform: translateY(-3px);
     }
     .hero-stat-val {
       font-family: 'Fraunces', serif;
-      font-weight: 600;
-      font-size: 1.7rem;
+      font-weight: 700;
+      font-size: 2rem;
       color: #ffd700;
       line-height: 1.1;
-      text-shadow: 0 2px 10px rgba(255,215,0,0.2);
+      text-shadow: 0 2px 15px rgba(255,215,0,0.25);
     }
     .hero-stat-label {
       font-family: 'IBM Plex Mono', monospace;
-      font-size: .66rem;
-      letter-spacing: .06em;
+      font-size: .65rem;
+      letter-spacing: .08em;
       text-transform: uppercase;
       color: #b0b8d0;
-      margin-top: .25rem;
+      margin-top: .15rem;
     }
 
     /* ---------- RESULT SEARCH SECTION ---------- */
@@ -864,9 +867,6 @@
       background: #161c2c;
       border-color: #2a3350;
     }
-    /* Headings below use inline style="color:var(--navy)" in the markup.
-       Inline styles beat stylesheet rules unless !important is used, so
-       these overrides need !important to actually take effect. */
     body.dark-mode .search-card h5,
     body.dark-mode .stat-box .number,
     body.dark-mode .student-name,
@@ -951,8 +951,8 @@
       footer { padding: 3rem 0 1.5rem; }
       footer .footer-brand { font-size: 1.7rem; }
       .social-link { width: 44px; height: 44px; font-size: 1.2rem; }
-      .hero-full h1 { font-size: 2.4rem; }
-      .hero-full { padding: 3rem 1.5rem; }
+      .hero-full { padding: 3.5rem 1.5rem; min-height: 320px; }
+      .hero-full h1 { font-size: 2.6rem; }
       .stat-box { border-right: none; border-bottom: 1px solid var(--line); padding: 1rem 0; }
       .stat-box:last-child { border-bottom: none; }
     }
@@ -964,10 +964,11 @@
       footer .contact-info { justify-content: center; padding: 6px 0; color: #ffffff !important; }
       footer .contact-info:hover { transform: none; }
       footer .footer-brand { font-size: 1.5rem; }
+      .hero-full { padding: 2.5rem 1.2rem; min-height: 260px; }
       .hero-full h1 { font-size: 2rem; }
-      .hero-full { padding: 2.5rem 1.2rem; }
-      .hero-stat { min-width: 70px; padding: 0.4rem 1rem; }
-      .hero-stat-val { font-size: 1.3rem; }
+      .hero-full p { font-size: 1rem; }
+      .hero-stat { min-width: 70px; padding: 0.5rem 1rem; }
+      .hero-stat-val { font-size: 1.4rem; }
       .stat-box .number { font-size: 2rem; }
       #backToTopBtn { bottom: 20px; right: 20px; width: 44px; height: 44px; }
     }
@@ -980,12 +981,13 @@
       footer .contact-info { font-size: 0.85rem; gap: 10px; }
       footer .contact-info i { font-size: 1rem; min-width: 22px; }
       footer .copyright { font-size: 0.75rem; }
+      .hero-full { padding: 2rem 1rem; min-height: 220px; }
       .hero-full h1 { font-size: 1.6rem; }
-      .hero-full { padding: 2rem 1rem; }
-      .hero-stats { gap: 0.8rem; }
-      .hero-stat { min-width: 60px; padding: 0.3rem 0.7rem; }
+      .hero-full p { font-size: 0.85rem; }
+      .hero-stats { gap: 0.6rem; }
+      .hero-stat { min-width: 55px; padding: 0.3rem 0.6rem; }
       .hero-stat-val { font-size: 1.1rem; }
-      .hero-stat-label { font-size: 0.55rem; }
+      .hero-stat-label { font-size: 0.5rem; }
       .stat-box .number { font-size: 1.6rem; }
       .search-card { padding: 1rem; }
       .download-section { padding: 1.5rem; }
@@ -1026,7 +1028,6 @@
           <li class="nav-item"><a class="nav-link" href="gallery.html">Gallery</a></li>
           <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
         </ul>
-        <!-- STEP 1: Student Portal button linked to Full Stack LMS hosted URL -->
         <a href="https://farhadlms.great-site.net/dashboard.php/" target="_blank" class="btn btn-warning rounded-pill px-4 fw-bold ms-2"><i class="bi bi-box-arrow-in-right me-1"></i> Portal</a>
         <button id="darkModeToggle" class="dark-toggle-btn" type="button" aria-label="Toggle dark mode" title="Toggle dark mode">
           <i class="bi bi-moon-stars-fill"></i>
@@ -1036,7 +1037,7 @@
   </nav>
 </header>
 
-<!-- ================= HERO SECTION - Full Width ================= -->
+<!-- ================= HERO SECTION - Bara aur impressive ================= -->
 <div class="hero-full">
   <div class="particle"></div>
   <div class="particle"></div>
@@ -1568,12 +1569,11 @@
       }
     }
 
-    // Load saved preference (persists across pages on the same site)
     let savedTheme = 'light';
     try {
       savedTheme = localStorage.getItem(STORAGE_KEY) || 'light';
     } catch (e) {
-      // localStorage unavailable (e.g. some sandboxed preview environments)
+      // localStorage unavailable
     }
     applyTheme(savedTheme);
 
@@ -1584,7 +1584,7 @@
       try {
         localStorage.setItem(STORAGE_KEY, newTheme);
       } catch (e) {
-        // ignore if storage isn't available
+        // ignore
       }
     });
   })();
